@@ -19,19 +19,15 @@ class Deal:
             firstIsHigher = False
 
         if firstIsHigher == True and guess == 'l': #returns true or false based on user input
-            print("Condition 1")
             result = True
 
         elif firstIsHigher == True and guess == 'h':
-            print("Condition 2")
             result = False
 
         elif firstIsHigher == False and guess == 'h':
-            print("Condition 3")
             result = True
 
         elif firstIsHigher == False and guess == 'l':
-            print("Condition 4")
             result = False
 
         return result
