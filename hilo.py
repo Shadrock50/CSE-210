@@ -54,8 +54,7 @@ class Hilo:
             while validResponse == False:
                 guess = input("Higher or lower? [h/l] ") #get user input here, should put check to make sure they type h or l
                 if (guess == 'h' or guess == 'l' or guess == 'H' or guess == 'L'):
-                    validResponse == True
-                    break
+                    validResponse = True
                 else:
                     print("\nPlease enter 'h' or 'l'.")
 
