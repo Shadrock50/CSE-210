@@ -48,7 +48,16 @@ class Hilo:
         while playing:
             print("\nThe card is: ", deal.cards[deal.i - 1]) #deal.i - 1 points to the current card. When comparing, current card becomes deal.i - 2 and new card is deal.i - 1
             
-            guess = input("Higher or lower? [h/l] ") #get user input here, should put check to make sure they type h or l
+            validResponse = False
+
+            # Validates if the user enter an h or an l
+            while validResponse == False:
+                guess = input("Higher or lower? [h/l] ") #get user input here, should put check to make sure they type h or l
+                if (guess == 'h' or guess == 'l' or guess == 'H' or guess == 'L'):
+                    validResponse == True
+                    break
+                else:
+                    print("\nPlease enter 'h' or 'l'.")
 
             deal.new_card()
 
