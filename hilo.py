@@ -53,15 +53,15 @@ class Hilo:
             # Validates if the user enter an h or an l
             while validResponse == False:
                 guess = input("Higher or lower? [h/l] ") #get user input here, should put check to make sure they type h or l
-                if (guess == 'h' or guess == 'l' or guess == 'H' or guess == 'L'):
+                if (guess.lower() == 'h' or guess.lower() == 'l'):
                     validResponse = True
                 else:
-                    print("\nPlease enter 'h' or 'l'.")
+                    print("\nPlease enter 'h' or 'l'")
 
             deal.new_card()
 
             # Here the new card is compared to the guess
-            result = deal.compare(guess)
+            result = deal.compare(guess.lower())
 
             if result == True:   #Announces the winner and gives points
                 print("\nYou won! +100 points\n") 
