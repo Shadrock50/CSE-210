@@ -41,6 +41,7 @@ class Hilo:
         deal = Deal()
         deal.new_card()
         playing = True
+        guess = ''
         while playing:
             print("\nThe card is: ", deal.cards[deal.i - 1]) #deal.i - 1 points to the current card. When comparing, current card becomes deal.i - 2 and new card is deal.i - 1
             
