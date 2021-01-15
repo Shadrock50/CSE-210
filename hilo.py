@@ -18,17 +18,29 @@ class Deal:
         else:
             firstIsHigher = False
 
-        if firstIsHigher == True and guess == 'l': #returns true or false based on user input
-            result = True
+        if firstIsHigher == True: #returns true or false based on user input
+            if guess == 'l':
+                result = True
+            elif guess == 'h':
+                result = False
 
-        elif firstIsHigher == True and guess == 'h':
-            result = False
+        if firstIsHigher == False:
+            if guess == 'l':
+                result = False
+            elif guess == 'h':
+                result = True
 
-        elif firstIsHigher == False and guess == 'h':
-            result = True
+        # if firstIsHigher == True and guess == 'l': 
+        #     result = True
 
-        elif firstIsHigher == False and guess == 'l':
-            result = False
+        # elif firstIsHigher == True and guess == 'h':
+        #     result = False
+
+        # elif firstIsHigher == False and guess == 'h':
+        #     result = True
+
+        # elif firstIsHigher == False and guess == 'l':
+        #     result = False
 
         return result
 
