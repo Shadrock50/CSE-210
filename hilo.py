@@ -30,18 +30,6 @@ class Deal:
             elif guess == 'h':
                 result = True
 
-        # if firstIsHigher == True and guess == 'l': 
-        #     result = True
-
-        # elif firstIsHigher == True and guess == 'h':
-        #     result = False
-
-        # elif firstIsHigher == False and guess == 'h':
-        #     result = True
-
-        # elif firstIsHigher == False and guess == 'l':
-        #     result = False
-
         return result
 
 
