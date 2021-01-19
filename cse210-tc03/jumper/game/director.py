@@ -34,7 +34,8 @@ class Director:
             self.do_outputs()
 
     def get_inputs(self):
-        """Gets the inputs at the beginning of each round of play. 
+        """Gets the inputs from user at the beginning of each round
+            of play. 
 
         Args:
             self (Director): An instance of Director.
