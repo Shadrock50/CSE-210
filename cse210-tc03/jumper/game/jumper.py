@@ -27,4 +27,19 @@ class Jumper:
         return message 
 
     def updateArray(self, positionsOfCorrect, guess):
-        pass
+
+        if not positionsOfCorrect:
+            self.fails = self.fails + 1
+        else:
+            for element in positionsOfCorrect:
+                self.displayArray[element] = guess
+
+        return
+
+    def checkVictory(self):
+        checkVictory = False
+        return checkVictory
+
+    def checkDefeat(self):
+        checkDefeat = False
+        return checkDefeat

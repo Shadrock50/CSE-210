@@ -61,7 +61,8 @@ class Director:
         """
         self.positionsOfCorrect = self.word.checkLetter(self.guess)
         self.jumper.updateArray(self.positionsOfCorrect, self.guess)
-
+        self.checkVictory = self.jumper.checkVictory()
+        self.checkDefeat = self.jumper.checkDefeat()
         # print(self.word.correctWord)
         # print(self.positionsOfCorrect) #Was testing if the word was generated and testing the positions array
         # print(self.jumper.displayArray)
@@ -75,6 +76,20 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        checkVictory = self.jumper.picture()
-        self.console.write(checkVictory)
-        self.keep_playing = (self.jumper.updateArray[-1] != 0)
+        if self.checkVictory == True:
+            message = "Congratulations, you won! The word was: "
+            message = message + self.jumper.displayArray.join(self.jumper.displayArray)
+            self.console.write(message)
+
+            self.keep_playing = False
+            
+        elif self.checkDefeat == True:
+            message = self.jumper.picture
+            message = message + "\nSorry! Try again! Your word was: "
+            message = message + "\n" + self.word.correctWord
+            self.console.write(message)
+
+            self.keep_playing = False
+        # checkVictory = self.jumper.picture()
+        # self.console.write(checkVictory)
+        # self.keep_playing = (self.jumper.updateArray[-1] != 0)
