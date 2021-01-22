@@ -20,7 +20,9 @@ class Director:
             self (Director): an instance of Director.
         """
         self.console = Console()
+        self.jumper = Jumper()
         self.keep_playing = True
+        self.word = Word()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -28,6 +30,7 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+        #generate the word here
         while self.keep_playing:
             self.get_inputs()
             self.do_updates()
@@ -40,7 +43,11 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        pass
+        message = self.jumper.picture()
+        self.console.write(message)
+        guess = self.console.read("Guess a letter [a-z]: ")
+        """ variable(array?) here = """ self.word.checkLetter(guess)
+        self.jumper.updateArray(""" variable here """)
         
     def do_updates(self):
         """Updates the important game information for each round of play.

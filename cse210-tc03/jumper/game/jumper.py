@@ -22,3 +22,4 @@ class Jumper:
 
     def genWord(self):
 
+    def updateArray(self):
