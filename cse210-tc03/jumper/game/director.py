@@ -35,7 +35,7 @@ class Director:
 
     def get_inputs(self):
         """Gets the inputs from user at the beginning of each round
-            of play. Send update to the jumper file
+            of play. Send update array to jumper
 
         Args:
             self (Director): An instance of Director.
