@@ -1,4 +1,4 @@
-
+from game.console import Console
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
