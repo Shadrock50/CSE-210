@@ -14,15 +14,15 @@ class Jumper:
 
     def picture(self):
         if self.fails == 4:
-            message = ""# ascii art 
+            message = "\n   x\n  /|\\\n  / \\\n\n^^^^^^^" # dead 
         elif self.fails == 3:
-            message = ""# ascii art
+            message = "\n  \\ / \n   0\n  /|\\\n  / \\\n\n^^^^^^^"# -3 health
         elif self.fails == 2:
-            message = ""# ascii art
+            message = "\n \   / \n  \\ / \n   0\n  /|\\\n  / \\\n\n^^^^^^^" # -2 health
         elif self.fails == 1:
-            message = ""# ascii art
-        else: #fails == 0:
-            message = ""# put variable here
+            message = "\n /___\\\n \   / \n  \\ / \n   0\n  /|\\\n  / \\\n\n^^^^^^^" # -1 health
+        else: #fails == 0: player is at full health
+            message = "  ___\n /___\\\n \   / \n  \\ / \n   0\n  /|\\\n  / \\\n\n^^^^^^^"# put variable here
 
         return message 
 
