@@ -35,5 +35,5 @@ root                    (project root folder)
 ## Authors
 ---
 * TODO: Peter Griffin gri19029@byui.edu
-
+        Jesse Wilson wil18153@byui.deu
         Lincoln Crane cra14018@byui.edu
