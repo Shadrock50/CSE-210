@@ -21,10 +21,15 @@ click the "run" icon.
 The project files and folders are organized as follows:
 ```
 root                    (project root folder)
-+-- hunter              (source code for game)
++-- jumper              (source code for game)
   +-- game              (specific game classes)
+    +-- console.py      (Class for displaying)
+    +-- director.py     (Class for controlling other classes)
+    +-- jumper.py       (Class for the win/lose conditions)
+    +-- word.py         (Class for generating random word)
   +-- __init__.py       (python package file)
   +-- __main__.py       (entry point for program)
+  +-- wordlist.txt      (text document for random word)
 +-- README.md           (general info)
 ```
 
@@ -37,3 +42,4 @@ root                    (project root folder)
 * TODO: Peter Griffin gri19029@byui.edu
         Jesse Wilson wil18153@byui.deu
         Lincoln Crane cra14018@byui.edu
+        Shad Christopherson chr19043@byui.edu
