@@ -48,9 +48,10 @@ class Director:
             self (Director): An instance of Director.
         """
         displayWord = ""
-        message = "\n" + displayWord.join(self.jumper.displayArray)
+        message = ""
+        # message = "\n" + displayWord.join(self.jumper.displayArray)
         for element in self.jumper.displayArray:    # Line added
-            message = message + element = " "     # Line added
+            message = message + element + " "     # Line added
         self.console.write(message) # Original line
         message = self.jumper.picture()
         self.console.write(message)
