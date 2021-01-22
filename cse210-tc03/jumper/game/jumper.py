@@ -18,11 +18,11 @@ class Jumper:
         elif self.fails == 3:
             message = "\n  \\ / \n   0\n  /|\\\n  / \\\n\n^^^^^^^"# -3 health
         elif self.fails == 2:
-            message = "\n \   / \n  \\ / \n   0\n  /|\\\n  / \\\n\n^^^^^^^" # -2 health
+            message = "\n \\   / \n  \\ / \n   0\n  /|\\\n  / \\\n\n^^^^^^^" # -2 health
         elif self.fails == 1:
-            message = "\n /___\\\n \   / \n  \\ / \n   0\n  /|\\\n  / \\\n\n^^^^^^^" # -1 health
+            message = "\n /___\\\n \\   / \n  \\ / \n   0\n  /|\\\n  / \\\n\n^^^^^^^" # -1 health
         else: #fails == 0: player is at full health
-            message = "  ___\n /___\\\n \   / \n  \\ / \n   0\n  /|\\\n  / \\\n\n^^^^^^^"# put variable here
+            message = "  ___\n /___\\\n \\   / \n  \\ / \n   0\n  /|\\\n  / \\\n\n^^^^^^^"# put variable here
 
         return message 
 
