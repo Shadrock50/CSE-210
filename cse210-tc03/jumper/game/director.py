@@ -75,4 +75,6 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        pass
+        checkVictory = self.jumper.picture()
+        self.console.write(checkVictory)
+        self.keep_playing = (self.jumper.updateArray[-1] != 0)
