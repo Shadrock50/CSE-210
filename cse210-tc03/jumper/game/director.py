@@ -35,7 +35,7 @@ class Director:
 
     def get_inputs(self):
         """Gets the inputs from user at the beginning of each round
-            of play. 
+            of play. Send update to the jumper file
 
         Args:
             self (Director): An instance of Director.
@@ -44,6 +44,7 @@ class Director:
         
     def do_updates(self):
         """Updates the important game information for each round of play.
+            check the word (boolean value).
 
         Args:
             self (Director): An instance of Director.
@@ -52,7 +53,7 @@ class Director:
         
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
-        this case, 
+            checkVictory
 
         Args:
             self (Director): An instance of Director.
