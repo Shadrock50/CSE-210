@@ -47,6 +47,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        displayWord = ""
+        message = "\n" + displayWord.join(self.jumper.displayArray)
+        self.console.write(message)
         message = self.jumper.picture()
         self.console.write(message)
         self.guess = self.console.read("Guess a letter [a-z]: ")
@@ -76,20 +79,26 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if self.checkVictory == True:
+        if self.checkVictory == True: #Checks to see if you've won. Still needs lots of testing
             message = "Congratulations, you won! The word was: "
-            message = message + self.jumper.displayArray.join(self.jumper.displayArray)
+            self.console.write(message)
+            message = "\n" + self.word.correctWord
             self.console.write(message)
 
-            self.keep_playing = False
+            self.keep_playing = False #If you've won, game ends. 
+
+        elif self.checkDefeat == True: #checks to see if you've lost, still needs lots of testing. 
+            message = self.jumper.picture()
+            self.console.write(message)
+
+            message ="\nSorry! Try again! Your word was: "
+            self.console.write(message)
+
+            message ="\n" + self.word.correctWord
+            self.console.write(message)
+
+            self.keep_playing = False #if you've lost, game ends
             
-        elif self.checkDefeat == True:
-            message = self.jumper.picture
-            message = message + "\nSorry! Try again! Your word was: "
-            message = message + "\n" + self.word.correctWord
-            self.console.write(message)
-
-            self.keep_playing = False
         # checkVictory = self.jumper.picture()
         # self.console.write(checkVictory)
         # self.keep_playing = (self.jumper.updateArray[-1] != 0)
