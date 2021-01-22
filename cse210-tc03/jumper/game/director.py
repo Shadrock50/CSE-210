@@ -21,10 +21,12 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+
         self.console = Console()
-        self.jumper = Jumper()
+        self.word = Word() #generate the word here. correctWord is generated on Word init
+        self.jumper = Jumper(self.word.correctWord) #needs the correct word to generate length of underscore array
         self.keep_playing = True
-        self.word = Word()
+
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -32,7 +34,7 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        #generate the word here
+
         while self.keep_playing:
             self.get_inputs()
             self.do_updates()
@@ -47,9 +49,8 @@ class Director:
         """
         message = self.jumper.picture()
         self.console.write(message)
-        guess = self.console.read("Guess a letter [a-z]: ")
-        """ variable(array?) here = """ self.word.checkLetter(guess)
-        self.jumper.updateArray(""" variable here """)
+        self.guess = self.console.read("Guess a letter [a-z]: ")
+
         
     def do_updates(self):
         """Updates the important game information for each round of play.
@@ -58,11 +59,18 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        pass
+        self.positionsOfCorrect = self.word.checkLetter(self.guess)
+        self.jumper.updateArray(self.positionsOfCorrect, self.guess)
+
+        # print(self.word.correctWord)
+        # print(self.positionsOfCorrect) #Was testing if the word was generated and testing the positions array
+        # print(self.jumper.displayArray)
+
         
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
             checkVictory
+            checkDefeat
 
         Args:
             self (Director): An instance of Director.
