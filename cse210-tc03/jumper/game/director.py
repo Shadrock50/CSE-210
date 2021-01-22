@@ -49,7 +49,9 @@ class Director:
         """
         displayWord = ""
         message = "\n" + displayWord.join(self.jumper.displayArray)
-        self.console.write(message)
+        for element in self.jumper.displayArray:    # Line added
+            message = element + " "     # Line added
+            self.console.write(message) # Original line
         message = self.jumper.picture()
         self.console.write(message)
         self.guess = self.console.read("Guess a letter [a-z]: ")
