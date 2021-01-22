@@ -4,6 +4,7 @@ class Jumper:
     """  """
     def __init__(self):
         self.answer = [] 
+        fails = 0
 
 
     def picture(self, failes):
