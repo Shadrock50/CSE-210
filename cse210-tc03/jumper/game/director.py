@@ -47,7 +47,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        displayWord = ""
+        # displayWord = ""
         message = ""
         # message = "\n" + displayWord.join(self.jumper.displayArray)
         for element in self.jumper.displayArray:    # Line added
