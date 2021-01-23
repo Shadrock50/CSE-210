@@ -55,7 +55,13 @@ class Director:
         self.console.write(message) # Original line
         message = self.jumper.picture()
         self.console.write(message)
-        self.guess = self.console.read("Guess a letter [a-z]: ")
+        oneLetterResponse = False
+        while not oneLetterResponse:
+            self.guess = self.console.read("Guess a letter [a-z]: ")
+            if len(self.guess) > 1:
+                print("\nPlease enter only one letter.\n")
+            else:
+                oneLetterResponse = True
 
         
     def do_updates(self):
