@@ -58,8 +58,8 @@ class Director:
         oneLetterResponse = False
         while not oneLetterResponse:
             self.guess = self.console.read("Guess a letter [a-z]: ")
-            if len(self.guess) > 1:
-                print("\nPlease enter only one letter.\n")
+            if len(self.guess) > 1 or len(self.guess) < 1:
+                print("\nPlease enter one letter. No more, no less.\n")
             else:
                 oneLetterResponse = True
 
