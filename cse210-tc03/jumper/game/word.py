@@ -1,8 +1,24 @@
 import random
 
 class Word():
+    """A code template for getting a word for the user to guess. The responsibility of this
+    class object is to retrieve a word from a large list and check to see if the letter that
+    is guessed by the user is in the word or not.
+
+    Stereotype:
+        Information Holder
+
+    Attributes:
+        wordList (list): The list of words from the txt given text file.
+        correctWordList (string): Selects a new random word from the wordList file for each game.
+        correctWord (string): The word that will be used throughout the game session.
+    """
     def __init__(self): #constructs the correctWord Variable from given text list.
-        """ good luck shad """
+        """Class constructor. Declares and initializes instance attributes.
+
+        Args:
+            self (word): An instance of Word.
+        """
         f = open("wordlist.txt", "r")
         wordList = []
         self.correctWordList = ""
@@ -18,6 +34,14 @@ class Word():
         self.correctWord = self.correctWord.join(self.correctWordList)
 
     def checkLetter(self, guess):
+        """Checks to see if the letter entered by the user is in the word and places it in the correct placement.
+
+        Args:
+            self (Word): An instance of Word.
+
+        Returns:
+            list: Updates the positions of the correct letters guessed.
+        """
         positionsOfCorrect = []
         i = 0 #i is the current position being scanned. 
 

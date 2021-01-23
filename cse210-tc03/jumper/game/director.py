@@ -47,9 +47,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        # displayWord = ""
         message = ""
-        # message = "\n" + displayWord.join(self.jumper.displayArray)
         for element in self.jumper.displayArray:    # Line added
             message = message + element + " "     # Line added
         self.console.write(message) # Original line
@@ -75,10 +73,6 @@ class Director:
         self.jumper.updateArray(self.positionsOfCorrect, self.guess)
         self.checkVictory = self.jumper.checkVictory()
         self.checkDefeat = self.jumper.checkDefeat()
-        # print(self.word.correctWord)
-        # print(self.positionsOfCorrect) #Was testing if the word was generated and testing the positions array
-        # print(self.jumper.displayArray)
-
         
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -108,6 +102,3 @@ class Director:
 
             self.keep_playing = False #if you've lost, game ends
             
-        # checkVictory = self.jumper.picture()
-        # self.console.write(checkVictory)
-        # self.keep_playing = (self.jumper.updateArray[-1] != 0)

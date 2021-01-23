@@ -43,3 +43,4 @@ root                    (project root folder)
         Jesse Wilson wil18153@byui.deu
         Lincoln Crane cra14018@byui.edu
         Shad Christopherson chr19043@byui.edu
+        Justin Owens owe20005@byui.edu
