@@ -31,7 +31,7 @@ class Director:
         self._keep_playing = True
         self._move = None
         self._result = Result()
-        # Do we need to create an instance of hint?
+        self._hint = Hint()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
