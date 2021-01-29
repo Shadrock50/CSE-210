@@ -18,13 +18,13 @@ class Check:
     def checkVictory(self): #add the array to be passed in
         # write stuff here 
 
-        if player1Victory or player2Victory:
+        if self.player1Victory or self.player2Victory:
             self.displayWinner()
         else:
             self.display() #array to be passed
 
     def displayWinner(self):
-        if player1Victory:
+        if self.player1Victory:
             winner = player1
         else:
             winner = player2
