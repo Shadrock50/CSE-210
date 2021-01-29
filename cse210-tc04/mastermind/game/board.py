@@ -34,13 +34,26 @@ class Board:
     Returns:
         string: A hint in the form [xxxx]
     """ 
-        for index, letter in enumerate(guess):
-            if code[index] == letter: 
-                hint += "x"
-            elif letter in code:
-                hint += "o"
+        #update guess (will need to fix this)
+        for i in guess:
+            self._guess[i] = i
+
+        for i in guess:
+            if self._guess[i] == self._code[i]:
+                self._hint[i] = "x"
+            elif self._guess[i] in self._code:
+                self.hint[i] = "o"
             else:
-                hint += "*"
+                self.hint[i] = "*"
+
+        # Lincoln's bit
+        # for index, letter in enumerate(guess):
+        #     if code[index] == letter: 
+        #         hint += "x"
+        #     elif letter in code:
+        #         hint += "o"
+        #     else:
+        #         hint += "*"
     
     def _prepare(self):
         """Sets up the board with 4 random numbers.

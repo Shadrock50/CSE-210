@@ -54,7 +54,7 @@ class Director:
         for n in range(2):
             name = self._console.read(f"Enter a name for player {n + 1}: ")
             player = Player(name)
-            self._roster.add_player(player) # roster class has been added
+            self._roster.add_player(player)
     
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -67,12 +67,16 @@ class Director:
         player = roster.get_players()
         board = self._answer.to_string(player) #passes the players list to to_string
         self._console.write(board)
+
         # get next player's move
-        player = self._roster.get_current() #roster has been imported
+        player = self._roster.get_current()
         self._console.write(f"{player.get_name()}'s turn:")
-        number = self._console.read_number("What is your guess? ") # already changed
-        guess = Move(number) #change to assign to class 
-        player.set_move(move) #change to send off
+        guess = self._console.read("What is your guess? ")
+
+        #insert data validation bit here **guess is a string**
+
+        board._create_hint(guess) # update hint and guess arrays in board
+        # player.set_move(move) don't think we need this
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -81,7 +85,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        player = self._roster.get_current()   #all three of these will have to change
+        player = self._roster.get_current()
         move = player.get_move()
         self._board.apply(move)
  
