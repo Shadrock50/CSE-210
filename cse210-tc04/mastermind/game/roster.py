@@ -27,7 +27,7 @@ class Roster:
         Returns:
             Player: The list players.
         """
-        return self.players
+        return self.players[]
         
     def add_player(self, player):
         """Adds the given player to the roster
