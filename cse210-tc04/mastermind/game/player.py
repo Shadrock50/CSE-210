@@ -7,7 +7,7 @@ class Player:
 
     Attributes:
         _name (string): The player's name.
-        _move (Move): The player's last move.
+        _move (Move): The player's last move.  
     """
     def __init__(self, name):
         """The class constructor.

@@ -3,7 +3,7 @@ from game.answer import Answer
 from game.console import Console
 from game.hint import Hint
 from game.player import Player
-from game.result import Result
+from game.roster import Roster
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
