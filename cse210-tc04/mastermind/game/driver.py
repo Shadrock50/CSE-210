@@ -30,7 +30,7 @@ class Director:
         self._console = Console()
         self._keep_playing = True
         self._move = None
-        self._result = Result()
+        self._roster = Roster()
         self._hint = Hint()
         
     def start_game(self):
@@ -54,7 +54,7 @@ class Director:
         for n in range(2):
             name = self._console.read(f"Enter a name for player {n + 1}: ")
             player = Player(name)
-            self._roster.add_player(player) # do we need the roster class? or is that what the result class is for? -should we delete this line?
+            self._roster.add_player(player) # roster class has been added
     
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -64,7 +64,7 @@ class Director:
             self (Director): An instance of Director.
         """
         # display the game board
-        board = self._board.to_string() #change to the class we use to create the game
+        board = self._answer.to_string() #change to the class we use to create the game
         self._console.write(board)
         # get next player's move
         player = self._roster.get_current() #roster has been imported
