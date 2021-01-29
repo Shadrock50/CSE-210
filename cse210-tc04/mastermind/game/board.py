@@ -24,7 +24,7 @@ class Board:
         return board
 
 
-    def _create_hint(self):
+    def _create_hint(self, guess):
         """Generates a hint based on the given code and guess.
 
     Args:
@@ -36,7 +36,7 @@ class Board:
         string: A hint in the form [xxxx]
     """ 
         for index, letter in enumerate(guess):
-            if code[index] == letter:
+            if code[index] == letter: 
                 hint += "x"
             elif letter in code:
                 hint += "o"
