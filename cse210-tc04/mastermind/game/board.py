@@ -3,8 +3,8 @@ import random
 class Board:
     def __init__(self):
         self._code = []
-        self._guess = [-,-,-,-]
-        self._hint = [*,*,*,*]
+        self._guess = ['-','-','-','-']  
+        self._hint = ['*','*','*','*']
         self._prepare()
 
     def to_string(self, player):
