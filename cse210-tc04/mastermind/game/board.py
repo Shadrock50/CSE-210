@@ -3,11 +3,13 @@ import random
 class Board:
     def __init__(self):
         self._code = []
-        self._guess = ['-','-','-','-']  
-        self._hint = ['*','*','*','*']
+        self._guess1 = ['-','-','-','-']  
+        self._guess2 = ['-','-','-','-']  
+        self._hint1 = ['*','*','*','*']
+        self._hint2 = ['*','*','*','*']
         self._prepare()
 
-    def to_string(self, player):
+    def to_string(self, players):
         """Converts the board data to its string representation.
 
         Args:
@@ -17,13 +19,13 @@ class Board:
             string: A representation of the current board.
         """
         board = "\n--------------------"
-        for i in player:
-            board += (f"\nPlayer {i}: {self._guess}, {self._hint}")
+        board += (f"\nPlayer {players[0]}: {self._guess1}, {self._hint1}")
+        board += (f"\nPlayer {players[1]}: {self._guess2}, {self._hint2}")  
         board += "\n--------------------"
         return board
 
 
-    def _create_hint(self, guess):
+    def _create_hint(self, guess, guessCounter):
         """Generates a hint based on the given code and guess.
 
     Args:
@@ -35,16 +37,29 @@ class Board:
         string: A hint in the form [xxxx]
     """ 
         #update guess (will need to fix this)
-        for i in guess:
-            self._guess[i] = i
 
-        for i in guess:
-            if self._guess[i] == self._code[i]:
-                self._hint[i] = "x"
-            elif self._guess[i] in self._code:
-                self.hint[i] = "o"
-            else:
-                self.hint[i] = "*"
+        if guessCounter % 2 == 1:
+            for i in guess:
+                self._guess1[i] = i
+
+            for i in guess:
+                if self._guess1[i] == self._code[i]:
+                    self._hint1[i] = "x"
+                elif self._guess1[i] in self._code:
+                    self._hint1[i] = "o"
+                else:
+                    self._hint1[i] = "*"
+        else:
+            for i in guess:
+                self._guess2[i] = i
+
+            for i in guess:
+                if self._guess2[i] == self._code[i]:
+                    self._hint2[i] = "x"
+                elif self._guess2[i] in self._code:
+                    self._hint2[i] = "o"
+                else:
+                    self._hint2[i] = "*"
 
         # Lincoln's bit
         # for index, letter in enumerate(guess):

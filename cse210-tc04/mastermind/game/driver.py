@@ -31,7 +31,7 @@ class Director:
         self._keep_playing = True
         self._move = None
         self._roster = Roster()
-        self._hint = Hint()
+        self._board = Board()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -64,7 +64,7 @@ class Director:
             self (Director): An instance of Director.
         """
         # display the game board
-        players = roster.get_players()
+        players = self._roster.get_players()
         board = self._board.to_string(players) #passes the players list to to_string
         self._console.write(board)
 
@@ -75,7 +75,8 @@ class Director:
 
         #insert data validation bit here **guess is a string**
 
-        board._create_hint(guess) # update hint and guess arrays in board
+        guessCounter += 1
+        board._create_hint(guess, guessCounter) # update hint and guess arrays in board
         # player.set_move(move) don't think we need this
 
     def _do_updates(self):
