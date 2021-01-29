@@ -67,7 +67,7 @@ class Director:
         board = self._board.to_string() #change to the class we use to create the game
         self._console.write(board)
         # get next player's move
-        player = self._roster.get_current() #change depending on if we use roster
+        player = self._roster.get_current() #roster has been imported
         self._console.write(f"{player.get_name()}'s turn:")
         number = self._console.read_number("What is your guess? ") # already changed
         guess = Move(number) #change to assign to class 
