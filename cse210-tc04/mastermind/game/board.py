@@ -1,4 +1,3 @@
-from game.roster import Roster
 import random
 
 class Board:
@@ -8,7 +7,7 @@ class Board:
         self._hint = [*,*,*,*]
         self._prepare()
 
-    def to_string(self):
+    def to_string(self, player):
         """Converts the board data to its string representation.
 
         Args:
@@ -18,7 +17,7 @@ class Board:
             string: A representation of the current board.
         """
         board = "\n--------------------"
-        for i in roster._players:
+        for i in player:
             board += (f"\nPlayer {i}: {self._guess}, {self._hint}")
         board += "\n--------------------"
         return board
