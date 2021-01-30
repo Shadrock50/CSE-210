@@ -1,9 +1,10 @@
 # **copied from Nim** -with minor adjustments
-from game.answer import Answer
+
 from game.console import Console
-from game.hint import Hint
 from game.player import Player
 from game.roster import Roster
+from game.board import Board
+from game.check import Check
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -26,12 +27,13 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self._answer = Answer()
         self._console = Console()
         self._keep_playing = True
         self._move = None
         self._roster = Roster()
         self._board = Board()
+        self._check = Check()
+        self.guessCounter = 1
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -75,8 +77,8 @@ class Director:
 
         #insert data validation bit here **guess is a string**
 
-        guessCounter += 1
-        board._create_hint(guess, guessCounter) # update hint and guess arrays in board
+        self.guessCounter += 1 #starts at 1 and goes to 2 before passing once. The % 2 of 2 is 1 so it works
+        board._create_hint(guess, self.guessCounter) # update hint and guess arrays in board
         # player.set_move(move) don't think we need this
 
     def _do_updates(self):
@@ -87,8 +89,7 @@ class Director:
             self (Director): An instance of Director.
         """
         player = self._roster.get_current()
-        move = player.get_move()
-        self._board.apply(move)
+        self._check.checkVictory(self, self._board)
  
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -97,9 +98,22 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if self._board.is_full(): #changed to is_full
-            winner = self._roster.get_current()
-            name = winner.get_name()
-            print(f"\n{name} won!")
-            self._keep_playing = False
+
+        if self._check.player1Victory:
+            displayWinner = self._roster.players[0]
+        elif self._check.player2Victory:
+            displayWinner = self._roster.players[1]
+        else:
+            displayWinner = ""
+
+        if displayWinner == "":
+            pass
+        else:
+            self._check.displayWinner(displayWinner)
+
+        # if self._board.is_full(): #changed to is_full
+        #     winner = self._roster.get_current()
+        #     name = winner.get_name()
+        #     print(f"\n{name} won!")
+        #     self._keep_playing = False
         self._roster.next_player()

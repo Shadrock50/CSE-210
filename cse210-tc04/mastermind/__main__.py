@@ -1,4 +1,4 @@
-from game.director import Director
+from game.driver import Driver
 
-director = Director()
+director = Driver()
 director.start_game()

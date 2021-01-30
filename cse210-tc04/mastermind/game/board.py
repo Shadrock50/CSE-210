@@ -39,8 +39,6 @@ class Board:
         #update guess (will need to fix this)
 
         if guessCounter % 2 == 1:
-            for i in guess:
-                self._guess1[i] = i
 
             for i in guess:
                 if self._guess1[i] == self._code[i]:
@@ -50,8 +48,6 @@ class Board:
                 else:
                     self._hint1[i] = "*"
         else:
-            for i in guess:
-                self._guess2[i] = i
 
             for i in guess:
                 if self._guess2[i] == self._code[i]:
@@ -78,4 +74,4 @@ class Board:
         """
         for i in range(4):
             i = random.randint(1, 9)
-            self._code.append(i)
+            self._code.append(i) #Why not just do a random number from 1000 to 9999? Faster than a loop

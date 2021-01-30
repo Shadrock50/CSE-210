@@ -19,7 +19,7 @@ class Roster:
         self.players = []
 
     def get_players(self):
-                """Gets the current player object.
+        """Gets the current player object.
         
         Args:
             self (Roster): An instance of Roster.

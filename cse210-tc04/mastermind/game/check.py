@@ -15,19 +15,36 @@ class Check:
 
 
 
-    def checkVictory(self): #add the array to be passed in
+    def checkVictory(self, board): #add the array to be passed in
         # write stuff here 
 
-        if self.player1Victory or self.player2Victory:
-            self.displayWinner()
-        else:
-            self.display() #array to be passed
+        for i in board._code:
+            if board.guess1[i] != board._code[i]:
+                self.player1Victory = True
+            else:
+                self.player1Victory = False
 
-    def displayWinner(self):
-        if self.player1Victory:
-            winner = player1
-        else:
-            winner = player2
-        return winner
+        for i in board._code:
+            if board.guess2[i] != board._code[i]:
+                self.player2Victory = True
+            else:
+                self.player2Victory = False
 
-    def display(self): #
+        return
+
+
+        # if self.player1Victory or self.player2Victory:
+        #     self.displayWinner()
+        # else:
+        #     self.display() #array to be passed
+
+    def displayWinner(self, displayWinner):
+        # if self.player1Victory:
+        #     winner = player1
+        # else:
+        #     winner = player2
+        # return winner
+        pass
+
+    def display(self): 
+        pass
