@@ -15,15 +15,6 @@ class Check:
         self.player2VictoryCount = 0
         self._validGuess = False
         
-
-<<<<<<< HEAD
-=======
-# The result array will init a player1Victory, and a player2Victory, both of which will be false. 
-# It will then have three functions: A check to see if anyone won, and will return both variables either way, 
-# a display function if no one won, which will display the results without ending the game, and a function to 
-# display the winners name and end the game
->>>>>>> b488d71ca11511697e66eb9341ad83af6cb53d74
-
     def checkVictory(self, board): #add the array to be passed in
         """Validates a victory 
 
