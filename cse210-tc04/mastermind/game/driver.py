@@ -1,7 +1,4 @@
-# **copied from Nim** -with minor adjustments
-
 from game.console import Console
-from game.player import Player
 from game.roster import Roster
 from game.board import Board
 from game.check import Check
@@ -29,7 +26,6 @@ class Driver:
         """
         self._console = Console()
         self._keep_playing = True
-        self._move = None
         self._roster = Roster()
         self._board = Board()
         self._check = Check()
@@ -54,7 +50,6 @@ class Driver:
             self (Director): An instance of Director.
         """
 
-        print (self._board._code)
         for n in range(2):
             name = self._console.read(f"Enter a name for player {n + 1}: ")
             if n == 0:
@@ -70,7 +65,6 @@ class Driver:
             self (Director): An instance of Director.
         """
         # display the game board
-        # players = self._roster.get_players()
         board = self._board.to_string(self._roster) #passes the players list to to_string
         self._console.write(board)
 
@@ -117,10 +111,4 @@ class Driver:
             displayText = self._check.displayWinner(displayWinner)
             self._console.write(displayText)
             self._keep_playing = False
-
-        # if self._board.is_full(): #changed to is_full
-        #     winner = self._roster.get_current()
-        #     name = winner.get_name()
-        #     print(f"\n{name} won!")
-        #     self._keep_playing = False
         self._roster.next_player()
