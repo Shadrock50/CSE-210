@@ -2,8 +2,8 @@
 
 class Check:
     def __init__(self):
-        self.player1Victory = False
-        self.player2Victory = False
+        self.player1VictoryCount = 0
+        self.player2VictoryCount = 0
         
     
     
@@ -18,17 +18,27 @@ class Check:
     def checkVictory(self, board): #add the array to be passed in
         # write stuff here 
 
-        for i in board._code:
-            if board.guess1[i] != board._code[i]:
-                self.player1Victory = True
+        self.player1VictoryCount = 0
+        self.player2VictoryCount = 0
+        i = 0
+        while i < 4:
+            if board._hint1[i] == 'x':
+                self.player1VictoryCount = self.player1VictoryCount + 1
+
             else:
                 self.player1Victory = False
 
-        for i in board._code:
-            if board.guess2[i] != board._code[i]:
-                self.player2Victory = True
+            i = i + 1
+
+        i = 0
+        while i < 4:
+            if board._hint2[i] == 'x':
+                self.player2VictoryCount = self.player2VictoryCount + 1
+
             else:
                 self.player2Victory = False
+
+            i = i + 1
 
         return
 
@@ -44,7 +54,9 @@ class Check:
         # else:
         #     winner = player2
         # return winner
-        pass
+
+        winnerText = "\n" + str(displayWinner) + " won!"
+        return winnerText
 
     def display(self): 
         pass

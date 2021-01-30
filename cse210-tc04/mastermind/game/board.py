@@ -9,7 +9,7 @@ class Board:
         self._hint2 = ['*','*','*','*']
         self._prepare()
 
-    def to_string(self, players):
+    def to_string(self, roster):
         """Converts the board data to its string representation.
 
         Args:
@@ -19,8 +19,8 @@ class Board:
             string: A representation of the current board.
         """
         board = "\n--------------------"
-        board += (f"\nPlayer {players[0]}: {self._guess1}, {self._hint1}")
-        board += (f"\nPlayer {players[1]}: {self._guess2}, {self._hint2}")  
+        board += (f"\nPlayer {roster.player1}: {self._guess1}, {self._hint1}")
+        board += (f"\nPlayer {roster.player2}: {self._guess2}, {self._hint2}")  
         board += "\n--------------------"
         return board
 
@@ -38,24 +38,61 @@ class Board:
     """ 
         #update guess (will need to fix this)
 
-        if guessCounter % 2 == 1:
-
+        if guessCounter % 2 == 0:
+            iterator = 0
             for i in guess:
-                if self._guess1[i] == self._code[i]:
-                    self._hint1[i] = "x"
-                elif self._guess1[i] in self._code:
-                    self._hint1[i] = "o"
-                else:
-                    self._hint1[i] = "*"
+                self._guess1[iterator] = guess[iterator]
+                iterator = iterator + 1
+
+            iterator = 0
+            for i in guess:
+                if int(self._guess1[iterator]) == int(self._code[iterator]):
+                    self._hint1[iterator] = "x"
+
+                else: 
+                    checkIterator = 0
+                    located = False
+                    for i in self._code:
+                        if int(self._guess1[iterator]) == int(self._code[checkIterator]):
+                            located = True
+                        else:
+                            pass
+
+                        checkIterator = checkIterator + 1
+
+                    if located == True:
+                        self._hint1[iterator] = 'o'
+                    else:
+                        self._hint1[iterator] = '*'
+                iterator = iterator + 1
+
         else:
-
+            iterator = 0
             for i in guess:
-                if self._guess2[i] == self._code[i]:
-                    self._hint2[i] = "x"
-                elif self._guess2[i] in self._code:
-                    self._hint2[i] = "o"
-                else:
-                    self._hint2[i] = "*"
+                self._guess2[iterator] = guess[iterator]
+                iterator = iterator + 1
+
+            iterator = 0
+            for i in guess:
+                if int(self._guess2[iterator]) == int(self._code[iterator]):
+                    self._hint2[iterator] = "x"
+
+                else: 
+                    checkIterator = 0
+                    located = False
+                    for i in self._code:
+                        if int(self._guess2[iterator]) == int(self._code[checkIterator]):
+                            located = True
+                        else:
+                            pass
+
+                        checkIterator = checkIterator + 1
+
+                    if located == True:
+                        self._hint2[iterator] = 'o'
+                    else:
+                        self._hint2[iterator] = '*'
+                iterator = iterator + 1
 
         # Lincoln's bit
         # for index, letter in enumerate(guess):

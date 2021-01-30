@@ -6,7 +6,7 @@ from game.roster import Roster
 from game.board import Board
 from game.check import Check
 
-class Director:
+class Driver:
     """A code template for a person who directs the game. The responsibility of 
     this class of objects is to control the sequence of play.
     
@@ -53,10 +53,14 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+
+        print (self._board._code)
         for n in range(2):
             name = self._console.read(f"Enter a name for player {n + 1}: ")
-            player = Player(name)
-            self._roster.add_player(player)
+            if n == 0:
+                self._roster.player1 = name
+            else:
+                self._roster.player2 = name
     
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -66,19 +70,20 @@ class Director:
             self (Director): An instance of Director.
         """
         # display the game board
-        players = self._roster.get_players()
-        board = self._board.to_string(players) #passes the players list to to_string
+        # players = self._roster.get_players()
+        board = self._board.to_string(self._roster) #passes the players list to to_string
         self._console.write(board)
 
         # get next player's move
         player = self._roster.get_current()
-        self._console.write(f"{player.get_name()}'s turn:")
+
+        self._console.write(f"\n{player}'s turn:")
         guess = self._console.read("What is your guess? ")
 
         #insert data validation bit here **guess is a string**
 
-        self.guessCounter += 1 #starts at 1 and goes to 2 before passing once. The % 2 of 2 is 1 so it works
-        board._create_hint(guess, self.guessCounter) # update hint and guess arrays in board
+        self.guessCounter = self.guessCounter + 1 #starts at 1 and goes to 2 before passing once. The % 2 of 2 is 0 so it works
+        self._board._create_hint(guess, self.guessCounter) # update hint and guess arrays in board
         # player.set_move(move) don't think we need this
 
     def _do_updates(self):
@@ -89,7 +94,7 @@ class Director:
             self (Director): An instance of Director.
         """
         player = self._roster.get_current()
-        self._check.checkVictory(self, self._board)
+        self._check.checkVictory(self._board)
  
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -99,17 +104,19 @@ class Director:
             self (Director): An instance of Director.
         """
 
-        if self._check.player1Victory:
-            displayWinner = self._roster.players[0]
-        elif self._check.player2Victory:
-            displayWinner = self._roster.players[1]
+        if self._check.player1VictoryCount == 4:
+            displayWinner = self._roster.player1
+        elif self._check.player2VictoryCount == 4:
+            displayWinner = self._roster.player2
         else:
             displayWinner = ""
 
         if displayWinner == "":
             pass
         else:
-            self._check.displayWinner(displayWinner)
+            displayText = self._check.displayWinner(displayWinner)
+            self._console.write(displayText)
+            self._keep_playing = False
 
         # if self._board.is_full(): #changed to is_full
         #     winner = self._roster.get_current()
