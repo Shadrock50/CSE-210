@@ -11,11 +11,12 @@ class Driver:
         Controller
 
     Attributes:
-        board (Hunter): An instance of the class of objects known as Board.
-        console (Console): An instance of the class of objects known as Console.
-        keep_playing (boolean): Whether or not the game can continue.
-        move (Rabbit): An instance of the class of objects known as Move.
-        roster (Roster): An instance of the class of objects known as Roster.
+        _console(Console): reads and writes needed data
+        _keep_playing(boolean): Determines whether to stay in the game play loop
+        _roster(Roster): holds and keeps track of players
+        _board(Board): Keeps track of hints and comparison - manages game-play variables
+        _check(Check): Validates input and victory
+        guessCounter(int): Helps determine the next player
     """
 
     def __init__(self):

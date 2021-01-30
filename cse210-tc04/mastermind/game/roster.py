@@ -6,8 +6,7 @@ class Roster:
         Information Holder
 
     Attributes:
-        _current (integer): The index of the current player.
-        _players (list): A list of Player objects.
+        self(Roster): an instance of Roster.
     """
     def __init__(self):
         """The class constructor.
@@ -18,27 +17,6 @@ class Roster:
         self.current = 2
         self.player1 = ""
         self.player2 = ""
-
-    def get_players(self):
-        """Gets the current player object.
-        
-        Args:
-            self (Roster): An instance of Roster.
-        
-        Returns:
-            Players: The list players.
-        """
-        return self.players
-        
-    def add_player(self, player):
-        """Adds the given player to the roster
-        
-        Args:
-            self (Roster): An instance of Roster.
-            player (Player): The player object to add.
-        """
-        if player not in self.players:
-            self.players.append(player)
 
     def get_current(self):
         """Gets the current player object.
@@ -67,5 +45,5 @@ class Roster:
             self (Roster): An instance of Roster.
         """        
         self.current = self.current + 1
-        #self.current = (self.current + 1) % len(self.players)
+
 
