@@ -17,6 +17,7 @@ class Roster:
         self.current = 2
         self.player1 = ""
         self.player2 = ""
+        
 
     def get_current(self):
         """Gets the current player object.

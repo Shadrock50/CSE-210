@@ -2,6 +2,7 @@ from game.console import Console
 from game.roster import Roster
 from game.board import Board
 from game.check import Check
+from game.display import Display
 
 class Driver:
     """A code template for a person who directs the game. The responsibility of 
@@ -26,6 +27,7 @@ class Driver:
             self (Director): an instance of Director.
         """
         self._console = Console()
+        self._display = Display()
         self._keep_playing = True
         self._roster = Roster()
         self._board = Board()
@@ -66,14 +68,22 @@ class Driver:
             self (Director): An instance of Director.
         """
         # display the game board
-        board = self._board.to_string(self._roster) #passes the players list to to_string
-        self._console.write(board)
+        # board = self._board.to_string(self._roster) #passes the players list to to_string
+        display = self._display.displayMain(self._roster, self._board)
+        self._console.write(display)
 
         # get next player's move
         player = self._roster.get_current()
 
         self._console.write(f"\n{player}'s turn:")
         guess = self._console.read("What is your guess? ")
+
+        self._check.checkGuess(guess)
+
+        while self._check._validGuess == False:
+            self._console.write("Please only enter 4 numbers!")
+            guess = self._console.read("What is your guess? ")
+            self._check.checkGuess(guess)
 
         #insert data validation bit here **guess is a string**
 
@@ -109,7 +119,7 @@ class Driver:
         if displayWinner == "":
             pass
         else:
-            displayText = self._check.displayWinner(displayWinner)
+            displayText = self._display.displayWinner(displayWinner)
             self._console.write(displayText)
             self._keep_playing = False
         self._roster.next_player()
