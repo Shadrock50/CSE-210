@@ -3,7 +3,7 @@ Things to get done:
 Actor:
 - no changes
 
-Constants
+Constants (peter do)
 - add min and max velocity (done but please check)
 
 Director:
@@ -11,7 +11,7 @@ Director:
 - Create function that handles when word is spelled correctly
 - have score updated based on the length of the word for stretch goal
 
-Word:
+Word: (peter do)
 - Create class (done)
 - Generate random word (based on txt file) (done but please check)
 - Generate random position (as done in the food class) (left the same as it appears in the food class)
