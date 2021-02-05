@@ -1,9 +1,9 @@
 # copied from snake
 from time import sleep
 from game import constants
-from game.food import Food
+from game.word import Word
 from game.score import Score
-from game.snake import Snake
+from game.userinput import UserInput
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -27,12 +27,16 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self._food = Food()
+
+        self.words = []
+        for x in range(5): #Generates 5 word actors
+            newWord = Word()
+            self.words.append(newWord)
+
         self._input_service = input_service
         self._keep_playing = True
         self._output_service = output_service
         self._score = Score()
-        self._snake = Snake()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -53,8 +57,8 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        direction = self._input_service.get_direction()
-        self._snake.move_head(direction)
+        # direction = self._input_service.get_direction()
+        # self._snake.move_head(direction)
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -63,8 +67,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._handle_body_collision()
-        self._handle_food_collision()
+
+        self._move_words()
+        # self._check_words()
         
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -75,21 +80,25 @@ class Director:
             self (Director): An instance of Director.
         """
         self._output_service.clear_screen()
-        self._output_service.draw_actor(self._food)
-        self._output_service.draw_actors(self._snake.get_all())
+        # self._output_service.draw_actor(self._food)
+        self._output_service.draw_actors(self.words)
         self._output_service.draw_actor(self._score)
-        self._output_service.flush_buffer()
+        # self._output_service.flush_buffer()
 
-    def _handle_body_collision(self): #handle correct word function to create here
+    def _check_words(self): #handle correct word function to create here
         """Handles collisions between the snake's head and body. Stops the game 
         if there is one.
 
         Args:
             self (Director): An instance of Director.
         """
-        head = self._snake.get_head()
-        body = self._snake.get_body()
-        for segment in body:
-            if head.get_position().equals(segment.get_position()):
-                self._keep_playing = False
-                break
+        # head = self._snake.get_head()
+        # body = self._snake.get_body()
+        # for segment in body:
+        #     if head.get_position().equals(segment.get_position()):
+        #         self._keep_playing = False
+        #         break
+
+    def _move_words(self):
+        for x in range(len(self.words)):
+            self.words[x].move_next()

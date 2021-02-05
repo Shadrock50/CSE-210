@@ -46,3 +46,4 @@ class Word(Actor):
         position = Point(x,y)
 
         self.set_position(position)
+
