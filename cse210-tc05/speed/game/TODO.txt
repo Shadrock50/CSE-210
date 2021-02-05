@@ -22,7 +22,7 @@ Timer:
 - timer for stretch goal
 
 User inputs:
--To do with the keyboard and input service
+-To do with the keyboard and input service (this is already done in input_service.py)
 -Build an array full of "-"s. Updates "-" to whatever key was pressed by user.
 -Displays on the bottom of screen
 -Function to check word correctness

@@ -1,9 +1,9 @@
 # copied from snake
 from time import sleep
 from game import constants
-from game.food import Food
+from game.word import Word
 from game.score import Score
-from game.snake import Snake
+# from game.snake import Snake --This needs to be changed
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -27,12 +27,12 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self._food = Food()
+        self._word = Word()
         self._input_service = input_service
         self._keep_playing = True
         self._output_service = output_service
         self._score = Score()
-        self._snake = Snake()
+        # self._snake = Snake()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -48,13 +48,13 @@ class Director:
 
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
-        that means getting the desired direction and moving the snake.
+        that means checking the letters the user types adn comparing them to the word.
 
         Args:
             self (Director): An instance of Director.
         """
-        direction = self._input_service.get_direction()
-        self._snake.move_head(direction)
+        # direction = self._input_service.get_direction()
+        # self._snake.move_head(direction)
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
