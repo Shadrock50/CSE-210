@@ -1,0 +1,41 @@
+Things to get done:
+
+Actor:
+- no changes
+
+Constants
+- no changes needed
+
+Director:
+- Formalize the game loop (updates, inputs, outputs)
+- Create function that handles when word is spelled correctly
+- have score updated based on the length of the word for stretch goal
+
+Word:
+- Create class
+- Generate random word (based on txt file)
+- Generate random position (as done in the food class)
+- (maybe) instead of generating a new word, we could reset the words text
+
+Timer:
+- timer for stretch goal
+
+User inputs:
+-To do with the keyboard and input service
+-Build an array full of "-"s. Updates "-" to whatever key was pressed by user.
+-Displays on the bottom of screen
+-Function to check word correctness
+
+Input service:
+-Update input service to read user keyboard
+
+Score:
+-no changes needed
+
+output_service:
+-no changes needed
+
+Point:
+-no changes needed
+
+
