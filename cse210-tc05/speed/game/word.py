@@ -22,6 +22,7 @@ class Word(Actor):
         super().__init__() 
         self._points = 0
         self.set_text(LIBRARY[random.randint(0 , len(LIBRARY))]) 
+        self.set_velocity(MIN_V, MAX_V)
         self.reset()
 
     def get_points(self):
