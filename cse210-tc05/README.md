@@ -28,6 +28,16 @@ The project files and folders are organized as follows:
 root                    (project root folder)
 +-- speed               (source code for game)
   +-- game              (specific game classes)
+    +-- actor.py        (file for writing)
+    +-- constants.py    (file for constants)
+    +-- director.py     (file for the driver)
+    +-- input_service.py    (file to collect inputs)
+    +-- output_service.py   (file to display outputs)
+    +-- point.py        (file to keep track of movement)      
+    +-- score.py        (file to keep track of score)
+    +-- timer.py        (file to keep track of time)
+    +-- userinput.py    (file to keep track of user input)
+    +-- word.py         (file to keep track of word objects)  
   +-- __init__.py       (python package file)
   +-- __main__.py       (entry point for program)
 +-- README.md           (general info)
@@ -43,3 +53,4 @@ root                    (project root folder)
 * # TODO: Add names and emails here
   Peter Griffin gri19029@byui.edu
   Shad Christopherson chr19043@byui.edu
+  ** Don't know anyone elses information

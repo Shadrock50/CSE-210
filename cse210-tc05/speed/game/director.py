@@ -14,12 +14,12 @@ class Director:
         Controller
 
     Attributes:
-        food (Food): The snake's target.
         input_service (InputService): The input mechanism.
         keep_playing (boolean): Whether or not the game can continue.
         output_service (OutputService): The output mechanism.
         score (Score): The current score.
-        snake (Snake): The player or snake.
+        userinput (UserInput): The users input.
+        timer (Timer): The remaining time left.
     """
 
     def __init__(self, input_service, output_service):
@@ -55,19 +55,18 @@ class Director:
 
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
-        that means checking the letters the user types adn comparing them to the word.
+        that means checking the letters the user types.
 
         Args:
             self (Director): An instance of Director.
         """
-        # direction = self._input_service.get_direction()
-        # self._snake.move_head(direction)
         self.input_letter = self._input_service.get_letter()
 
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
-        this case, that means checking for a collision and updating the score.
+        this case, that means checking the words for correctness and subtracting
+        time.
 
         Args:
             self (Director): An instance of Director.
@@ -81,24 +80,20 @@ class Director:
         
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
-        this case, that means checking if there are stones left and declaring 
-        the winner.
+        this case, that means drawing everything to the screen.
 
         Args:
             self (Director): An instance of Director.
         """
         self._output_service.clear_screen()
-
         self._output_service.draw_actors(self.words) 
         self._output_service.draw_actor(self._timer)       
         self._output_service.draw_actor(self._userinput)
         self._output_service.draw_actor(self._score)
-
         self._output_service.flush_buffer()
 
-    def _check_words(self): #handle correct word function to create here
-        """Handles collisions between the snake's head and body. Stops the game 
-        if there is one.
+    def _check_words(self): 
+        """Handles the checking of words as they are typed.
 
         Args:
             self (Director): An instance of Director.
@@ -113,14 +108,21 @@ class Director:
 
 
     def _move_words(self):
+        """Handles moving the words around the screen.
 
-        for x in range(len(self.words)):
-            #if userinput.inputted_word == self.words[x]._word:
-                #score._add_points(self.words[x]._points)
-                #self.words[x].reset()   
+        Args:
+            self (Director): An instance of Director.
+        """
+
+        for x in range(len(self.words)):   
             self.words[x].move_next()
 
     def _handle_letter_input(self):
+        """Handles adding letters to an array as they are typed.
+
+        Args:
+            self (Director): An instance of Director.
+        """
 
         if self.input_letter == "":
             pass
