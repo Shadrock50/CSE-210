@@ -21,8 +21,9 @@ class Word(Actor):
         """
         super().__init__() 
         self._points = 0
-        self.set_text(LIBRARY[random.randint(0 , len(LIBRARY))]) 
-        self.set_velocity(MIN_V, MAX_V)
+        self._word = constants.LIBRARY[random.randint(0 , len(constants.LIBRARY))]
+        self.set_text(self._word) 
+        self.set_velocity(constants.MIN_V, constants.MAX_V)
         self.reset()
 
     def get_points(self):
@@ -36,7 +37,7 @@ class Word(Actor):
             position (integer(s)): the position to change.
             points (integer): The points to add.
         """
-        self._points = random.randint(1,5)
+        self._points = len(self._word) #does this work for a stretch goal?
         x = random.randint(1, constants.MAX_X - 2)
         y = random.randint(1, constants.MAX_Y - 2)
         position = Point(x,y)

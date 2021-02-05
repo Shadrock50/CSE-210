@@ -4,7 +4,7 @@ Actor:
 - no changes
 
 Constants
-- add min and max velocity
+- add min and max velocity (done but please check)
 
 Director:
 - Formalize the game loop (updates, inputs, outputs)
@@ -12,10 +12,10 @@ Director:
 - have score updated based on the length of the word for stretch goal
 
 Word:
-- Create class
-- Generate random word (based on txt file)
-- Generate random position (as done in the food class)
-- and velocity
+- Create class (done)
+- Generate random word (based on txt file) (done but please check)
+- Generate random position (as done in the food class) (left the same as it appears in the food class)
+- and velocity (done but please check)
 - (maybe) instead of generating a new word, we could reset the words text
 
 Timer:
