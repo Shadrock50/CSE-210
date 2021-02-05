@@ -3,7 +3,11 @@ from time import sleep
 from game import constants
 from game.word import Word
 from game.score import Score
+<<<<<<< HEAD
 from game.userinput import UserInput
+=======
+# from game.snake import Snake --This needs to be changed
+>>>>>>> d0165f308c111164f70a38f61c67d1e525b12b70
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -27,16 +31,24 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+<<<<<<< HEAD
 
         self.words = []
         for x in range(5): #Generates 5 word actors
             newWord = Word()
             self.words.append(newWord)
 
+=======
+        self._word = Word()
+>>>>>>> d0165f308c111164f70a38f61c67d1e525b12b70
         self._input_service = input_service
         self._keep_playing = True
         self._output_service = output_service
         self._score = Score()
+<<<<<<< HEAD
+=======
+        # self._snake = Snake()
+>>>>>>> d0165f308c111164f70a38f61c67d1e525b12b70
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -52,7 +64,7 @@ class Director:
 
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
-        that means getting the desired direction and moving the snake.
+        that means checking the letters the user types adn comparing them to the word.
 
         Args:
             self (Director): An instance of Director.

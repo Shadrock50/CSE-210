@@ -11,7 +11,7 @@ class Word(Actor):
         Structurer, Information Holder
 
     Attributes: 
-        _points (integer): The number of points the food is worth.
+        _points (integer): The number of points the word is worth.
     """
     def __init__(self):
         """The class constructor. Invokes the superclass constructor, initializes points to zero, sets the position and updates the text.
@@ -22,6 +22,7 @@ class Word(Actor):
         super().__init__() 
         self._points = 0
         self._word = constants.LIBRARY[random.randint(0 , len(constants.LIBRARY))]
+        # print(constants.LIBRARY)
         self.set_text(self._word) 
         self.set_velocity(random.randint(constants.MIN_V, constants.MAX_V))
         self.reset()
@@ -38,7 +39,7 @@ class Word(Actor):
             points (integer): The points to add.
 
         Returns:
-            
+
         """
         self._points = len(self._word) #does this work for a stretch goal?
         x = random.randint(1, constants.MAX_X - 2)
