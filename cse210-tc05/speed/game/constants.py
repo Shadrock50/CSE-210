@@ -1,6 +1,6 @@
 import os
-MIN_V = 1.0
-MAX_V = 10.0
+MIN_V = -2.0
+MAX_V = 2.0
 MAX_X = 60
 MAX_Y = 20
 FRAME_LENGTH = 0.08

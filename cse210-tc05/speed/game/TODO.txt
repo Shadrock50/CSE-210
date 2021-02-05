@@ -8,8 +8,8 @@ Constants (peter do)
 
 Director:
 - Formalize the game loop (updates, inputs, outputs)
-- Create function that handles when word is spelled correctly
-- have score updated based on the length of the word for stretch goal
+- Create function that handles when word is spelled correctly (done)
+- have score updated based on the length of the word for stretch goal (done)
 
 Word: (peter do)
 - Create class (done)

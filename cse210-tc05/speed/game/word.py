@@ -21,18 +21,14 @@ class Word(Actor):
         """
         super().__init__() 
         self._points = 0
-        self._word = constants.LIBRARY[random.randint(0 , len(constants.LIBRARY))]
-        # print(constants.LIBRARY)
-        self.set_text(self._word) 
-        self.set_velocity(random.randint(constants.MIN_V, constants.MAX_V))
-        self.reset()
+        self.reset() 
 
     def get_points(self):
         return self._points
 
     def reset(self):
         """changes the position to a random one within the boundaries of the screen and reassigns the points to 
-            the length of the word typed.
+           the length of the word typed.
         
         Args:
             position (integer(s)): the position to change.
@@ -41,10 +37,19 @@ class Word(Actor):
         Returns:
 
         """
-        self._points = len(self._word) #does this work for a stretch goal?
+         #does this work for a stretch goal?
         x = random.randint(1, constants.MAX_X - 2)
         y = random.randint(1, constants.MAX_Y - 2)
-        position = Point(x,y)
+        x_v = random.randint(constants.MIN_V, constants.MAX_V)
+        y_v = random.randint(constants.MIN_V, constants.MAX_V)
+        position = Point(x,y)       
+        velocity = Point(x_v, y_v) 
+        self._word = constants.LIBRARY[random.randint(0 , len(constants.LIBRARY))]
+        # print(constants.LIBRARY)
 
+        self.set_text(self._word) 
+        self.set_velocity(velocity)
         self.set_position(position)
+        
+        self._points = len(self._word)
 
