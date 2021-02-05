@@ -1,4 +1,5 @@
 # copied from snake
+from game.timer import Timer
 from time import sleep
 from game import constants, input_service
 from game.word import Word
@@ -38,6 +39,7 @@ class Director:
         self._output_service = output_service
         self._score = Score()
         self._userinput = UserInput()
+        self._timer = Timer()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -74,6 +76,8 @@ class Director:
         self._move_words()
         self._handle_letter_input()
         self._check_words()
+        self._timer.subtract_time()
+        self._timer.check_time()
         
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -85,7 +89,8 @@ class Director:
         """
         self._output_service.clear_screen()
 
-        self._output_service.draw_actors(self.words)        
+        self._output_service.draw_actors(self.words) 
+        self._output_service.draw_actor(self._timer)       
         self._output_service.draw_actor(self._userinput)
         self._output_service.draw_actor(self._score)
 
