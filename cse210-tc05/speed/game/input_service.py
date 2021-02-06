@@ -38,20 +38,3 @@ class InputService:
             elif event >= 97 and event <= 122: 
                 result = chr(event)
         return result
-
-        # def get_direction(self):
-        # """Gets the selected direction. If one hasn't been selected the last 
-        # one is returned.
-
-        # Args:
-        #     self (InputService): An instance of InputService.
-
-        # Returns:
-        #     Point: The selected direction.
-        # """
-        # event = self._screen.get_event()
-        # if isinstance(event, KeyboardEvent):
-        #     if event.key_code == 27:
-        #         sys.exit()
-        #     self._current = self._keys.get(event.key_code, self._current)
-        # return self._current

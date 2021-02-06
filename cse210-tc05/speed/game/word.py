@@ -27,17 +27,15 @@ class Word(Actor):
         return self._points
 
     def reset(self):
-        """changes the position to a random one within the boundaries of the screen and reassigns the points to 
-           the length of the word typed.
+        """changes the position to a random one within the boundaries of the screen, reassigns the points to 
+           the length of the word typed, and assigns random velocity.
         
         Args:
-            position (integer(s)): the position to change.
+            position (Point): the position to change.
+            velocity (Point): the position speed to change.
             points (integer): The points to add.
-
-        Returns:
-
         """
-         #does this work for a stretch goal?
+        
         x = random.randint(1, constants.MAX_X - 2)
         y = random.randint(1, constants.MAX_Y - 2)
         x_v = random.randint(constants.MIN_V, constants.MAX_V)
@@ -45,7 +43,6 @@ class Word(Actor):
         position = Point(x,y)       
         velocity = Point(x_v, y_v) 
         self._word = constants.LIBRARY[random.randint(0 , len(constants.LIBRARY))]
-        # print(constants.LIBRARY)
 
         self.set_text(self._word) 
         self.set_velocity(velocity)
