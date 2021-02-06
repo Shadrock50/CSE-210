@@ -31,9 +31,9 @@ class InputService:
         result = ""
         event = self._screen.get_key()
         if not event is None:
-            if event == 50: #27
+            if event == 27: #27
                 sys.exit() 
-            elif event == 51:  #10
+            elif event == 10:  #10
                 result = "*"
             elif event >= 97 and event <= 122: 
                 result = chr(event)
