@@ -1,3 +1,4 @@
+# copied from rfk
 from game.action import Action
 
 class DrawActorsAction(Action):

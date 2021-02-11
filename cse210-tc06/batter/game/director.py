@@ -1,3 +1,4 @@
+# copied from rfk
 from time import sleep
 from game import constants
 

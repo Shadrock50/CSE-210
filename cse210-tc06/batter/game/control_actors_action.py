@@ -1,3 +1,4 @@
+# copied from rfk
 from game import constants
 from game.action import Action
 

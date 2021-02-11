@@ -1,3 +1,4 @@
+# copied from rfk
 import random
 from game import constants
 from game.action import Action
