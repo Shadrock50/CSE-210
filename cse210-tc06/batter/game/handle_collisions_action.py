@@ -25,8 +25,9 @@ class HandleCollisionsAction(Action):
         for brick in bricks:
             if ball.get_position().equals(brick.get_position()):
                 newDirection = ball.get_velocity().reverse_y()
+                newDirection = newDirection.collision_randomizer() #randomizes the x value that comes from a y flip.
                 ball.set_velocity(newDirection)
-                del bricks[iterator] #Still needs to detect whether it hits the side or top/bottom
+                del bricks[iterator]
             iterator += 1           #need to actually delete the brick object, or it'll bounce always
 
         #Peter do
@@ -35,7 +36,6 @@ class HandleCollisionsAction(Action):
 
         edgeCheck = ball.get_position().get_x()
         ceilingCheck = ball.get_position().get_y()
-        ball.set_text(ceilingCheck)
 
         if edgeCheck == constants.MAX_X - 1 or edgeCheck == 1:
             newDirection = ball.get_velocity().reverse_x()
@@ -43,6 +43,7 @@ class HandleCollisionsAction(Action):
 
         if ceilingCheck == 1:
             newDirection = ball.get_velocity().reverse_y()
+            newDirection = newDirection.collision_randomizer()
             ball.set_velocity(newDirection)
 
         if ceilingCheck == constants.MAX_Y - 1:
@@ -52,7 +53,7 @@ class HandleCollisionsAction(Action):
         #christian do
         # put a loop here to check for each instance of paddle
 
-        for i in range(10): #Handles collision with Paddle
+        for i in range(11): #Handles collision with Paddle
 
             checkPosition = paddle.get_position()
             newPositionToCheck = checkPosition.lengthen_detect(i)
@@ -60,6 +61,7 @@ class HandleCollisionsAction(Action):
             if ball.get_position().equals(newPositionToCheck):
                 # invert the velocity
                 newDirection = ball.get_velocity().reverse_y()
+                newDirection = newDirection.collision_randomizer()
                 ball.set_velocity(newDirection)
 
                 

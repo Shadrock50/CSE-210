@@ -36,7 +36,7 @@ def main(screen):
     x = int(constants.MAX_X / 2)
     y = int(constants.MAX_Y / 2)
     position = Point(x, y)
-    velocity = Point(1, -1)
+    velocity = Point(0, 1)
     ball = Actor()
     ball.set_text("@")
     ball.set_position(position)

@@ -1,4 +1,5 @@
 # copied from rfk
+import random
 class Point:
     """Represents distance from an origin (0, 0).
 
@@ -98,7 +99,30 @@ class Point:
         y = self._y
         return Point(x, y)
 
-    def lengthen_detect(self, i):
+    def lengthen_detect(self, i): #used for detecting the paddle
+        """Adds a new Point along an iterator. Lengthens detection on one object
+        
+        Returns:
+            Point: A new Point that is iteratively larger than the original
+        """
         x = self._x + i
+        y = self._y
+        return Point(x, y)
+
+    def collision_randomizer(self):
+        """Randomizes the x value of a point when y value is flipped. Without changing speed of x,
+            game cannot be completed. 
+        
+        Returns:
+            Point: A new point with a randomized x value. 
+        """
+
+        if self._x > 0:
+            x = random.randint(0, 2) #gives random positive value if x is originally positive. 
+                                     #So that x doesn't randomly switch directions
+        elif self._x < 0:
+            x = random.randint(-2,0)#gives random negative value if x is originally negative.
+        else:
+            x = random.randint(-2,2)#if x was originally zero, ball can bounce either direction.
         y = self._y
         return Point(x, y)
