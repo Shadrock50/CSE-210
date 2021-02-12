@@ -2,6 +2,7 @@
 import random
 from game import constants
 from game.action import Action
+from game.point import Point
 
 class HandleCollisionsAction(Action):
     """A code template for handling collisions. The responsibility of this class of objects is to update the game state when actors collide.
@@ -23,22 +24,43 @@ class HandleCollisionsAction(Action):
         iterator = 0
         for brick in bricks:
             if ball.get_position().equals(brick.get_position()):
-                bricks[iterator].set_text("")
-            iterator += 1
-                
-                # destroy brick object here
-                # bounce the ball here (reverses y for top to bottom of brick, x direction for sides)
+                newDirection = ball.get_velocity().reverse_y()
+                ball.set_velocity(newDirection)
+                del bricks[iterator] #Still needs to detect whether it hits the side or top/bottom
+            iterator += 1           #need to actually delete the brick object, or it'll bounce always
 
         #Peter do
         #import score
         # walls will need to be another loop for x values on the ceiling and floor
 
+        edgeCheck = ball.get_position().get_x()
+        ceilingCheck = ball.get_position().get_y()
+        ball.set_text(ceilingCheck)
+
+        if edgeCheck == constants.MAX_X - 1 or edgeCheck == 1:
+            newDirection = ball.get_velocity().reverse_x()
+            ball.set_velocity(newDirection)
+
+        if ceilingCheck == 1:
+            newDirection = ball.get_velocity().reverse_y()
+            ball.set_velocity(newDirection)
+
+        if ceilingCheck == constants.MAX_Y - 1:
+            pass
+            #endgame. I'd do this, but I'm going to bed.
+
         #christian do
         # put a loop here to check for each instance of paddle
-        if ball.get_position().equals(paddle.get_position()):
-            # invert the velocity
-            newPosition = ball.reverse_y
-            ball.set_velocity(newPosition)
+
+        for i in range(10): #Handles collision with Paddle
+
+            checkPosition = paddle.get_position()
+            newPositionToCheck = checkPosition.lengthen_detect(i)
+
+            if ball.get_position().equals(newPositionToCheck):
+                # invert the velocity
+                newDirection = ball.get_velocity().reverse_y()
+                ball.set_velocity(newDirection)
 
                 
                 # description = artifact.get_description()

@@ -97,3 +97,8 @@ class Point:
         x = self._x * -1
         y = self._y
         return Point(x, y)
+
+    def lengthen_detect(self, i):
+        x = self._x + i
+        y = self._y
+        return Point(x, y)
