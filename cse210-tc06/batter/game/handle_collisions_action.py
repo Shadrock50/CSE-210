@@ -28,8 +28,9 @@ class HandleCollisionsAction(Action):
                 
                 # destroy brick object here
                 # bounce the ball here (reverses y for top to bottom of brick, x direction for sides)
-                
+
         #Peter do
+        #import score
         # walls will need to be another loop for x values on the ceiling and floor
 
         #christian do
