@@ -3,6 +3,7 @@ import random
 from game import constants
 from game.action import Action
 from game.point import Point
+from game.score import Score
 
 class HandleCollisionsAction(Action):
     """A code template for handling collisions. The responsibility of this class of objects is to update the game state when actors collide.
@@ -10,6 +11,10 @@ class HandleCollisionsAction(Action):
     Stereotype:
         Controller
     """
+    def __init__(self):
+        super().__init__()
+        self._points = 0
+        self._score = Score()
 
     def execute(self, cast):
         """Executes the action using the given actors.
@@ -27,8 +32,10 @@ class HandleCollisionsAction(Action):
                 newDirection = ball.get_velocity().reverse_y()
                 newDirection = newDirection.collision_randomizer() #randomizes the x value that comes from a y flip.
                 ball.set_velocity(newDirection)
-                del bricks[iterator]
-            iterator += 1           #need to actually delete the brick object, or it'll bounce always
+                del bricks[iterator] #need to actually delete the brick object, or it'll bounce always
+                self._points += 1
+                self._score.add_points(self._points)
+            iterator += 1           
 
         #Peter do
         #import score
