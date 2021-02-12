@@ -1,0 +1,26 @@
+Todo:
+
+Actor:
+-no changes needed
+
+action:
+-no changes needed
+
+constants:
+
+control_actors_action:
+
+director:
+
+draw_actors_action:
+
+handle_collisions_action:
+
+input_service:
+
+move_actors_action:
+
+output_service:
+
+point:
+-no changes needed
