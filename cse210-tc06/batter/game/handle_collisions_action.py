@@ -28,8 +28,11 @@ class HandleCollisionsAction(Action):
                 
                 # destroy brick object here
                 # bounce the ball here (reverses y for top to bottom of brick, x direction for sides)
+                
+        #Peter do
         # walls will need to be another loop for x values on the ceiling and floor
 
+        #christian do
         # put a loop here to check for each instance of paddle
         if ball.get_position().equals(paddle.get_position()):
             # invert the velocity
