@@ -46,7 +46,6 @@ def main(screen):
 
     score = Score()
     cast["score"] = [score]
-    
     # create the script {key: tag, value: list}
     script = {}
 
