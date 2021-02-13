@@ -14,7 +14,7 @@ class HandleCollisionsAction(Action):
     def __init__(self):
         super().__init__()
         self._points = 0
-        self._score = Score()
+        self.keep_playing = True
 
     def execute(self, cast):
         """Executes the action using the given actors.
@@ -25,6 +25,7 @@ class HandleCollisionsAction(Action):
         ball = cast["ball"][0] # ball 
         paddle = cast["paddle"][0] # paddle
         bricks = cast["brick"] # brick
+        score = cast["score"][0] #score
         # marquee.set_text("")
         iterator = 0
         for brick in bricks:
@@ -33,8 +34,7 @@ class HandleCollisionsAction(Action):
                 newDirection = newDirection.collision_randomizer() #randomizes the x value that comes from a y flip.
                 ball.set_velocity(newDirection)
                 del bricks[iterator] #need to actually delete the brick object, or it'll bounce always
-                self._points += 1
-                self._score.add_points(self._points)
+                score.add_points(1)
             iterator += 1           
 
         #Peter do
@@ -54,7 +54,9 @@ class HandleCollisionsAction(Action):
             ball.set_velocity(newDirection)
 
         if ceilingCheck == constants.MAX_Y - 1:
+            # self.keep_playing = False
             pass
+
             #endgame. I'd do this, but I'm going to bed.
 
         #christian do
@@ -74,3 +76,8 @@ class HandleCollisionsAction(Action):
                 
                 # description = artifact.get_description()
                 # marquee.set_text(description) 
+
+    def checkGameOver(self):
+
+        return self.keep_playing
+        

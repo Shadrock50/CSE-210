@@ -1,6 +1,6 @@
 # copied from rfk
 from time import sleep
-from game import constants
+from game import constants, handle_collisions_action
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -23,13 +23,15 @@ class Director:
         """
         self._cast = cast
         self._script = script
+        self.keep_playing = True
         
     def start_game(self):
         """Starts the game loop to control the sequence of play."""
-        while True:
+        while self.keep_playing == True:
             self._cue_action("input")
             self._cue_action("update")
             self._cue_action("output")
+            # self.keep_playing = handle_collisions_action.checkGameOver()
             sleep(constants.FRAME_LENGTH)
 
     def _cue_action(self, tag):
