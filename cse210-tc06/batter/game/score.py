@@ -1,3 +1,10 @@
+""" Score module
+Contains Score class and associated utilities. Used in
+controlling the score during gameplay based on user interaction.
+Authors:
+  - Shad Christopherson
+  - Peter Griffin
+"""
 import random
 from game.actor import Actor
 from game.point import Point

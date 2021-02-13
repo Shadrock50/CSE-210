@@ -1,4 +1,9 @@
-# copied from rfk
+""" DrawActorsAction module
+Contains DrawActorsAction class and associated utilities. Used in
+controlling the drawing of actors upon the screen.
+Authors:
+  - copied from rfk
+"""
 from game.action import Action
 
 class DrawActorsAction(Action):

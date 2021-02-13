@@ -1,4 +1,9 @@
-# copied from rfk
+""" OutputService module
+Contains OutputService class and associated utilities. Used in
+controlling the gameplay and managing in-game events.
+Authors:
+  - copied from rfk
+"""
 import sys
 from game import constants
 from asciimatics.widgets import Frame

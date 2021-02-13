@@ -1,4 +1,10 @@
-# copied from rfk
+""" Point module
+Contains Point class and associated utilities. Used in
+controlling location and direction in the gameplay.
+Authors:
+  - Shad Christopherson
+  - Peter Griffin
+"""
 import random
 class Point:
     """Represents distance from an origin (0, 0).

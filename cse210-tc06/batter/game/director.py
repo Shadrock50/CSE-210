@@ -1,4 +1,10 @@
-# copied from rfk
+""" Director module
+Contains Director class and associated utilities. Used in
+controlling the gameplay and managing in-game events.
+Authors:
+  - Shad Christopherson
+  - Peter Griffin
+"""
 from time import sleep
 from game import constants, handle_collisions_action
 from game.actor import Actor

@@ -1,4 +1,11 @@
-# copied from rfk
+""" HandleCollisionsAction module
+Contains HandleCollisionsAction class and associated utilities. Used in
+controlling the gameplay and managing collisions in-game.
+Authors:
+  - Shad Christopherson
+  - Peter Griffin
+  - Christian Soldevilla
+"""
 import random
 from game import constants
 from game.action import Action
@@ -12,6 +19,7 @@ class HandleCollisionsAction(Action):
         Controller
     """
     def __init__(self):
+        """The class constructor."""
         super().__init__()
         self._points = 0
         self.keep_playing = True
@@ -22,13 +30,16 @@ class HandleCollisionsAction(Action):
 
         Args:
             cast (dict): The game actors {key: tag, value: list}.
+            self.keep_playing (bool) determines whether or not to keep playing
         """
+        #set values
         ball = cast["ball"][0] # ball 
         paddle = cast["paddle"][0] # paddle
         bricks = cast["brick"] # brick
         self.bricks = bricks
         score = cast["score"][0] #score
-        # marquee.set_text("")
+
+        #start brick check loop
         iterator = 0
         self.checkWin()
         for brick in bricks:
@@ -40,10 +51,7 @@ class HandleCollisionsAction(Action):
                 score.add_points(1)
             iterator += 1           
 
-        #Peter do
-        #import score
-        # walls will need to be another loop for x values on the ceiling and floor
-
+        # wall and ceiling/floor check
         edgeCheck = ball.get_position().get_x()
         ceilingCheck = ball.get_position().get_y()
 
@@ -59,11 +67,7 @@ class HandleCollisionsAction(Action):
         if ceilingCheck == constants.MAX_Y - 1:
             self.keep_playing = False
 
-            #endgame. I'd do this, but I'm going to bed.
-
-        #christian do
-        # put a loop here to check for each instance of paddle
-
+        #paddle check
         for i in range(11): #Handles collision with Paddle
 
             checkPosition = paddle.get_position()
@@ -75,19 +79,30 @@ class HandleCollisionsAction(Action):
                 newDirection = newDirection.collision_randomizer()
                 ball.set_velocity(newDirection)
 
-                
-                # description = artifact.get_description()
-                # marquee.set_text(description) 
 
     def checkGameOver(self):
+        """Gets the self.keep_playing variable to run check.
 
+        Returns:
+            Boolean: Whether the game has ended.
+        """
         return self.keep_playing
 
     def checkWin(self):
+        """Checks the state of the brick in bricks.
+
+        Args:
+            self.keep_playing (Bool)
+            self.gameWon (Bool)
+        """
         if (len(self.bricks) == 0):
             self.keep_playing = False
             self.gameWon = True
 
     def getWinCondition(self):
+        """Gets the self.gameWon variable based on checkWin().
 
+        Returns:
+            Boolean: If the game is won.
+        """
         return self.gameWon

@@ -1,4 +1,9 @@
-# copied from rfk
+""" InputService module
+Contains InputService class and associated utilities. Used in
+defining user input and inserting into the gameplay.
+Authors:
+  - copied from rfk
+"""
 import sys
 from game.point import Point
 from asciimatics.event import KeyboardEvent

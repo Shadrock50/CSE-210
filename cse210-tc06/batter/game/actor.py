@@ -1,4 +1,9 @@
-# copied from rfk
+""" Actor module
+Contains Actor class and associated utilities. Used in
+adding elements to the gameplay and managing in-game objects.
+Authors:
+  - copied from rfk
+"""
 from game import constants
 from game.point import Point
 

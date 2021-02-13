@@ -1,4 +1,10 @@
-# copied from rfk
+""" ControlActorsAction module
+Contains ControlActorsAction class and associated utilities. Used in
+controlling the actors and managing their purposes.
+Authors:
+  - Shad Christopherson
+  - Peter Griffin
+"""
 from game import constants
 from game.action import Action
 

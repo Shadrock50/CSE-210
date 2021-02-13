@@ -1,4 +1,9 @@
-# copied from rfk
+""" Constants module
+Contains all Constants required for gameplay. 
+Authors:
+  - Shad Christopherson
+  - Peter Griffin
+"""
 import os
 
 MAX_X = 80

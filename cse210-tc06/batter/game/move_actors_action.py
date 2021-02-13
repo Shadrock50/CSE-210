@@ -1,4 +1,9 @@
-# copied from rfk
+""" MoveActorsAction module
+Contains MoveActorsAction class and associated utilities. Used in
+controlling the movement and management of actors.
+Authors:
+  - copied from rfk
+"""
 from game import constants
 from game.action import Action
 from game.point import Point

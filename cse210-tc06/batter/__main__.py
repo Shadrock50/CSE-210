@@ -44,6 +44,7 @@ def main(screen):
     ball.set_velocity(velocity)
     cast["ball"] = [ball]
 
+    # add score to cast
     score = Score()
     cast["score"] = [score]
     # create the script {key: tag, value: list}
