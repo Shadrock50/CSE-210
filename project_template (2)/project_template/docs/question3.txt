@@ -1,0 +1,59 @@
+What features are we going to include?
+    The character will be able to move left, right and jump.
+    The character will move from left to right through a level avoiding obstacles.
+    Reaching the end of the level will start another level.
+    We will have 5 levels.
+    Highscore will be displayed at end of game.
+    There needs to be enemies.
+    There needs to be gravity and a floor.
+    Player will have a specified way to fight.(maybe by gun)
+    Power ups will be given that change game-play.
+    2 player option
+
+Wishlist:
+    Main Screen:(1)
+        start button(1)
+        instructions button(1)
+        choose players buttons(3)
+        view Highscores(2)
+
+    Level Screen:(1)
+        player displayed(1)
+        score, lives, time, level at top of Screen(2)
+        floor displayed(1)
+        gravity(1)
+        enemies displayed and move according to instructions(2)
+        screen moves with player(1)
+        score calculated based on remaining time(3)
+        if time remaining is emptied, kill player(2)
+        powerups display when activated.(3)
+        finish-line of some sort(1)
+        collision detection(1)
+        sound effects(2)
+        music(2)
+        Weapon displayed and upgraded based on powerups(2)
+        powerup lost upon life loss(3)
+        game over when lives = 0(1)
+        if player falls of the screen they spawn at the beginning of the level(1)
+
+    Player screen(3)
+        displays information on which players turn it is(3)
+        after time move onto the level screen(3)
+
+    Highscore Screen:(2)
+        displays top 10 scores in order from greatest to least(2)
+        if player score would be on the board let them input a name(2)
+        list of top 10 scores.(2)
+        return to main menu on button press(2)
+
+    Level Transition Screen:(2)
+        displays lives, score, next level number(2)
+
+    
+    Game Over Screen:(2)
+        displays that the game is over(2)
+        on button press or after specified time return to menu(2)
+
+    Instructions Screen:(2)
+        displays rules of play(2)
+        back button(2)

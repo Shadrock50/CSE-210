@@ -1,0 +1,2 @@
+What technologies will we use?
+    We will use Arcade. We might use pyautogui, winsound, gtts, playsound, and possibly re.

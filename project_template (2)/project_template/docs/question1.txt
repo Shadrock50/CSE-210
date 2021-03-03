@@ -1,0 +1,2 @@
+What program are we going to create?
+    We plan on building a side-scroller adventure, similar to super mario.

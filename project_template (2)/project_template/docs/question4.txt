@@ -1,0 +1,22 @@
+What is our timeline?
+
+Week 9- Alpha Release:
+    all level 1 priorities are finished.
+    no real bug fixes.
+    no validation in place.
+
+Week 10- Beta Release:
+    working build that includes all 2 priorities finished.
+    no bug fixes or validation
+
+Week 11- Release Candidate:
+    design is fully intact.
+    all sound is figured out
+
+Week 12- Stable Build:
+    fix all the bugs
+    apply all validation
+
+Week 13- Release to Manufacturing:
+    Finish everything up.
+    Add any stretch goals (Priority 3's)
