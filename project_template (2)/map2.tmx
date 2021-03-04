@@ -1,48 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="2" nextobjectid="1">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="2" nextobjectid="1">
  <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="145" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="1">
    <image width="128" height="128" source="images/tiles/boxCrate_double.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+    <object id="2" x="0" y="0" width="128" height="128"/>
+    <object id="3" x="0" y="-2" width="128" height="130"/>
+    <object id="4" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="2">
    <image width="128" height="128" source="images/tiles/boxCrate_single.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="3">
    <image width="128" height="128" source="images/tiles/brickBrown.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="4">
    <image width="128" height="128" source="images/tiles/brickGrey.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="5">
    <image width="128" height="128" source="images/tiles/bridgeA.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0.340245" y="2.38171" width="40.8293" height="20.0744">
+     <ellipse/>
+    </object>
+    <object id="3" x="51.3769" y="4.08293" width="27.9001" height="46.6135">
+     <ellipse/>
+    </object>
+    <object id="4" x="85.0611" y="3.0622" width="38.7879" height="41.8501">
+     <ellipse/>
+    </object>
+    <object id="5" x="64.6465" y="25.1781">
+     <ellipse/>
+    </object>
+    <object id="6" x="0" y="0" width="127" height="46"/>
+    <object id="7" x="0" y="0" width="127" height="46"/>
+    <object id="8" x="0" y="0" width="127" height="46"/>
+   </objectgroup>
   </tile>
   <tile id="6">
    <image width="128" height="128" source="images/tiles/bridgeB.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="37"/>
+   </objectgroup>
   </tile>
   <tile id="7">
    <image width="128" height="128" source="images/tiles/bush.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="27.2196" y="54.7794" width="76.555" height="30.2818">
+     <ellipse/>
+    </object>
+    <object id="2" x="10.5476" y="87.1026" width="40.4891" height="36.0659">
+     <ellipse/>
+    </object>
+    <object id="3" x="54.0989" y="84.7209" width="51.7172" height="43.2111">
+     <ellipse/>
+    </object>
+    <object id="4" x="104.795" y="93.9075" width="12.2488" height="24.4976">
+     <ellipse/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="8">
    <image width="128" height="128" source="images/tiles/cactus.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="27" y="24" width="75" height="104"/>
+   </objectgroup>
   </tile>
   <tile id="9">
    <image width="128" height="128" source="images/tiles/dirt.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="10">
    <image width="128" height="128" source="images/tiles/dirtCenter.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="11">
    <image width="128" height="128" source="images/tiles/dirtCenter_rounded.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="12">
    <image width="128" height="128" source="images/tiles/dirtCliff_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="13">
    <image width="128" height="128" source="images/tiles/dirtCliff_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="14">
    <image width="128" height="128" source="images/tiles/dirtCliffAlt_left.png"/>
@@ -58,30 +128,61 @@
   </tile>
   <tile id="18">
    <image width="128" height="128" source="images/tiles/dirtHalf.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="74"/>
+   </objectgroup>
   </tile>
   <tile id="19">
    <image width="128" height="128" source="images/tiles/dirtHalf_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="74"/>
+   </objectgroup>
   </tile>
   <tile id="20">
    <image width="128" height="128" source="images/tiles/dirtHalf_mid.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="74"/>
+   </objectgroup>
   </tile>
   <tile id="21">
    <image width="128" height="128" source="images/tiles/dirtHalf_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="74"/>
+   </objectgroup>
   </tile>
   <tile id="22">
    <image width="128" height="128" source="images/tiles/dirtHill_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0.340245" y="1.70122">
+     <polygon points="0,0 127.251,124.53 -0.340245,125.21"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="23">
    <image width="128" height="128" source="images/tiles/dirtHill_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="-0.340245" y="127.932">
+     <polygon points="0,0 127.251,-127.592 127.932,-0.340245"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="24">
    <image width="128" height="128" source="images/tiles/dirtLeft.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="25">
    <image width="128" height="128" source="images/tiles/dirtMid.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="26">
    <image width="128" height="128" source="images/tiles/dirtRight.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="27">
    <image width="128" height="128" source="images/tiles/doorClosed_mid.png"/>
@@ -91,6 +192,10 @@
   </tile>
   <tile id="29">
    <image width="128" height="128" source="images/tiles/grass.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+    <object id="2" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="30">
    <image width="128" height="128" source="images/tiles/grass_sprout.png"/>
@@ -103,9 +208,17 @@
   </tile>
   <tile id="33">
    <image width="128" height="128" source="images/tiles/grassCliff_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="34">
    <image width="128" height="128" source="images/tiles/grassCliff_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1.02073" y="0">
+     <polygon points="0,0 125.55,0 -0.340245,127.251"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="35">
    <image width="128" height="128" source="images/tiles/grassCliffAlt_left.png"/>
@@ -121,30 +234,64 @@
   </tile>
   <tile id="39">
    <image width="128" height="128" source="images/tiles/grassHalf.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="74"/>
+   </objectgroup>
   </tile>
   <tile id="40">
    <image width="128" height="128" source="images/tiles/grassHalf_left.png"/>
+   <objectgroup draworder="index" id="3">
+    <object id="3" x="0.340245" y="0.340245" width="126.911" height="69.4099"/>
+    <object id="4" x="0" y="0" width="128" height="74"/>
+   </objectgroup>
   </tile>
   <tile id="41">
    <image width="128" height="128" source="images/tiles/grassHalf_mid.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0.680489" y="0.680489" width="125.89" height="72.1318"/>
+    <object id="2" x="0" y="0" width="128" height="74"/>
+   </objectgroup>
   </tile>
   <tile id="42">
    <image width="128" height="128" source="images/tiles/grassHalf_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0.340245" y="0.680489" width="126.571" height="71.7916"/>
+    <object id="2" x="0" y="0" width="128" height="74"/>
+   </objectgroup>
   </tile>
   <tile id="43">
    <image width="128" height="128" source="images/tiles/grassHill_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1.36098" y="1.70122">
+     <polygon points="0,0 125.21,125.55 -0.680489,125.55"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="44">
    <image width="128" height="128" source="images/tiles/grassHill_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="2.04147" y="127.932">
+     <polygon points="0,0 124.53,-126.911 124.87,-0.680489"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="45">
    <image width="128" height="128" source="images/tiles/grassLeft.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="46">
    <image width="128" height="128" source="images/tiles/grassMid.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="47">
    <image width="128" height="128" source="images/tiles/grassRight.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="48">
    <image width="128" height="128" source="images/tiles/ladderMid.png"/>
@@ -178,6 +325,15 @@
   </tile>
   <tile id="58">
    <image width="128" height="128" source="images/tiles/mushroomRed.png"/>
+   <objectgroup draworder="index" id="4">
+    <object id="3" x="28.5805" y="75.194" width="66.3477" height="23.8171">
+     <ellipse/>
+    </object>
+    <object id="5" x="53.7586" y="102.414" width="20.7549" height="24.4976">
+     <ellipse/>
+    </object>
+    <object id="6" x="28" y="73" width="72" height="55"/>
+   </objectgroup>
   </tile>
   <tile id="59">
    <image width="128" height="128" source="images/tiles/planet.png"/>
@@ -292,155 +448,328 @@
   </tile>
   <tile id="96">
    <image width="128" height="128" source="images/tiles/sandRight.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="97">
    <image width="128" height="128" source="images/tiles/signExit.png"/>
   </tile>
   <tile id="98">
    <image width="128" height="128" source="images/tiles/signLeft.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="10.2073" y="45.5928">
+     <polygon points="0,0 103.434,-27.5598 106.156,25.5183"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="99">
    <image width="128" height="128" source="images/tiles/signRight.png"/>
+   <objectgroup draworder="index" id="3">
+    <object id="2" x="15.6512" y="19.0537">
+     <polygon points="0,0 101.733,25.5183 -1.02073,54.7794"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="100">
    <image width="128" height="128" source="images/tiles/snow.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="101">
    <image width="128" height="128" source="images/tiles/snow_pile.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="2" y="99" width="125" height="29"/>
+   </objectgroup>
   </tile>
   <tile id="102">
    <image width="128" height="128" source="images/tiles/snowCenter.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="103">
    <image width="128" height="128" source="images/tiles/snowCenter_rounded.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="104">
    <image width="128" height="128" source="images/tiles/snowCliff_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1.02073" y="0.340245">
+     <polygon points="0,0 125.89,0.340245 125.89,125.89"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="105">
    <image width="128" height="128" source="images/tiles/snowCliff_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1.02073" y="1.02073">
+     <polygon points="0,0 126.911,-0.340245 -1.02073,125.55"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="106">
    <image width="128" height="128" source="images/tiles/snowCliffAlt_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0.340245" y="1.70122">
+     <polygon points="0,0 127.592,-1.02073 126.911,126.231"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="107">
    <image width="128" height="128" source="images/tiles/snowCliffAlt_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="126.571" y="1.70122">
+     <polygon points="0,0 -125.89,125.21 -126.571,-0.340245"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="108">
    <image width="128" height="128" source="images/tiles/snowCorner_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="109">
    <image width="128" height="128" source="images/tiles/snowCorner_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="110">
    <image width="128" height="128" source="images/tiles/snowHalf.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="74"/>
+   </objectgroup>
   </tile>
   <tile id="111">
    <image width="128" height="128" source="images/tiles/snowHalf_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="74"/>
+   </objectgroup>
   </tile>
   <tile id="112">
    <image width="128" height="128" source="images/tiles/snowHalf_mid.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="73"/>
+   </objectgroup>
   </tile>
   <tile id="113">
    <image width="128" height="128" source="images/tiles/snowHalf_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="73"/>
+   </objectgroup>
   </tile>
   <tile id="114">
    <image width="128" height="128" source="images/tiles/snowHill_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1.02073" y="2.38171">
+     <polygon points="0,0 126.231,124.87 -0.340245,124.87"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="115">
    <image width="128" height="128" source="images/tiles/snowHill_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="126.911" y="1.70122">
+     <polygon points="0,0 -125.55,124.53 0,125.21"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="116">
    <image width="128" height="128" source="images/tiles/snowLeft.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="117">
    <image width="128" height="128" source="images/tiles/snowMid.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="118">
    <image width="128" height="128" source="images/tiles/snowRight.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="119">
    <image width="128" height="128" source="images/tiles/spikes.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="64" width="128" height="64"/>
+   </objectgroup>
   </tile>
   <tile id="120">
    <image width="128" height="128" source="images/tiles/stone.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="121">
    <image width="128" height="128" source="images/tiles/stoneCenter.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="122">
    <image width="128" height="128" source="images/tiles/stoneCenter_rounded.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="123">
    <image width="128" height="128" source="images/tiles/stoneCliff_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="1.70122">
+     <polygon points="0,0 127.251,-0.340245 127.251,124.53"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="124">
    <image width="128" height="128" source="images/tiles/stoneCliff_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1.36098" y="1.36098">
+     <polygon points="0,0 125.21,-0.340245 0,124.87"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="125">
    <image width="128" height="128" source="images/tiles/stoneCliffAlt_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1.02073" y="1.70122">
+     <polygon points="0,0 126.231,-0.680489 125.89,125.55"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="126">
    <image width="128" height="128" source="images/tiles/stoneCliffAlt_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="124.189" y="2.38171">
+     <polygon points="0,0 -123.849,125.55 -124.189,-3.74269"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="127">
    <image width="128" height="128" source="images/tiles/stoneCorner_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="128">
    <image width="128" height="128" source="images/tiles/stoneCorner_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="129">
    <image width="128" height="128" source="images/tiles/stoneHalf.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="73"/>
+    <object id="2" x="0" y="0" width="128" height="73"/>
+   </objectgroup>
   </tile>
   <tile id="130">
    <image width="128" height="128" source="images/tiles/stoneHalf_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="73"/>
+   </objectgroup>
   </tile>
   <tile id="131">
    <image width="128" height="128" source="images/tiles/stoneHalf_mid.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="74"/>
+   </objectgroup>
   </tile>
   <tile id="132">
    <image width="128" height="128" source="images/tiles/stoneHalf_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="74"/>
+   </objectgroup>
   </tile>
   <tile id="133">
    <image width="128" height="128" source="images/tiles/stoneHill_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1.02073" y="0.680489">
+     <polygon points="0,0 125.89,126.911 -0.680489,126.911"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="134">
    <image width="128" height="128" source="images/tiles/stoneHill_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="2" x="1.70122" y="126.231">
+     <polygon points="0,0 125.21,-124.87 126.571,1.02073"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="135">
    <image width="128" height="128" source="images/tiles/stoneLeft.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="136">
    <image width="128" height="128" source="images/tiles/stoneMid.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="137">
    <image width="128" height="128" source="images/tiles/stoneRight.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="138">
    <image width="128" height="128" source="images/tiles/switchGreen.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="44" width="128" height="84"/>
+   </objectgroup>
   </tile>
   <tile id="139">
    <image width="128" height="128" source="images/tiles/switchGreen_pressed.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="80" width="128" height="48"/>
+   </objectgroup>
   </tile>
   <tile id="140">
    <image width="128" height="128" source="images/tiles/switchRed.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="44" width="128" height="84"/>
+   </objectgroup>
   </tile>
   <tile id="141">
    <image width="128" height="128" source="images/tiles/switchRed_pressed.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="80" width="128" height="48"/>
+   </objectgroup>
   </tile>
   <tile id="142">
    <image width="128" height="128" source="images/tiles/water.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="143">
    <image width="128" height="128" source="images/tiles/waterTop_high.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="128" height="128"/>
+   </objectgroup>
   </tile>
   <tile id="144">
    <image width="128" height="128" source="images/tiles/waterTop_low.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="37" width="128" height="91"/>
+   </objectgroup>
   </tile>
  </tileset>
  <layer id="1" name="Platforms" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BwAg4qmsWExOYFYik0zAXEfBSYLwE1hxggTKbZQkAsSII9hEATlOaFms2NhokB+PzShEeOGP3YgAYSJgXgswfkfy4G3GmAkUS7YObhSk/IaVEJiOWgWA+IlUm0CxdgIqyEwRqJTciPbFCMbgcTFnEYQPYbDCP7L5kIu2B2kAp0gVgfigkBdDtSiDRfAQkTYwe28IABdHE5NPOx2YFuHihsASitCac=
+   eJxjYBgFo2AUjIJRMApQARMapoYZTFjEqWUmNnlSgRyRmFT96HKUugMXAACj7wNT
   </data>
  </layer>
 </map>

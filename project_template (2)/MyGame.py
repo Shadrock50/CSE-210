@@ -19,12 +19,13 @@ class MyGame(arcade.Window):
         self.view_left = 0
 
         self.score = 0
+        self.level = 1
 
          # Load sounds
         self.collect_coin_sound = arcade.load_sound(":resources:sounds/coin1.wav")
         self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
 
-    def setup(self):
+    def setup(self, level):
         # Used to keep track of our scrolling
         self.view_bottom = 0
         self.view_left = 0
@@ -37,7 +38,7 @@ class MyGame(arcade.Window):
         self.coin_list = arcade.SpriteList(use_spatial_hash=True)
         self.enemy_list = arcade.SpriteList()
 
-        image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
+        image_source = ":resources:images/enemies/mouse.png"
         self.player_sprite = arcade.Sprite(image_source, constants.CHARACTER_SCALING)
         self.player_sprite.center_x = 64
         self.player_sprite.center_y = 128
@@ -46,7 +47,7 @@ class MyGame(arcade.Window):
         # --- Load in a map from the tiled editor ---
 
         # Name of map file to load
-        map_name = "map.tmx"
+        map_name = "map{level}.tmx"
         # Name of the layer in the file that has our platforms/walls
         platforms_layer_name = 'Platforms'
         # Name of the layer that has items for pick-up
