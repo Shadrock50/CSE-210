@@ -47,7 +47,7 @@ class MyGame(arcade.Window):
         # --- Load in a map from the tiled editor ---
 
         # Name of map file to load
-        map_name = "map{level}.tmx"
+        map_name = "map" + str(self.level) + ".tmx" #this is supposed to use the window.level to call in the map
         # Name of the layer in the file that has our platforms/walls
         platforms_layer_name = 'Platforms'
         # Name of the layer that has items for pick-up
