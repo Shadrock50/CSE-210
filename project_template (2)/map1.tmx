@@ -440,7 +440,7 @@
  </tileset>
  <layer id="1" name="Platforms" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BwAg4qmsWExOYFYik0zAXEfBSYLwE1hxggTKbZQkDMTaJefKAJSvMimQ3DXESaQapfKNWvgYSpZQ/I/1wMlKcBdPNwmYWcFpWAWA6K9YBYmQr2o9uBC1iTYB4bFKPbwYRFHAaQ/YbNX8lE2Auzg1SgC8T6UEwLO0DmKyBhYuxADg8YhgF0cTk087HZgW4eKIwBMNwIVg==
+   eJxjYBgFo2BwAg4qmsWExOYFYik0zAXEfBSYLwE1hxggTKbZQkDMTaJefKAJSvMimQ3DXESaQapfKNWvgYSpZQ/I/1wMlKcBdPOIMUsJiOWgWA+IlalgP7HAmgS1bFCMDphwiIMAst+w+SuZSLuZCCvBALpArA/FtLADZL4CEiYGIIcHDMMAurgcmvnY7EA3DxTGACBECEo=
   </data>
  </layer>
 </map>
