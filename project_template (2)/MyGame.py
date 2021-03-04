@@ -20,10 +20,12 @@ class MyGame(arcade.Window):
 
         self.score = 0
         self.level = 1
+        self.end_of_map = 0
 
          # Load sounds
         self.collect_coin_sound = arcade.load_sound(":resources:sounds/coin1.wav")
         self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
+        self.game_over = arcade.load_sound(":resources:sounds/gameover1.wav")
 
     def setup(self, level):
         # Used to keep track of our scrolling
@@ -56,6 +58,9 @@ class MyGame(arcade.Window):
         # Read in the tiled map
         my_map = arcade.tilemap.read_tmx(map_name)
 
+        self.end_of_map = my_map.map_size.width * constants.GRID_PIXEL_SIZE
+
+
         # -- Platforms
         self.wall_list = arcade.tilemap.process_layer(map_object=my_map,
                                                       layer_name=platforms_layer_name,
@@ -70,30 +75,6 @@ class MyGame(arcade.Window):
         if my_map.background_color:
             arcade.set_background_color(my_map.background_color)
        
-        # Create the 'physics engine'
-
-        # for x in range(0, 1250, 64):
-        #     wall = arcade.Sprite(":resources:images/tiles/grassMid.png", constants.TILE_SCALING)
-        #     wall.center_x = x
-        #     wall.center_y = 32
-        #     self.wall_list.append(wall)
-
-        # coordinate_list = [[512, 96],
-        #                    [256, 96],
-        #                    [768, 96]]
-
-        # for coordinate in coordinate_list:
-        #     # Add a crate on the ground
-        #     wall = arcade.Sprite(":resources:images/tiles/boxCrate_double.png", constants.TILE_SCALING)
-        #     wall.position = coordinate
-        #     self.wall_list.append(wall)
-        #  # Use a loop to place some coins for our character to pick up
-        # for x in range(128, 1250, 256):
-        #     coin = arcade.Sprite(":resources:images/items/coinGold.png", constants.COIN_SCALING)
-        #     coin.center_x = x
-        #     coin.center_y = 96
-        #     self.coin_list.append(coin)
-
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite, self.wall_list, constants.GRAVITY)
 
 
@@ -140,6 +121,30 @@ class MyGame(arcade.Window):
             self.score += 1
 
         changed = False
+
+          # Did the player fall off the map?
+        if self.player_sprite.center_y < -100:
+            self.player_sprite.center_x = constants.PLAYER_START_X
+            self.player_sprite.center_y = constants.PLAYER_START_Y
+
+            # Set the camera to the start
+            self.view_left = 0
+            self.view_bottom = 0
+            changed = True
+            arcade.play_sound(self.game_over)
+
+          # See if the user got to the end of the level
+        if self.player_sprite.center_x >= self.end_of_map:
+            # Advance to the next level
+            self.level += 1
+
+            # Load the next level
+            self.setup(self.level)
+
+            # Set the camera to the start
+            self.view_left = 0
+            self.view_bottom = 0
+            changed = True
 
         # Scroll left
         left_boundary = self.view_left + constants.LEFT_VIEWPORT_MARGIN
