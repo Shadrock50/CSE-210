@@ -6,7 +6,7 @@ class MyGame(arcade.Window):
 
         super().__init__(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, constants.SCREEN_TITLE)
 
-        arcade.set_background_color(arcade.csscolor.AQUA)
+        arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
         self.coin_list = None
         self.wall_list = None
@@ -17,6 +17,10 @@ class MyGame(arcade.Window):
 
         self.view_bottom = 0
         self.view_left = 0
+
+         # Load sounds
+        self.collect_coin_sound = arcade.load_sound(":resources:sounds/coin1.wav")
+        self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
 
     def setup(self):
         self.player_list = arcade.SpriteList()
@@ -46,6 +50,13 @@ class MyGame(arcade.Window):
             wall.position = coordinate
             self.wall_list.append(wall)
 
+         # Use a loop to place some coins for our character to pick up
+        for x in range(128, 1250, 256):
+            coin = arcade.Sprite(":resources:images/items/coinGold.png", constants.COIN_SCALING)
+            coin.center_x = x
+            coin.center_y = 96
+            self.coin_list.append(coin)
+
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite, self.wall_list, constants.GRAVITY)
 
 
@@ -55,6 +66,7 @@ class MyGame(arcade.Window):
             if self.physics_engine.can_jump():
                 #self.player_sprite.change_y = constants.PLAYER_JUMP_SPEED
                 self.physics_engine.jump(constants.PLAYER_JUMP_SPEED)
+                arcade.play_sound(self.jump_sound)
         elif key == arcade.key.DOWN or key == arcade.key.S:
             self.player_sprite.change_y = -constants.PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.LEFT or key == arcade.key.A:
@@ -78,6 +90,16 @@ class MyGame(arcade.Window):
 
         # Move the player with the physics engine
         self.physics_engine.update()
+
+        # See if we hit any coins
+        coin_hit_list = arcade.check_for_collision_with_list(self.player_sprite, self.coin_list)
+
+        # Loop through each coin we hit (if any) and remove it
+        for coin in coin_hit_list:
+            # Remove the coin
+            coin.remove_from_sprite_lists()
+            # Play a sound
+            arcade.play_sound(self.collect_coin_sound)
 
         changed = False
 
