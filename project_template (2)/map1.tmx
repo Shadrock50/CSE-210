@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="3" nextobjectid="1">
- <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="145" columns="0">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="7" nextobjectid="3">
+ <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="166" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
@@ -437,6 +437,69 @@
   <tile id="144">
    <image width="128" height="128" source="images/tiles/waterTop_low.png"/>
   </tile>
+  <tile id="145">
+   <image width="128" height="128" source="images/items/coinBronze.png"/>
+  </tile>
+  <tile id="146">
+   <image width="128" height="128" source="images/items/coinGold.png"/>
+  </tile>
+  <tile id="147">
+   <image width="128" height="128" source="images/items/coinSilver.png"/>
+  </tile>
+  <tile id="148">
+   <image width="128" height="128" source="images/items/flagGreen_down.png"/>
+  </tile>
+  <tile id="149">
+   <image width="128" height="128" source="images/items/flagGreen1.png"/>
+  </tile>
+  <tile id="150">
+   <image width="128" height="128" source="images/items/flagGreen2.png"/>
+  </tile>
+  <tile id="151">
+   <image width="128" height="128" source="images/items/flagRed_down.png"/>
+  </tile>
+  <tile id="152">
+   <image width="128" height="128" source="images/items/flagRed1.png"/>
+  </tile>
+  <tile id="153">
+   <image width="128" height="128" source="images/items/flagRed2.png"/>
+  </tile>
+  <tile id="154">
+   <image width="128" height="128" source="images/items/flagYellow_down.png"/>
+  </tile>
+  <tile id="155">
+   <image width="128" height="128" source="images/items/flagYellow1.png"/>
+  </tile>
+  <tile id="156">
+   <image width="128" height="128" source="images/items/flagYellow2.png"/>
+  </tile>
+  <tile id="157">
+   <image width="128" height="128" source="images/items/gemBlue.png"/>
+  </tile>
+  <tile id="158">
+   <image width="128" height="128" source="images/items/gemGreen.png"/>
+  </tile>
+  <tile id="159">
+   <image width="128" height="128" source="images/items/gemRed.png"/>
+  </tile>
+  <tile id="160">
+   <image width="128" height="128" source="images/items/gemYellow.png"/>
+  </tile>
+  <tile id="161">
+   <image width="128" height="128" source="images/items/keyBlue.png"/>
+  </tile>
+  <tile id="162">
+   <image width="128" height="128" source="images/items/keyGreen.png"/>
+  </tile>
+  <tile id="163">
+   <image width="128" height="128" source="images/items/keyRed.png"/>
+  </tile>
+  <tile id="164">
+   <image width="128" height="128" source="images/items/keyYellow.png"/>
+  </tile>
+  <tile id="165">
+   <image width="128" height="128" source="images/items/star.png"/>
+  </tile>
  </tileset>
  <layer id="1" name="Platforms" width="25" height="20">
   <data encoding="base64" compression="zlib">
@@ -445,7 +508,12 @@
  </layer>
  <layer id="2" name="Background" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwVAHAAfQAAE=
+   eJxjYBgFo2BwAXk0vvWAuGIUkAM4B9oBo2AUUABS8Mhx0M0V5AMASvYA0A==
   </data>
  </layer>
+ <objectgroup id="4" name="Power-ups"/>
+ <objectgroup id="5" name="Enemies"/>
+ <objectgroup id="6" name="Flag">
+  <object id="2" gid="150" x="3081.24" y="2425.53" width="128" height="128"/>
+ </objectgroup>
 </map>
