@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="7" nextobjectid="4">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="5">
  <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="185" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -563,6 +563,11 @@
    eJxjYBgFo2D4AyYkNi8QS6FhLiDmo8B8Cag5xABhMs0WAmJuEvXiA01QmhfJbBjmItIMUv1CqX4NJEwte0D+52KgPA2gm0eMWUpALAfFekCsTAX7aQHYoBgdMOEQBwFkv1HiLybCSjCALhDrQzEt7ACZr4CEiQHI4QHDMIAuLodmPjY70M0DhTEABz0HpA==
   </data>
  </layer>
+ <layer id="7" name="Enemy Collisions" width="25" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BwAE4K5UfBKBgFo4CaAFeZM1jLIgBxAAAl
+  </data>
+ </layer>
  <layer id="2" name="Background" width="25" height="20">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2BwAXk0vvWAuGIUkAM4B9oBo2AUUABS8Mhx0M0V5AMASvYA0A==
@@ -571,6 +576,7 @@
  <objectgroup id="4" name="Power-ups"/>
  <objectgroup id="5" name="Enemies">
   <object id="3" type="Crawler" gid="182" x="1410.01" y="2415.15" width="128" height="128"/>
+  <object id="4" type="Crawler" gid="183" x="2303.43" y="874.472" width="128" height="128"/>
  </objectgroup>
  <objectgroup id="6" name="Flag">
   <object id="2" gid="150" x="3081.24" y="2425.53" width="128" height="128"/>

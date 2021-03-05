@@ -16,6 +16,7 @@ class MyGame(arcade.Window):
         self.background_list = None
         self.flag_list = None
         self.bullet_list = None
+        self.enemy_collisions_list = None
 
         self.player_sprite = None
 
@@ -46,6 +47,7 @@ class MyGame(arcade.Window):
         self.bullet_list = arcade.SpriteList()
         self.background_list = arcade.SpriteList(use_spatial_hash=True)
         self.flag_list = arcade.SpriteList(use_spatial_hash=True)
+        self.enemy_collisions_list = arcade.SpriteList()
 
         image_source = ":resources:images/enemies/mouse.png"
         self.player_sprite = arcade.Sprite(image_source, constants.CHARACTER_SCALING)
@@ -81,6 +83,7 @@ class MyGame(arcade.Window):
 
         # Enemies
         self.enemies_list = arcade.tilemap.process_layer(my_map, enemies_layer_name, constants.TILE_SCALING)
+        self.enemy_collisions_list = arcade.tilemap.process_layer(my_map, "Enemy Collisions", constants.TILE_SCALING)
         self.generate_enemies()
 
         # Flag
@@ -140,15 +143,18 @@ class MyGame(arcade.Window):
             if bullet.left > self.view_left + constants.SCREEN_WIDTH:
                 bullet.remove_from_sprite_lists()
 
+            hit_enemy_list = arcade.check_for_collision_with_list(bullet, self.enemies_list)
+            if len(hit_enemy_list) > 0:
+                bullet.remove_from_sprite_lists()
+            for enemy in hit_enemy_list:
+                enemy.remove_from_sprite_lists()
+                self.score += 100
+
         #move enemies
 
         self.enemies_list.update()
         self.move_enemies()
                 
-            # if enemy.Health == 2:
-                # enemy.change_x = constants.CRAWLER_SPEED
-        
-
 
         # # See if we hit any coins
         # coin_hit_list = arcade.check_for_collision_with_list(self.player_sprite, self.coin_list)
@@ -225,7 +231,10 @@ class MyGame(arcade.Window):
                                 constants.SCREEN_HEIGHT + self.view_bottom)
     
     def generate_enemies(self):
-        pass
+        for enemy in self.enemies_list:
+            if enemy.properties['type'] == 'Crawler':
+                enemy.change_x = -constants.CRAWLER_SPEED
+
         # for enemy in self.enemies_list:
         #     if enemy.properties['type'] == 'Crawler':
         #         enemy.health = 2
@@ -236,11 +245,17 @@ class MyGame(arcade.Window):
     
     def move_enemies(self):
         for enemy in self.enemies_list:
+            enemy.change_y += -constants.GRAVITY
+            if arcade.check_for_collision_with_list(enemy, self.wall_list):
+                enemy.change_y = 0
+
+        for enemy in self.enemies_list:
             if enemy.properties['type'] == 'Crawler':
-                enemy.change_x = -1
-                jumpint = random.randint(0, 10)
-                if jumpint == 10:
-                    enemy.change_y == 5
+                if arcade.check_for_collision_with_list(enemy, self.enemy_collisions_list):
+                    enemy.change_x = enemy.change_x * -1
+                    
+
+
 
     def generate_bullet(self, powerup):
         if powerup == 0:
@@ -248,7 +263,7 @@ class MyGame(arcade.Window):
             bullet.change_x = constants.BULLET_SPEED
 
 
-            bullet.center_y = self.player_sprite.center_y
+            bullet.center_y = self.player_sprite.center_y - 24
             bullet.center_x = self.player_sprite.center_x #position of the bullet
             self.bullet_list.append(bullet)
 
