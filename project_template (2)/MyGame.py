@@ -1,5 +1,6 @@
 import arcade
 import constants
+import random
 
 class MyGame(arcade.Window):
     def __init__(self):
@@ -11,7 +12,7 @@ class MyGame(arcade.Window):
         self.power_ups_list = None
         self.wall_list = None
         self.player_list = None #May need enemy list
-        self.enemy_list = None #May want list for each enemy type
+        self.enemies_list = None #May want list for each enemy type
         self.background_list = None
         self.flag_list = None
         self.bullet_list = None
@@ -41,7 +42,7 @@ class MyGame(arcade.Window):
         self.player_list = arcade.SpriteList()
         self.wall_list = arcade.SpriteList(use_spatial_hash=True)
         self.power_ups_list = arcade.SpriteList(use_spatial_hash=True)
-        self.enemy_list = arcade.SpriteList()
+        self.enemies_list = arcade.SpriteList()
         self.bullet_list = arcade.SpriteList()
         self.background_list = arcade.SpriteList(use_spatial_hash=True)
         self.flag_list = arcade.SpriteList(use_spatial_hash=True)
@@ -80,6 +81,7 @@ class MyGame(arcade.Window):
 
         # Enemies
         self.enemies_list = arcade.tilemap.process_layer(my_map, enemies_layer_name, constants.TILE_SCALING)
+        self.generate_enemies()
 
         # Flag
         self.flag_list = arcade.tilemap.process_layer(my_map, flag_layer_name, constants.TILE_SCALING)
@@ -129,13 +131,23 @@ class MyGame(arcade.Window):
         # Move the player with the physics engine
         self.physics_engine.update()
 
+        #bullets
         self.bullet_list.update()
-        # for bullet in self.bullet_list:
-        #     hit_wall_list = arcade.check_for_collision_with_list(bullet, self.wall_list)
-        #     if len(hit_wall_list) > 0:
-        #         bullet.remove_from_sprite_lists()
-        #     if bullet.left > self.view_left + constants.SCREEN_WIDTH - constants.RIGHT_VIEWPORT_MARGIN:
-        #         bullet.remove_from_sprite_lists()
+        for bullet in self.bullet_list:
+            hit_wall_list = arcade.check_for_collision_with_list(bullet, self.wall_list)
+            if len(hit_wall_list) > 0:
+                bullet.remove_from_sprite_lists()
+            if bullet.left > self.view_left + constants.SCREEN_WIDTH:
+                bullet.remove_from_sprite_lists()
+
+        #move enemies
+
+        self.enemies_list.update()
+        self.move_enemies()
+                
+            # if enemy.Health == 2:
+                # enemy.change_x = constants.CRAWLER_SPEED
+        
 
 
         # # See if we hit any coins
@@ -151,8 +163,8 @@ class MyGame(arcade.Window):
 
         changed = False
 
-          # Did the player fall off the map?
-        if self.player_sprite.center_y < -100:
+          # Did the player fall off the map or collide with enemy?
+        if (self.player_sprite.center_y < -100) or (arcade.check_for_collision_with_list(self.player_sprite, self.enemies_list)):
             self.player_sprite.center_x = constants.PLAYER_START_X
             self.player_sprite.center_y = constants.PLAYER_START_Y
 
@@ -162,7 +174,8 @@ class MyGame(arcade.Window):
             changed = True
             arcade.play_sound(self.game_over)
 
-          # See if the user got to the end of the level
+
+          # See if the user got to the flag
         if arcade.check_for_collision_with_list(self.player_sprite, self.flag_list):
             # Advance to the next level
             self.level += 1
@@ -211,15 +224,33 @@ class MyGame(arcade.Window):
                                 self.view_bottom,
                                 constants.SCREEN_HEIGHT + self.view_bottom)
     
+    def generate_enemies(self):
+        pass
+        # for enemy in self.enemies_list:
+        #     if enemy.properties['type'] == 'Crawler':
+        #         enemy.health = 2
+        #     elif enemy.properties['type'] == 'Flier':
+        #         enemy.health = 3
+        #     elif enemy.properties['type'] == 'Jumper':
+        #         enemy.health = 3
+    
+    def move_enemies(self):
+        for enemy in self.enemies_list:
+            if enemy.properties['type'] == 'Crawler':
+                enemy.change_x = -1
+                jumpint = random.randint(0, 10)
+                if jumpint == 10:
+                    enemy.change_y == 5
+
     def generate_bullet(self, powerup):
         if powerup == 0:
             bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
             bullet.change_x = constants.BULLET_SPEED
 
-            bullet.left = self.player_sprite.center_y
+
+            bullet.center_y = self.player_sprite.center_y
             bullet.center_x = self.player_sprite.center_x #position of the bullet
             self.bullet_list.append(bullet)
-
 
 
     def on_draw(self):

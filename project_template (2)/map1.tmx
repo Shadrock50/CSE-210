@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="7" nextobjectid="3">
- <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="166" columns="0">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="7" nextobjectid="4">
+ <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="185" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
@@ -500,6 +500,63 @@
   <tile id="165">
    <image width="128" height="128" source="images/items/star.png"/>
   </tile>
+  <tile id="166">
+   <image width="128" height="128" source="images/enemies/bee.png"/>
+  </tile>
+  <tile id="167">
+   <image width="128" height="128" source="images/enemies/fishGreen.png"/>
+  </tile>
+  <tile id="168">
+   <image width="128" height="128" source="images/enemies/fishPink.png"/>
+  </tile>
+  <tile id="169">
+   <image width="128" height="128" source="images/enemies/fly.png"/>
+  </tile>
+  <tile id="170">
+   <image width="128" height="128" source="images/enemies/frog.png"/>
+  </tile>
+  <tile id="171">
+   <image width="128" height="128" source="images/enemies/frog_move.png"/>
+  </tile>
+  <tile id="172">
+   <image width="128" height="128" source="images/enemies/ladybug.png"/>
+  </tile>
+  <tile id="173">
+   <image width="128" height="128" source="images/enemies/mouse.png"/>
+  </tile>
+  <tile id="174">
+   <image width="128" height="128" source="images/enemies/saw.png"/>
+  </tile>
+  <tile id="175">
+   <image width="128" height="128" source="images/enemies/sawHalf.png"/>
+  </tile>
+  <tile id="176">
+   <image width="128" height="128" source="images/enemies/slimeBlock.png"/>
+  </tile>
+  <tile id="177">
+   <image width="128" height="128" source="images/enemies/slimeBlue.png"/>
+  </tile>
+  <tile id="178">
+   <image width="128" height="128" source="images/enemies/slimeBlue_move.png"/>
+  </tile>
+  <tile id="179">
+   <image width="128" height="128" source="images/enemies/slimeGreen.png"/>
+  </tile>
+  <tile id="180">
+   <image width="128" height="128" source="images/enemies/slimePurple.png"/>
+  </tile>
+  <tile id="181">
+   <image width="128" height="128" source="images/enemies/wormGreen.png"/>
+  </tile>
+  <tile id="182">
+   <image width="128" height="128" source="images/enemies/wormGreen_dead.png"/>
+  </tile>
+  <tile id="183">
+   <image width="128" height="128" source="images/enemies/wormGreen_move.png"/>
+  </tile>
+  <tile id="184">
+   <image width="128" height="128" source="images/enemies/wormPink.png"/>
+  </tile>
  </tileset>
  <layer id="1" name="Platforms" width="25" height="20">
   <data encoding="base64" compression="zlib">
@@ -512,7 +569,9 @@
   </data>
  </layer>
  <objectgroup id="4" name="Power-ups"/>
- <objectgroup id="5" name="Enemies"/>
+ <objectgroup id="5" name="Enemies">
+  <object id="3" type="Crawler" gid="182" x="1410.01" y="2415.15" width="128" height="128"/>
+ </objectgroup>
  <objectgroup id="6" name="Flag">
   <object id="2" gid="150" x="3081.24" y="2425.53" width="128" height="128"/>
  </objectgroup>
