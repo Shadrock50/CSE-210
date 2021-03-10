@@ -54,7 +54,7 @@ class PlayerCharacter(arcade.Sprite):
         direction = self.character_face_direction
         self.texture = self.walk_textures[frame][direction]
 
-    def load_texture_pair(filename):
+    def load_texture_pair(self, filename):
 
         return [
             arcade.load_texture(filename),
