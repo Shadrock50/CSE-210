@@ -17,21 +17,21 @@ class PlayerCharacter(arcade.Sprite):
 
         # Adjust the collision box. Default includes too much empty space
         # side-to-side. Box is centered at sprite center, (0, 0)
-        self.points = [[-22, -64], [22, -64], [22, 28], [-22, 28]]
+        # self.points = [[-22, -64], [22, -64], [22, 28], [-22, 28]]
 
         # --- Load Textures ---
 
         # Images from Kenney.nl's Asset Pack 3
-        main_path = ":resources:images/enemies/mouse.png"
+        main_path = ":resources:images/animated_characters/female_adventurer"
 
         # Load textures for idle standing
         self.idle_texture_pair = self.load_texture_pair(f"{main_path}_idle.png")
 
-        # # Load textures for walking
-        # self.walk_textures = []
-        # for i in range(8):
-        #     texture = self.load_texture_pair(f"{main_path}_walk{i}.png")
-        #     self.walk_textures.append(texture)
+        # Load textures for walking
+        self.walk_textures = []
+        for i in range(8):
+            texture = self.load_texture_pair(f"{main_path}_walk{i}.png")
+            self.walk_textures.append(texture)
 
     def update_animation(self, delta_time: float = 1/60):
 
@@ -43,7 +43,7 @@ class PlayerCharacter(arcade.Sprite):
 
         # Idle animation
         if self.change_x == 0 and self.change_y == 0:
-            self.texture = self.idle_texture_pair[self.character_face_direction]
+            self.texture = self.idle_texture_pair
             return
 
         # Walking animation

@@ -55,7 +55,6 @@ class MyGame(arcade.Window):
         self.flag_list = arcade.SpriteList(use_spatial_hash=True)
         self.enemy_collisions_list = arcade.SpriteList()
 
-        image_source = ":resources:images/enemies/mouse.png"
         self.player_sprite = PlayerCharacter()
         self.player_sprite.center_x = 64
         self.player_sprite.center_y = 128
