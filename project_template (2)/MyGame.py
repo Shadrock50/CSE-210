@@ -1,8 +1,10 @@
+from PlayerCharacter import PlayerCharacter
 import arcade
 from arcade.sprite_list import check_for_collision
 import constants
 import random
 import time
+import sys
 
 class MyGame(arcade.Window):
     def __init__(self):
@@ -30,6 +32,7 @@ class MyGame(arcade.Window):
         self.level = 1
         self.end_of_map = 0
         self.powerupTimer = 0
+        self.lives = 3
 
          # Load sounds
         self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
@@ -53,7 +56,7 @@ class MyGame(arcade.Window):
         self.enemy_collisions_list = arcade.SpriteList()
 
         image_source = ":resources:images/enemies/mouse.png"
-        self.player_sprite = arcade.Sprite(image_source, constants.CHARACTER_SCALING)
+        self.player_sprite = PlayerCharacter()
         self.player_sprite.center_x = 64
         self.player_sprite.center_y = 128
         self.player_list.append(self.player_sprite)
@@ -110,8 +113,10 @@ class MyGame(arcade.Window):
                 #self.player_sprite.change_y = constants.PLAYER_JUMP_SPEED
                 self.physics_engine.jump(constants.PLAYER_JUMP_SPEED)
                 arcade.play_sound(self.jump_sound)
+            self.player_facing = 'up'
         elif key == arcade.key.DOWN or key == arcade.key.S:
             self.player_sprite.change_y = -constants.PLAYER_MOVEMENT_SPEED
+            self.player_facing = 'down'
         elif key == arcade.key.LEFT or key == arcade.key.A:
             self.player_sprite.change_x = -constants.PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.RIGHT or key == arcade.key.D:
@@ -124,8 +129,10 @@ class MyGame(arcade.Window):
 
         if key == arcade.key.UP or key == arcade.key.W:
             self.player_sprite.change_y = 0
+            self.player_facing = 'right'
         elif key == arcade.key.DOWN or key == arcade.key.S:
             self.player_sprite.change_y = 0
+            self.player_facing = 'right'
         elif key == arcade.key.LEFT or key == arcade.key.A:
             self.player_sprite.change_x = 0
         elif key == arcade.key.RIGHT or key == arcade.key.D:
@@ -184,6 +191,8 @@ class MyGame(arcade.Window):
             # self.powerup = 0
             # changed = True
             arcade.play_sound(self.game_over)
+            self.lives = self.lives - 1
+            self.checkGameOver()
             time.sleep(1)
             self.setup(self.level)
 
@@ -265,9 +274,22 @@ class MyGame(arcade.Window):
 
 
     def generate_bullet(self):
+        if self.player_facing == 'right':
+            rotation = 0
+
+        if self.player_facing == 'left':
+            rotation = 180
+
+        if self.player_facing == 'up':
+            rotation = 90
+
+        if self.player_facing == 'down':
+            rotation = -90
+
         if self.powerup == 0:
             bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
             bullet.change_x = constants.BULLET_SPEED
+            bullet.angle = rotation
 
 
             bullet.center_y = self.player_sprite.center_y - 24
@@ -282,8 +304,12 @@ class MyGame(arcade.Window):
             bullet2.change_x = constants.BULLET_SPEED
             bullet3.change_x = constants.BULLET_SPEED
 
-            bullet2.change_y = constants.BULLET_SPEED / 2
-            bullet3.change_y = -constants.BULLET_SPEED / 2
+            bullet2.change_y = constants.BULLET_SPEED / 3
+            bullet3.change_y = -constants.BULLET_SPEED / 3
+
+            bullet.angle = rotation
+            bullet2.angle = rotation
+            bullet3.angle = rotation
 
 
             bullet.center_y = self.player_sprite.center_y - 24
@@ -303,7 +329,9 @@ class MyGame(arcade.Window):
             if check_for_collision(self.player_sprite, powerup):
                 if powerup.properties['type'] == "Shotgun":
                     self.powerup = 1
-                    self.powerupTimer = 3000
+                    self.powerupTimer = constants.POWER_UP_TIMER
+                if powerup.properties['type'] == "extraLife":
+                    self.lives = self.lives + 1
                 powerup.remove_from_sprite_lists()
 
         self.powerUpCountdown()
@@ -313,6 +341,11 @@ class MyGame(arcade.Window):
 
         if self.powerupTimer == 0:
             self.powerup = 0
+
+    def checkGameOver(self):
+        if self.lives == 0:
+            #go to game over screen
+            sys.exit()
 
     def on_draw(self):
 
@@ -327,5 +360,8 @@ class MyGame(arcade.Window):
 
          # Draw our score on the screen, scrolling it with the viewport
         score_text = f"Score: {self.score}"
+        life_text = f"Lives: {self.lives}"
         arcade.draw_text(score_text, 10 + self.view_left, 10 + self.view_bottom,
+                         arcade.csscolor.WHITE, 18)
+        arcade.draw_text(life_text, 100 + self.view_left, 10 + self.view_bottom,
                          arcade.csscolor.WHITE, 18)
