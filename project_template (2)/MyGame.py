@@ -1,6 +1,8 @@
 import arcade
+from arcade.sprite_list import check_for_collision
 import constants
 import random
+import time
 
 class MyGame(arcade.Window):
     def __init__(self):
@@ -27,6 +29,7 @@ class MyGame(arcade.Window):
         self.powerup = 0
         self.level = 1
         self.end_of_map = 0
+        self.powerupTimer = 0
 
          # Load sounds
         self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
@@ -114,7 +117,7 @@ class MyGame(arcade.Window):
         elif key == arcade.key.RIGHT or key == arcade.key.D:
             self.player_sprite.change_x = constants.PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.F:
-            self.generate_bullet(self.powerup)
+            self.generate_bullet()
         
 
     def on_key_release(self, key, modifiers):
@@ -153,6 +156,7 @@ class MyGame(arcade.Window):
         #move enemies
 
         self.enemies_list.update()
+        self.updatePowerup()
         self.move_enemies()
                 
 
@@ -175,10 +179,13 @@ class MyGame(arcade.Window):
             self.player_sprite.center_y = constants.PLAYER_START_Y
 
             # Set the camera to the start
-            self.view_left = 0
-            self.view_bottom = 0
-            changed = True
+            # self.view_left = 0
+            # self.view_bottom = 0
+            # self.powerup = 0
+            # changed = True
             arcade.play_sound(self.game_over)
+            time.sleep(1)
+            self.setup(self.level)
 
 
           # See if the user got to the flag
@@ -257,8 +264,8 @@ class MyGame(arcade.Window):
 
 
 
-    def generate_bullet(self, powerup):
-        if powerup == 0:
+    def generate_bullet(self):
+        if self.powerup == 0:
             bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
             bullet.change_x = constants.BULLET_SPEED
 
@@ -267,6 +274,45 @@ class MyGame(arcade.Window):
             bullet.center_x = self.player_sprite.center_x #position of the bullet
             self.bullet_list.append(bullet)
 
+        elif self.powerup == 1:
+            bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
+            bullet2 = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
+            bullet3 = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
+            bullet.change_x = constants.BULLET_SPEED
+            bullet2.change_x = constants.BULLET_SPEED
+            bullet3.change_x = constants.BULLET_SPEED
+
+            bullet2.change_y = constants.BULLET_SPEED / 2
+            bullet3.change_y = -constants.BULLET_SPEED / 2
+
+
+            bullet.center_y = self.player_sprite.center_y - 24
+            bullet.center_x = self.player_sprite.center_x #position of the bullet
+            bullet2.center_y = self.player_sprite.center_y - 24
+            bullet2.center_x = self.player_sprite.center_x #position of the bullet
+            bullet3.center_y = self.player_sprite.center_y - 24
+            bullet3.center_x = self.player_sprite.center_x #position of the bullet
+
+            self.bullet_list.append(bullet)
+            self.bullet_list.append(bullet2)
+            self.bullet_list.append(bullet3)
+
+
+    def updatePowerup(self):
+        for powerup in self.power_ups_list:
+            if check_for_collision(self.player_sprite, powerup):
+                if powerup.properties['type'] == "Shotgun":
+                    self.powerup = 1
+                    self.powerupTimer = 3000
+                powerup.remove_from_sprite_lists()
+
+        self.powerUpCountdown()
+
+    def powerUpCountdown(self):
+        self.powerupTimer = self.powerupTimer - 1
+
+        if self.powerupTimer == 0:
+            self.powerup = 0
 
     def on_draw(self):
 

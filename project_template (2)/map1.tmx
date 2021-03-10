@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="5">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="6">
  <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="185" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -573,7 +573,9 @@
    eJxjYBgFo2BwAXk0vvWAuGIUkAM4B9oBNAAcA+2AUUA3kIJHbiikAwBgVgDY
   </data>
  </layer>
- <objectgroup id="4" name="Power-ups"/>
+ <objectgroup id="4" name="Power-ups">
+  <object id="5" type="Shotgun" gid="166" x="650.495" y="1247.72" width="128" height="128"/>
+ </objectgroup>
  <objectgroup id="5" name="Enemies">
   <object id="3" type="Crawler" gid="182" x="1410.01" y="2415.15" width="128" height="128"/>
   <object id="4" type="Crawler" gid="183" x="2303.43" y="874.472" width="128" height="128"/>
