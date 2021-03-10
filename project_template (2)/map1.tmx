@@ -570,7 +570,7 @@
  </layer>
  <layer id="2" name="Background" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BwAXk0vvWAuGIUkAM4B9oBo2AUUABS8Mhx0M0V5AMASvYA0A==
+   eJxjYBgFo2BwAXk0vvWAuGIUkAM4B9oBNAAcA+2AUUA3kIJHbiikAwBgVgDY
   </data>
  </layer>
  <objectgroup id="4" name="Power-ups">
