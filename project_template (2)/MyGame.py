@@ -142,6 +142,7 @@ class MyGame(arcade.Window):
 
         # Move the player with the physics engine
         self.physics_engine.update()
+        self.player_sprite.update_animation()
 
         #bullets
         self.bullet_list.update()
