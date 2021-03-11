@@ -1,3 +1,4 @@
+from pyglet.libs.win32.constants import SWP_DEFERERASE
 from PlayerCharacter import PlayerCharacter
 import arcade
 from arcade.sprite_list import check_for_collision
@@ -33,6 +34,8 @@ class MyGame(arcade.Window):
         self.end_of_map = 0
         self.powerupTimer = 0
         self.lives = 3
+        self.bullet_count = 0
+        self.bullet_iterator = 0
 
          # Load sounds
         self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
@@ -157,14 +160,17 @@ class MyGame(arcade.Window):
             if len(hit_enemy_list) > 0:
                 bullet.remove_from_sprite_lists()
             for enemy in hit_enemy_list:
-                enemy.remove_from_sprite_lists()
-                self.score += 100
+                enemy.health = enemy.health - 1
+                if enemy.health == 0:
+                    enemy.remove_from_sprite_lists()
+                    self.score += 100
 
         #move enemies
 
         self.enemies_list.update()
         self.updatePowerup()
         self.move_enemies()
+        self.shootMultipleBullets()
                 
 
         # # See if we hit any coins
@@ -181,20 +187,28 @@ class MyGame(arcade.Window):
         changed = False
 
           # Did the player fall off the map or collide with enemy?
-        if (self.player_sprite.center_y < -100) or (arcade.check_for_collision_with_list(self.player_sprite, self.enemies_list)):
-            self.player_sprite.center_x = constants.PLAYER_START_X
-            self.player_sprite.center_y = constants.PLAYER_START_Y
+        if (self.player_sprite.center_y < -100): 
+                arcade.play_sound(self.game_over)
+                self.lives = self.lives - 1
+                self.checkGameOver()
+                time.sleep(1)
+                self.setup(self.level)
+        
+        elif arcade.check_for_collision_with_list(self.player_sprite, self.enemies_list):
+            # self.player_sprite.center_x = constants.PLAYER_START_X
+            # self.player_sprite.center_y = constants.PLAYER_START_Y
 
             # Set the camera to the start
             # self.view_left = 0
             # self.view_bottom = 0
             # self.powerup = 0
             # changed = True
-            arcade.play_sound(self.game_over)
-            self.lives = self.lives - 1
-            self.checkGameOver()
-            time.sleep(1)
-            self.setup(self.level)
+            if self.powerup != 3:
+                arcade.play_sound(self.game_over)
+                self.lives = self.lives - 1
+                self.checkGameOver()
+                time.sleep(1)
+                self.setup(self.level)
 
 
           # See if the user got to the flag
@@ -250,6 +264,7 @@ class MyGame(arcade.Window):
         for enemy in self.enemies_list:
             if enemy.properties['type'] == 'Crawler':
                 enemy.change_x = -constants.CRAWLER_SPEED
+                enemy.health = 1
 
         # for enemy in self.enemies_list:
         #     if enemy.properties['type'] == 'Crawler':
@@ -274,23 +289,10 @@ class MyGame(arcade.Window):
 
 
     def generate_bullet(self):
-        if self.player_facing == 'right':
-            rotation = 0
-
-        if self.player_facing == 'left':
-            rotation = 180
-
-        if self.player_facing == 'up':
-            rotation = 90
-
-        if self.player_facing == 'down':
-            rotation = -90
 
         if self.powerup == 0:
             bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
             bullet.change_x = constants.BULLET_SPEED
-            bullet.angle = rotation
-
 
             bullet.center_y = self.player_sprite.center_y - 24
             bullet.center_x = self.player_sprite.center_x #position of the bullet
@@ -307,11 +309,6 @@ class MyGame(arcade.Window):
             bullet2.change_y = constants.BULLET_SPEED / 3
             bullet3.change_y = -constants.BULLET_SPEED / 3
 
-            bullet.angle = rotation
-            bullet2.angle = rotation
-            bullet3.angle = rotation
-
-
             bullet.center_y = self.player_sprite.center_y - 24
             bullet.center_x = self.player_sprite.center_x #position of the bullet
             bullet2.center_y = self.player_sprite.center_y - 24
@@ -323,6 +320,10 @@ class MyGame(arcade.Window):
             self.bullet_list.append(bullet2)
             self.bullet_list.append(bullet3)
 
+        elif self.powerup == 2:
+            self.bullet_count += 3
+            self.bullet_iterator = 0
+
 
     def updatePowerup(self):
         for powerup in self.power_ups_list:
@@ -330,8 +331,14 @@ class MyGame(arcade.Window):
                 if powerup.properties['type'] == "Shotgun":
                     self.powerup = 1
                     self.powerupTimer = constants.POWER_UP_TIMER
+                if powerup.properties['type'] == "MachineGun":
+                    self.powerup = 2
+                    self.powerupTimer = constants.POWER_UP_TIMER
                 if powerup.properties['type'] == "extraLife":
                     self.lives = self.lives + 1
+                if powerup.properties['type'] == "invincible":
+                    self.powerup = 3
+                    self.powerupTimer = constants.POWER_UP_TIMER / 2
                 powerup.remove_from_sprite_lists()
 
         self.powerUpCountdown()
@@ -347,21 +354,44 @@ class MyGame(arcade.Window):
             #go to game over screen
             sys.exit()
 
+    def shootMultipleBullets(self):
+        if self.bullet_count > 0:
+            if self.bullet_iterator == 0:
+                bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
+                bullet.change_x = constants.BULLET_SPEED
+
+                bullet.center_y = self.player_sprite.center_y - 24
+                bullet.center_x = self.player_sprite.center_x #position of the bullet
+                self.bullet_list.append(bullet)
+                self.bullet_count = self.bullet_count - 1
+            elif self.bullet_iterator % 6 == 0:
+                bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
+                bullet.change_x = constants.BULLET_SPEED
+
+                bullet.center_y = self.player_sprite.center_y - 24
+                bullet.center_x = self.player_sprite.center_x #position of the bullet
+                self.bullet_list.append(bullet)
+                self.bullet_count = self.bullet_count - 1
+            self.bullet_iterator = self.bullet_iterator + 1
+        if self.bullet_iterator > 1000:
+            self.bullet_iterator = 0
+                
+
     def on_draw(self):
 
         arcade.start_render()
         self.wall_list.draw()
         self.background_list.draw()
-        self.bullet_list.draw()
         self.enemies_list.draw()
         self.flag_list.draw()
         self.power_ups_list.draw()
         self.player_list.draw()
+        self.bullet_list.draw()
 
          # Draw our score on the screen, scrolling it with the viewport
         score_text = f"Score: {self.score}"
         life_text = f"Lives: {self.lives}"
         arcade.draw_text(score_text, 10 + self.view_left, 10 + self.view_bottom,
                          arcade.csscolor.WHITE, 18)
-        arcade.draw_text(life_text, 100 + self.view_left, 10 + self.view_bottom,
+        arcade.draw_text(life_text, 150 + self.view_left, 10 + self.view_bottom,
                          arcade.csscolor.WHITE, 18)
