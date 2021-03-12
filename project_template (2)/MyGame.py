@@ -290,7 +290,7 @@ class MyGame(arcade.Window):
 
     def generate_bullet(self):
 
-        if self.powerup == 0:
+        if self.powerup == 0 or self.powerup == 3:
             bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
             bullet.change_x = constants.BULLET_SPEED
 
