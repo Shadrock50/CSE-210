@@ -292,10 +292,8 @@ class MyGame(arcade.Window):
 
         if self.powerup == 0 or self.powerup == 3:
             bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
-            bullet.change_x = constants.BULLET_SPEED
-
-            bullet.center_y = self.player_sprite.center_y - 14
-            bullet.center_x = self.player_sprite.center_x + 35 #position of the bullet
+            rotation = 180
+            self.getBulletPositionAndDirection(bullet, rotation)
             self.bullet_list.append(bullet)
 
         elif self.powerup == 1:
@@ -348,6 +346,17 @@ class MyGame(arcade.Window):
 
         if self.powerupTimer == 0:
             self.powerup = 0
+
+    def getBulletPositionAndDirection(self, bullet, rotation):
+
+        bullet.center_y = self.player_sprite.center_y - 14
+        if self.player_sprite.character_face_direction == constants.RIGHT_FACING:
+            bullet.center_x = self.player_sprite.center_x + 35 #position of the bullet
+            bullet.change_x = constants.BULLET_SPEED
+        else:
+            bullet.center_x = self.player_sprite.center_x - 35
+            bullet.change_x = -constants.BULLET_SPEED
+            bullet.angle = rotation
 
     def checkGameOver(self):
         if self.lives == 0:
