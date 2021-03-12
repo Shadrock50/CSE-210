@@ -309,12 +309,12 @@ class MyGame(arcade.Window):
             bullet2.change_y = constants.BULLET_SPEED / 3
             bullet3.change_y = -constants.BULLET_SPEED / 3
 
-            bullet.center_y = self.player_sprite.center_y - 24
-            bullet.center_x = self.player_sprite.center_x #position of the bullet
-            bullet2.center_y = self.player_sprite.center_y - 24
-            bullet2.center_x = self.player_sprite.center_x #position of the bullet
-            bullet3.center_y = self.player_sprite.center_y - 24
-            bullet3.center_x = self.player_sprite.center_x #position of the bullet
+            bullet.center_y = self.player_sprite.center_y - 14
+            bullet.center_x = self.player_sprite.center_x + 35#position of the bullet
+            bullet2.center_y = self.player_sprite.center_y - 14
+            bullet2.center_x = self.player_sprite.center_x + 35#position of the bullet
+            bullet3.center_y = self.player_sprite.center_y - 14
+            bullet3.center_x = self.player_sprite.center_x + 35#position of the bullet
 
             self.bullet_list.append(bullet)
             self.bullet_list.append(bullet2)
@@ -360,16 +360,16 @@ class MyGame(arcade.Window):
                 bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
                 bullet.change_x = constants.BULLET_SPEED
 
-                bullet.center_y = self.player_sprite.center_y - 24
-                bullet.center_x = self.player_sprite.center_x #position of the bullet
+                bullet.center_y = self.player_sprite.center_y - 14
+                bullet.center_x = self.player_sprite.center_x + 35#position of the bullet
                 self.bullet_list.append(bullet)
                 self.bullet_count = self.bullet_count - 1
             elif self.bullet_iterator % 6 == 0:
                 bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
                 bullet.change_x = constants.BULLET_SPEED
 
-                bullet.center_y = self.player_sprite.center_y - 24
-                bullet.center_x = self.player_sprite.center_x #position of the bullet
+                bullet.center_y = self.player_sprite.center_y - 14
+                bullet.center_x = self.player_sprite.center_x + 35#position of the bullet
                 self.bullet_list.append(bullet)
                 self.bullet_count = self.bullet_count - 1
             self.bullet_iterator = self.bullet_iterator + 1
