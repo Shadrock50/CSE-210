@@ -193,6 +193,7 @@ class MyGame(arcade.Window):
                 self.checkGameOver()
                 time.sleep(1)
                 self.setup(self.level)
+                self.powerup = 0
         
         elif arcade.check_for_collision_with_list(self.player_sprite, self.enemies_list):
             # self.player_sprite.center_x = constants.PLAYER_START_X
@@ -209,6 +210,7 @@ class MyGame(arcade.Window):
                 self.checkGameOver()
                 time.sleep(1)
                 self.setup(self.level)
+                self.powerup
 
 
           # See if the user got to the flag
@@ -300,19 +302,19 @@ class MyGame(arcade.Window):
             bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
             bullet2 = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
             bullet3 = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
-            bullet.change_x = constants.BULLET_SPEED
-            bullet2.change_x = constants.BULLET_SPEED
-            bullet3.change_x = constants.BULLET_SPEED
 
             bullet2.change_y = constants.BULLET_SPEED / 3
             bullet3.change_y = -constants.BULLET_SPEED / 3
+            bullet2.angle = 18.43
+            bullet3.angle = -18.43
 
-            bullet.center_y = self.player_sprite.center_y - 14
-            bullet.center_x = self.player_sprite.center_x + 35#position of the bullet
-            bullet2.center_y = self.player_sprite.center_y - 14
-            bullet2.center_x = self.player_sprite.center_x + 35#position of the bullet
-            bullet3.center_y = self.player_sprite.center_y - 14
-            bullet3.center_x = self.player_sprite.center_x + 35#position of the bullet
+            rotation_1 = 180
+            rotation_2 = 153.43
+            rotation_3 = -153.43
+
+            self.getBulletPositionAndDirection(bullet, rotation_1)
+            self.getBulletPositionAndDirection(bullet2, rotation_2)
+            self.getBulletPositionAndDirection(bullet3, rotation_3)
 
             self.bullet_list.append(bullet)
             self.bullet_list.append(bullet2)
@@ -354,9 +356,13 @@ class MyGame(arcade.Window):
             bullet.center_x = self.player_sprite.center_x + 35 #position of the bullet
             bullet.change_x = constants.BULLET_SPEED
         else:
-            bullet.center_x = self.player_sprite.center_x - 35
-            bullet.change_x = -constants.BULLET_SPEED
-            bullet.angle = rotation
+            if self.powerup == 1 and self.player_sprite.character_face_direction == constants.RIGHT_FACING:
+                bullet.center_x = self.player_sprite.center_x - 35
+                bullet.change_x = -constants.BULLET_SPEED
+            else:
+                bullet.center_x = self.player_sprite.center_x - 35
+                bullet.change_x = -constants.BULLET_SPEED
+                bullet.angle = rotation
 
     def checkGameOver(self):
         if self.lives == 0:
@@ -365,23 +371,23 @@ class MyGame(arcade.Window):
 
     def shootMultipleBullets(self):
         if self.bullet_count > 0:
+            rotation = 180
             if self.bullet_iterator == 0:
-                bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
-                bullet.change_x = constants.BULLET_SPEED
 
-                bullet.center_y = self.player_sprite.center_y - 14
-                bullet.center_x = self.player_sprite.center_x + 35#position of the bullet
+                bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
+                self.getBulletPositionAndDirection(bullet, rotation)
                 self.bullet_list.append(bullet)
                 self.bullet_count = self.bullet_count - 1
+
             elif self.bullet_iterator % 6 == 0:
-                bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
-                bullet.change_x = constants.BULLET_SPEED
 
-                bullet.center_y = self.player_sprite.center_y - 14
-                bullet.center_x = self.player_sprite.center_x + 35#position of the bullet
+                bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
+                self.getBulletPositionAndDirection(bullet, rotation)
                 self.bullet_list.append(bullet)
                 self.bullet_count = self.bullet_count - 1
+
             self.bullet_iterator = self.bullet_iterator + 1
+
         if self.bullet_iterator > 1000:
             self.bullet_iterator = 0
                 
