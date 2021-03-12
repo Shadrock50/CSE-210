@@ -563,7 +563,7 @@
  </tileset>
  <layer id="1" name="Platforms" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2D4AyYkNi8QS6FhLiDmo8B8Cag5xABhMs0WAmJuEvXiA7ugNC+S2TDMRaQZpPqFUv0aSJha9oD8z8VAeRpAN48Ys5SAWA6K9YBYmQr20wKwQTE6YMIhDgLIfqPEX0yElWAAXSDWh2Ja2AEyXwEJEwOQwwOGYQBdXA7NfGx2oJsHCmMA3Z0H3A==
+   eJztkjEKgDAMAEsHh0oddBGHIrq4qP/3dSaQQoiK1dpFenAgRS+kqFQm8380e7ZgJzRgFdFvqRNC87Jdg+XDb6/YSMSyttcEdp7uEvv9xPxqDu5vVPw/IHshrQF05AKOH8xPQUFK9MU5wneL2Uvfv3JgBlcyxQzs98wQ+H14PfLcif7ZDNnDO94BqLoIlg==
   </data>
  </layer>
  <layer id="7" name="Enemy Collisions" width="25" height="20">
