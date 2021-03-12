@@ -294,8 +294,8 @@ class MyGame(arcade.Window):
             bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
             bullet.change_x = constants.BULLET_SPEED
 
-            bullet.center_y = self.player_sprite.center_y - 24
-            bullet.center_x = self.player_sprite.center_x #position of the bullet
+            bullet.center_y = self.player_sprite.center_y - 14
+            bullet.center_x = self.player_sprite.center_x + 35 #position of the bullet
             self.bullet_list.append(bullet)
 
         elif self.powerup == 1:
