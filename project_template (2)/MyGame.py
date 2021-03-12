@@ -291,15 +291,15 @@ class MyGame(arcade.Window):
     def generate_bullet(self):
 
         if self.powerup == 0 or self.powerup == 3:
-            bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
+            bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
             rotation = 180
             self.getBulletPositionAndDirection(bullet, rotation)
             self.bullet_list.append(bullet)
 
         elif self.powerup == 1:
-            bullet = arcade.Sprite("images/animated_characters/bullet.png", constants.SPRITE_SCALING_LASER)
-            bullet2 = arcade.Sprite("images/animated_characters/bullet.png", constants.SPRITE_SCALING_LASER)
-            bullet3 = arcade.Sprite("images/animated_characters/bullet.png", constants.SPRITE_SCALING_LASER)
+            bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
+            bullet2 = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
+            bullet3 = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
             bullet.change_x = constants.BULLET_SPEED
             bullet2.change_x = constants.BULLET_SPEED
             bullet3.change_x = constants.BULLET_SPEED
@@ -366,7 +366,7 @@ class MyGame(arcade.Window):
     def shootMultipleBullets(self):
         if self.bullet_count > 0:
             if self.bullet_iterator == 0:
-                bullet = arcade.Sprite("images/animated_characters/bullet.png", constants.SPRITE_SCALING_LASER)
+                bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
                 bullet.change_x = constants.BULLET_SPEED
 
                 bullet.center_y = self.player_sprite.center_y - 14
@@ -374,7 +374,7 @@ class MyGame(arcade.Window):
                 self.bullet_list.append(bullet)
                 self.bullet_count = self.bullet_count - 1
             elif self.bullet_iterator % 6 == 0:
-                bullet = arcade.Sprite("images/animated_characters/bullet.png", constants.SPRITE_SCALING_LASER)
+                bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
                 bullet.change_x = constants.BULLET_SPEED
 
                 bullet.center_y = self.player_sprite.center_y - 14
