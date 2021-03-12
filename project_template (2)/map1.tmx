@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="11">
- <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="185" columns="0">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="11">
+ <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="186" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
@@ -557,10 +557,13 @@
   <tile id="184">
    <image width="128" height="128" source="images/enemies/wormPink.png"/>
   </tile>
+  <tile id="185">
+   <image width="128" height="128" source="images/tiles/disco_mid.png"/>
+  </tile>
  </tileset>
  <layer id="1" name="Platforms" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2D4AyYkNi8QS6FhLiDmo8B8Cag5xABhMs0WAmJuEvXiA01QmhfJbBjmItIMUv1CqX4NJEwte0D+52KgPA2gm0eMWUpALAfFekCsTAX7aQHYoBgdMOEQBwFkv1HiLybCSjCALhDrQzEt7ACZr4CEiQHI4QHDMIAuLodmPjY70M0DhTEABz0HpA==
+   eJxjYBgFo2D4AyYkNi8QS6FhLiDmo8B8Cag5xABhMs0WAmJuEvXiA7ugNC+S2TDMRaQZpPqFUv0aSJha9oD8z8VAeRpAN48Ys5SAWA6K9YBYmQr20wKwQTE6YMIhDgLIfqPEX0yElWAAXSDWh2Ja2AEyXwEJEwOQwwOGYQBdXA7NfGx2oJsHCmMA3Z0H3A==
   </data>
  </layer>
  <layer id="7" name="Enemy Collisions" width="25" height="20">
