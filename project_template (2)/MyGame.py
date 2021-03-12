@@ -291,17 +291,9 @@ class MyGame(arcade.Window):
     def generate_bullet(self):
 
         if self.powerup == 0 or self.powerup == 3:
-<<<<<<< HEAD
-            bullet = arcade.Sprite("images/animated_characters/bullet.png", constants.SPRITE_SCALING_LASER)
-            bullet.change_x = constants.BULLET_SPEED
-
-            bullet.center_y = self.player_sprite.center_y - 14
-            bullet.center_x = self.player_sprite.center_x + 35 #position of the bullet
-=======
             bullet = arcade.Sprite(":resources:images/space_shooter/laserblue01.png", constants.SPRITE_SCALING_LASER)
             rotation = 180
             self.getBulletPositionAndDirection(bullet, rotation)
->>>>>>> 863e67188122531f5112e4d991394439820f5e4e
             self.bullet_list.append(bullet)
 
         elif self.powerup == 1:
