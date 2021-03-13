@@ -7,13 +7,13 @@ import random
 import time
 import sys
 
-class MyGame(arcade.Window):
+class MyGame(arcade.View):
     def __init__(self):
 
-        super().__init__(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, constants.SCREEN_TITLE)
+        super().__init__()
 
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
-
+        self.window.set_mouse_visible(False)
         self.power_ups_list = None
         self.wall_list = None
         self.player_list = None #May need enemy list
