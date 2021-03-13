@@ -1,11 +1,8 @@
-from pyglet.libs.win32.constants import SWP_DEFERERASE
 from PlayerCharacter import PlayerCharacter
 import arcade
 from arcade.sprite_list import check_for_collision
 import constants
-import random
 import time
-import sys
 
 class MyGame(arcade.View):
     def __init__(self):
@@ -41,13 +38,16 @@ class MyGame(arcade.View):
         self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
         self.game_over = arcade.load_sound(":resources:sounds/gameover1.wav")
 
-    def setup(self, level):
+    def setup(self, level, lives, score):
         # Used to keep track of our scrolling
         self.view_bottom = 0
         self.view_left = 0
 
+        self.level = level
+        self.lives = lives
+
         # Keep track of the score
-        self.score = 0
+        self.score = score
 
         self.player_list = arcade.SpriteList()
         self.wall_list = arcade.SpriteList(use_spatial_hash=True)
@@ -123,7 +123,7 @@ class MyGame(arcade.View):
             self.player_sprite.change_x = -constants.PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.RIGHT or key == arcade.key.D:
             self.player_sprite.change_x = constants.PLAYER_MOVEMENT_SPEED
-        elif key == arcade.key.F:
+        elif key == arcade.key.SPACE:
             self.generate_bullet()
         
 
@@ -192,7 +192,7 @@ class MyGame(arcade.View):
                 self.lives = self.lives - 1
                 self.checkGameOver()
                 time.sleep(1)
-                self.setup(self.level)
+                self.setup(self.level, self.lives, self.score)
                 self.powerup = 0
         
         elif arcade.check_for_collision_with_list(self.player_sprite, self.enemies_list):
@@ -219,8 +219,10 @@ class MyGame(arcade.View):
             self.level += 1
 
             # Load the next level
-            self.setup(self.level)
-
+            
+            game_view = LevelView()
+            game_view.setup(self.level, self.lives, self.score)
+            self.window.show_view(game_view)
             # Set the camera to the start
             self.view_left = 0
             self.view_bottom = 0
@@ -367,7 +369,8 @@ class MyGame(arcade.View):
     def checkGameOver(self):
         if self.lives == 0:
             #go to game over screen
-            sys.exit()
+            game_view = GameOverView()
+            self.window.show_view(game_view)
 
     def shootMultipleBullets(self):
         if self.bullet_count > 0:
@@ -410,3 +413,116 @@ class MyGame(arcade.View):
                          arcade.csscolor.WHITE, 18)
         arcade.draw_text(life_text, 150 + self.view_left, 10 + self.view_bottom,
                          arcade.csscolor.WHITE, 18)
+
+#Views section
+
+class FirstView(arcade.View):
+    """ View to show instructions """
+
+    def on_show(self):
+        """ This is run once when we switch to this view """
+        arcade.set_background_color(arcade.csscolor.BLACK)
+
+        # Reset the viewport, necessary if we have a scrolling game and we need
+        # to reset the viewport back to the start so we can see what we draw.
+        arcade.set_viewport(0, constants.SCREEN_WIDTH - 1, 0, constants.SCREEN_HEIGHT - 1)
+
+    def on_draw(self):
+        """ Draw this view """
+        arcade.start_render()
+        arcade.draw_text("Game Title", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2,
+                         arcade.color.WHITE, font_size=50, anchor_x="center")
+        arcade.draw_text("Press any key to advance", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2-75,
+                         arcade.color.WHITE, font_size=20, anchor_x="center")
+
+    def on_key_press(self, key, modifiers):
+        """ If the user presses the mouse button, start the game. """
+        game_view = InstructionView()
+        self.window.show_view(game_view)
+
+class GameOverView(arcade.View):
+    """ View to show when game is over """
+
+    def __init__(self):
+        """ This is run once when we switch to this view """
+        super().__init__()
+        self.texture = arcade.load_texture("images/tiles/gameover.png")
+        arcade.set_background_color(arcade.csscolor.BLACK)
+
+        # Reset the viewport, necessary if we have a scrolling game and we need
+        # to reset the viewport back to the start so we can see what we draw.
+        arcade.set_viewport(0, constants.SCREEN_WIDTH - 1, 0, constants.SCREEN_HEIGHT - 1)
+
+    def on_draw(self):
+        """ Draw this view """
+        arcade.start_render()
+        self.texture.draw_sized(constants.SCREEN_WIDTH / 2 - 150, constants.SCREEN_HEIGHT / 2 - 50,
+                                constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT)
+
+    def on_key_press(self, key, _modifiers):
+        """ If the user presses the mouse button, re-start the game. """
+        game_view = FirstView()
+        self.window.show_view(game_view)
+
+class InstructionView(arcade.View):
+    """ View to show instructions """
+
+    def on_show(self):
+        """ This is run once when we switch to this view """
+        arcade.set_background_color(arcade.csscolor.BLACK)
+
+        # Reset the viewport, necessary if we have a scrolling game and we need
+        # to reset the viewport back to the start so we can see what we draw.
+        arcade.set_viewport(0, constants.SCREEN_WIDTH - 1, 0, constants.SCREEN_HEIGHT - 1)
+
+    def on_draw(self):
+        """ Draw this view """
+        arcade.start_render()
+        arcade.draw_text("Instructions", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT /1.2,
+                         arcade.color.WHITE, font_size=50, anchor_x="center")
+        arcade.draw_text("Press the arrow keys to move. Press Space to shoot. \n\n Collect Powerups and get to the end of the levels to win!", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2,
+                         arcade.color.WHITE, font_size=20, anchor_x="center")                 
+        arcade.draw_text("Press any key to advance", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 4,
+                         arcade.color.WHITE, font_size=20, anchor_x="center")
+
+    def on_key_press(self, key, modifiers):
+        """ If the user presses the mouse button, start the game. """
+        lives = 3
+        score = 0
+        game_view = MyGame()
+        game_view.setup(game_view.level, lives, score)
+        self.window.show_view(game_view)
+
+class LevelView(arcade.View):
+    """ View to show instructions """
+
+
+    def __init__(self):
+        """ This is run once when we switch to this view """
+        super().__init__()
+        arcade.set_background_color(arcade.csscolor.BLACK)
+
+        # Reset the viewport, necessary if we have a scrolling game and we need
+        # to reset the viewport back to the start so we can see what we draw.
+        arcade.set_viewport(0, constants.SCREEN_WIDTH - 1, 0, constants.SCREEN_HEIGHT - 1)
+
+    def setup(self, level, lives, score):
+        self.cur_level = level
+        self.lives = lives
+        self.score = score
+
+    def on_draw(self):
+        """ Draw this view """
+        textPhrase = "World 1 - " + str(self.cur_level)
+        livesPhrase = "Lives Remaining: " + str(self.lives)
+        arcade.start_render()
+        arcade.draw_text(textPhrase, constants.SCREEN_WIDTH + 225, constants.SCREEN_HEIGHT / 2,
+                         arcade.color.WHITE, font_size=50, anchor_x="center")
+        arcade.draw_text(livesPhrase, constants.SCREEN_WIDTH + 225, constants.SCREEN_HEIGHT / 2.5,
+                         arcade.color.WHITE, font_size=25, anchor_x="center")
+
+    def on_key_press(self, key, modifiers):
+        """ If the user presses the mouse button, start the game. """
+        game_view = MyGame()
+        game_view.setup(self.cur_level, self.lives, self.score)
+        self.window.show_view(game_view)
