@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="12">
- <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="186" columns="0">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="12">
+ <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="200" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
@@ -560,10 +560,52 @@
   <tile id="185">
    <image width="128" height="128" source="images/tiles/disco_mid.png"/>
   </tile>
+  <tile id="186">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/city_left.png"/>
+  </tile>
+  <tile id="187">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/city_middle.png"/>
+  </tile>
+  <tile id="188">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/city_right.png"/>
+  </tile>
+  <tile id="189">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/city_warning.png"/>
+  </tile>
+  <tile id="190">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/cone.png"/>
+  </tile>
+  <tile id="191">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/scaffold_rise_left.png"/>
+  </tile>
+  <tile id="192">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/scaffold_rise_right.png"/>
+  </tile>
+  <tile id="193">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/scaffold_topper_left.png"/>
+  </tile>
+  <tile id="194">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/scaffold_topper_mid.png"/>
+  </tile>
+  <tile id="195">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/scaffold_topper_right.png"/>
+  </tile>
+  <tile id="196">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/scaffold_warning_topper.png"/>
+  </tile>
+  <tile id="197">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/scaffolding.png"/>
+  </tile>
+  <tile id="198">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/upper_left_scaffold.png"/>
+  </tile>
+  <tile id="199">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/upper_right_scaffold.png"/>
+  </tile>
  </tileset>
  <layer id="1" name="Platforms" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJztkjEKgDAMAEsHh0oddBGHIrq4qP/3dSaQQoiK1dpFenAgRS+kqFQm8380e7ZgJzRgFdFvqRNC87Jdg+XDb6/YSMSyttcEdp7uEvv9xPxqDu5vVPw/IHshrQF05AKOH8xPQUFK9MU5wneL2Uvfv3JgBlcyxQzs98wQ+H14PfLcif7ZDNnDO94BqLoIlg==
+   eJztlMEKgzAMhksPHjr0sF3GDiJ68eL2/mNjMKa+lgkkELI5U6w3P/jAFvv/pIjO7eykoye3ZCBj8OI5By/KABY/zr2M+WfKsXBS6wf4NGQfwYOxY4k7ieQimw3GHD1LLLHnW2GqHpw/uPlvIBbOs2TVYElewSZB/xZkpMbP7CNytjVz+eVXvujAG/kGP4k7ML8SWv5J8j5YRu+XKp87xj95eMcTO1ESgw==
   </data>
  </layer>
  <layer id="7" name="Enemy Collisions" width="25" height="20">
