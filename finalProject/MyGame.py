@@ -181,12 +181,15 @@ class MyGame(arcade.View):
                 bullet.remove_from_sprite_lists()
 
             if arcade.check_for_collision_with_list(bullet, self.player_list):
-                arcade.play_sound(self.game_over)
-                self.lives = self.lives - 1
-                self.checkGameOver()
-                time.sleep(1)
-                self.setup(self.level, self.lives, self.score)
-                self.powerup = 0
+                bullet.remove_from_sprite_lists()
+
+                if self.powerup != 3:
+                    arcade.play_sound(self.game_over)
+                    self.lives = self.lives - 1
+                    self.checkGameOver()
+                    time.sleep(1)
+                    self.setup(self.level, self.lives, self.score)
+                    self.powerup = 0
 
         #move enemies
 
@@ -342,7 +345,6 @@ class MyGame(arcade.View):
                 randNum = random.randint(0 , 100)
                 willShoot = random.randint(0,150)
                 if willShoot == 5:
-                    enemy_x = enemy._get_center_x()
                     enemy_y = enemy._get_center_y()
                     
                     if self.player_sprite.right < enemy.left:
@@ -351,6 +353,13 @@ class MyGame(arcade.View):
                         bullet.center_y = enemy_y
                         bullet.center_x = enemy.left
                         bullet.change_x = -constants.BULLET_SPEED
+                        self.enemy_bullet_list.append(bullet)
+                    else:
+                        bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
+                        bullet.angle = 0
+                        bullet.center_y = enemy_y
+                        bullet.center_x = enemy.right
+                        bullet.change_x = constants.BULLET_SPEED
                         self.enemy_bullet_list.append(bullet)
 
                 if randNum == 5 and enemy.change_y == 0:
