@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="11">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="12">
  <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="186" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -568,7 +568,7 @@
  </layer>
  <layer id="7" name="Enemy Collisions" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BwAE4K5UfBKBgFo4CaAFeZM1jLIgBxAAAl
+   eJxjYBgFo2BwAE4K5UfBKKAWGM5pDZvfhrN/KQG4wmWwhhcAqjwAQA==
   </data>
  </layer>
  <layer id="2" name="Background" width="25" height="20">
@@ -583,8 +583,9 @@
   <object id="10" type="invincible" gid="161" x="517.194" y="2426.1" width="128" height="128"/>
  </objectgroup>
  <objectgroup id="5" name="Enemies">
-  <object id="3" type="Crawler" gid="182" x="1410.01" y="2415.15" width="128" height="128"/>
+  <object id="3" type="Crawler" gid="182" x="640.964" y="1789.66" width="128" height="128"/>
   <object id="4" type="Crawler" gid="183" x="2303.43" y="874.472" width="128" height="128"/>
+  <object id="11" type="Jumper" gid="171" x="1392.06" y="2422.41" width="128" height="128"/>
  </objectgroup>
  <objectgroup id="6" name="Flag">
   <object id="2" gid="150" x="3081.24" y="2425.53" width="128" height="128"/>

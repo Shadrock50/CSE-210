@@ -3,6 +3,7 @@ import arcade
 from arcade.sprite_list import check_for_collision
 import constants
 import time
+import random
 
 class MyGame(arcade.View):
     def __init__(self):
@@ -19,6 +20,7 @@ class MyGame(arcade.View):
         self.flag_list = None
         self.bullet_list = None
         self.enemy_collisions_list = None
+        self.enemy_bullet_list = None
 
         self.player_sprite = None
 
@@ -33,6 +35,7 @@ class MyGame(arcade.View):
         self.lives = 3
         self.bullet_count = 0
         self.bullet_iterator = 0
+        self.i = 0
 
          # Load sounds
         self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
@@ -54,9 +57,10 @@ class MyGame(arcade.View):
         self.power_ups_list = arcade.SpriteList(use_spatial_hash=True)
         self.enemies_list = arcade.SpriteList()
         self.bullet_list = arcade.SpriteList()
+        self.enemy_bullet_list = arcade.SpriteList()
         self.background_list = arcade.SpriteList(use_spatial_hash=True)
         self.flag_list = arcade.SpriteList(use_spatial_hash=True)
-        self.enemy_collisions_list = arcade.SpriteList()
+        self.enemy_collisions_list = arcade.SpriteList(use_spatial_hash=True)
 
         self.player_sprite = PlayerCharacter()
         self.player_sprite.center_x = 64
@@ -149,6 +153,7 @@ class MyGame(arcade.View):
 
         #bullets
         self.bullet_list.update()
+        self.enemy_bullet_list.update()
         for bullet in self.bullet_list:
             hit_wall_list = arcade.check_for_collision_with_list(bullet, self.wall_list)
             if len(hit_wall_list) > 0:
@@ -163,7 +168,25 @@ class MyGame(arcade.View):
                 enemy.health = enemy.health - 1
                 if enemy.health == 0:
                     enemy.remove_from_sprite_lists()
-                    self.score += 100
+                    if enemy.properties['type'] == "Crawler":
+                        self.score += 100
+                    elif enemy.properties['type'] == "Jumper":
+                        self.score += 200
+
+        for bullet in self.enemy_bullet_list:
+            hit_wall_list = arcade.check_for_collision_with_list(bullet, self.wall_list)
+            if len(hit_wall_list) > 0:
+                bullet.remove_from_sprite_lists()
+            if bullet.left > self.view_left + constants.SCREEN_WIDTH:
+                bullet.remove_from_sprite_lists()
+
+            if arcade.check_for_collision_with_list(bullet, self.player_list):
+                arcade.play_sound(self.game_over)
+                self.lives = self.lives - 1
+                self.checkGameOver()
+                time.sleep(1)
+                self.setup(self.level, self.lives, self.score)
+                self.powerup = 0
 
         #move enemies
 
@@ -186,6 +209,11 @@ class MyGame(arcade.View):
 
         changed = False
 
+        #removes enemies if they fall
+        for enemy in self.enemies_list:
+            if (enemy.center_y < - 100):
+                enemy.remove_from_sprite_lists
+
           # Did the player fall off the map or collide with enemy?
         if (self.player_sprite.center_y < -100): 
                 arcade.play_sound(self.game_over)
@@ -194,6 +222,8 @@ class MyGame(arcade.View):
                 time.sleep(1)
                 self.setup(self.level, self.lives, self.score)
                 self.powerup = 0
+
+        
         
         elif arcade.check_for_collision_with_list(self.player_sprite, self.enemies_list):
             # self.player_sprite.center_x = constants.PLAYER_START_X
@@ -209,8 +239,8 @@ class MyGame(arcade.View):
                 self.lives = self.lives - 1
                 self.checkGameOver()
                 time.sleep(1)
-                self.setup(self.level)
-                self.powerup
+                self.setup(self.level, self.lives, self.score)
+                self.powerup = 0
 
 
           # See if the user got to the flag
@@ -266,9 +296,14 @@ class MyGame(arcade.View):
     
     def generate_enemies(self):
         for enemy in self.enemies_list:
+            enemy.hasJumped = False
+            enemy.isInAir = False
             if enemy.properties['type'] == 'Crawler':
                 enemy.change_x = -constants.CRAWLER_SPEED
                 enemy.health = 1
+
+            elif enemy.properties['type'] == 'Jumper':
+                enemy.health = 5
 
         # for enemy in self.enemies_list:
         #     if enemy.properties['type'] == 'Crawler':
@@ -280,16 +315,79 @@ class MyGame(arcade.View):
     
     def move_enemies(self):
         for enemy in self.enemies_list:
-            enemy.change_y += -constants.GRAVITY
+            enemy.change_y += -constants.GRAVITY + .5
             if arcade.check_for_collision_with_list(enemy, self.wall_list):
                 enemy.change_y = 0
+                enemy.center_y = enemy.center_y + 1
+                enemy.isInAir = False
+                
 
         for enemy in self.enemies_list:
             if enemy.properties['type'] == 'Crawler':
                 if arcade.check_for_collision_with_list(enemy, self.enemy_collisions_list):
                     enemy.change_x = enemy.change_x * -1
-                    
 
+            elif enemy.properties['type'] == 'Jumper':
+
+                for wall in self.wall_list:
+                    if enemy.top == wall.bottom or enemy.top == wall.left or enemy.top == wall.right:
+                        enemy.center_y = wall.bottom - 1
+
+                    if enemy.right == wall.bottom or enemy.right == wall.left or enemy.right == wall.right:
+                        enemy.center_y = wall.bottom - 1
+
+                    if enemy.left == wall.bottom or enemy.left == wall.left or enemy.left == wall.right:
+                        enemy.center_y = wall.bottom - 1
+
+                randNum = random.randint(0 , 100)
+                willShoot = random.randint(0,150)
+                if willShoot == 5:
+                    enemy_x = enemy._get_center_x()
+                    enemy_y = enemy._get_center_y()
+                    
+                    if self.player_sprite.right < enemy.left:
+                        bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
+                        bullet.angle = 180
+                        bullet.center_y = enemy_y
+                        bullet.center_x = enemy.left
+                        bullet.change_x = -constants.BULLET_SPEED
+                        self.enemy_bullet_list.append(bullet)
+
+                if randNum == 5 and enemy.change_y == 0:
+
+                    jumpDirection = random.randint(0,1)
+                    if jumpDirection == 1:
+
+                        enemy.change_y = constants.ENEMY_JUMP_SPEED
+                        enemy.change_x = constants.JUMPER_SPEED
+                        enemy.hasJumped = True
+                        enemy.isInAir = True
+                    else:
+                        enemy.change_y = constants.ENEMY_JUMP_SPEED
+                        enemy.change_x = -constants.JUMPER_SPEED
+                        enemy.hasJumped = True
+                        enemy.isInAir = True
+                
+                if enemy.hasJumped == True and enemy.change_y == 0 and enemy.isInAir == False:
+                    enemy.change_x = 0
+                    enemy.hasJumped = False
+
+                    
+    def shootEnemyBullet(self, enemy):
+        if self.player_sprite.right < enemy.left:
+            bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
+            rotation = 180
+            bullet.center_y = enemy.center_y
+            bullet.angle = rotation
+            bullet.change_x = -constants.BULLET_SPEED
+            self.enemy_bullet_list.append(bullet)
+        else:
+            bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
+            rotation = 0
+            bullet.center_y = enemy.center_y
+            bullet.angle = rotation
+            bullet.change_x = constants.BULLET_SPEED
+            self.enemy_bullet_list.append(bullet)
 
 
     def generate_bullet(self):
@@ -405,6 +503,7 @@ class MyGame(arcade.View):
         self.power_ups_list.draw()
         self.player_list.draw()
         self.bullet_list.draw()
+        self.enemy_bullet_list.draw()
 
          # Draw our score on the screen, scrolling it with the viewport
         score_text = f"Score: {self.score}"
