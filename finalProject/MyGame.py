@@ -303,7 +303,7 @@ class MyGame(arcade.View):
             enemy.isInAir = False
             if enemy.properties['type'] == 'Crawler':
                 enemy.change_x = -constants.CRAWLER_SPEED
-                enemy.health = 1
+                enemy.health = 3
 
             elif enemy.properties['type'] == 'Jumper':
                 enemy.health = 5
