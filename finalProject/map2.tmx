@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="2" nextobjectid="1">
- <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="145" columns="0">
+ <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="156" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
@@ -766,10 +766,43 @@
     <object id="1" x="0" y="37" width="128" height="91"/>
    </objectgroup>
   </tile>
+  <tile id="145">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_left.png"/>
+  </tile>
+  <tile id="146">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_mid.png"/>
+  </tile>
+  <tile id="147">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_right.png"/>
+  </tile>
+  <tile id="148">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_rise_left.png"/>
+  </tile>
+  <tile id="149">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_rise_right.png"/>
+  </tile>
+  <tile id="150">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_scaffold_blue.png"/>
+  </tile>
+  <tile id="151">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_scaffold_cyan.png"/>
+  </tile>
+  <tile id="152">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_scaffold_green.png"/>
+  </tile>
+  <tile id="153">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_scaffold_yellow.png"/>
+  </tile>
+  <tile id="154">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/upper_left_disco.png"/>
+  </tile>
+  <tile id="155">
+   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/upper_right_disco.png"/>
+  </tile>
  </tileset>
  <layer id="1" name="Platforms" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApQARMapoYZTFjEqWUmNnlSgRyRmFT96HKUugMXAACj7wNT
+   eJxjYBgFo2AUjIJRQAmYBMSToXjKALuFFAByN7XdCwuLoRQOIDANiGcQiafi0D8LBwaB6Uh4Nh53zAHimQQwLv0ADHkY2A==
   </data>
  </layer>
 </map>
