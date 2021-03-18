@@ -172,6 +172,8 @@ class MyGame(arcade.View):
                         self.score += 100
                     elif enemy.properties['type'] == "Jumper":
                         self.score += 200
+                    elif enemy.properties['type'] == "Flier":
+                        self.score += 400
 
         for bullet in self.enemy_bullet_list:
             hit_wall_list = arcade.check_for_collision_with_list(bullet, self.wall_list)
@@ -308,78 +310,114 @@ class MyGame(arcade.View):
             elif enemy.properties['type'] == 'Jumper':
                 enemy.health = 5
 
-        # for enemy in self.enemies_list:
-        #     if enemy.properties['type'] == 'Crawler':
-        #         enemy.health = 2
-        #     elif enemy.properties['type'] == 'Flier':
-        #         enemy.health = 3
-        #     elif enemy.properties['type'] == 'Jumper':
-        #         enemy.health = 3
-    
+            elif enemy.properties['type'] == 'Flier':
+                enemy.health = 2
+
     def move_enemies(self):
         for enemy in self.enemies_list:
-            enemy.change_y += -constants.GRAVITY + .5
+            if not enemy.properties['type'] == "Flier":
+                enemy.change_y += -constants.GRAVITY + .5
             if arcade.check_for_collision_with_list(enemy, self.wall_list):
                 enemy.change_y = 0
+                #Enemies can get stuck in the ground. This moves them up until they are free. 
                 enemy.center_y = enemy.center_y + 1
                 enemy.isInAir = False
                 
-
+        
         for enemy in self.enemies_list:
-            if enemy.properties['type'] == 'Crawler':
-                if arcade.check_for_collision_with_list(enemy, self.enemy_collisions_list):
-                    enemy.change_x = enemy.change_x * -1
+            distanceLeft = enemy.left - self.player_sprite.right
+            distanceRight = self.player_sprite.left - enemy.right
 
-            elif enemy.properties['type'] == 'Jumper':
+            if distanceLeft > constants.SCREEN_WIDTH or distanceRight > constants.SCREEN_WIDTH:
+                enemy.change_x = 0
+                enemy.change_y = 0
 
-                for wall in self.wall_list:
-                    if enemy.top == wall.bottom or enemy.top == wall.left or enemy.top == wall.right:
-                        enemy.center_y = wall.bottom - 1
+            else:
 
-                    if enemy.right == wall.bottom or enemy.right == wall.left or enemy.right == wall.right:
-                        enemy.center_y = wall.bottom - 1
+                if enemy.properties['type'] == 'Crawler':
+                    if enemy.change_x == 0:
+                        enemy.change_x = constants.CRAWLER_SPEED
+                    if arcade.check_for_collision_with_list(enemy, self.enemy_collisions_list):
+                        enemy.change_x = enemy.change_x * -1
 
-                    if enemy.left == wall.bottom or enemy.left == wall.left or enemy.left == wall.right:
-                        enemy.center_y = wall.bottom - 1
+                elif enemy.properties['type'] == 'Flier':
 
-                randNum = random.randint(0 , 100)
-                willShoot = random.randint(0,150)
-                if willShoot == 5:
-                    enemy_y = enemy._get_center_y()
+                    distanceUp = enemy.bottom - self.player_sprite.top
+
+                    if arcade.check_for_collision_with_list(enemy, self.wall_list):
+                        enemy.change_x = enemy.change_x * -.5
+                    #This is a gross nested if statement. But I can't get it to work when combining. 
+                    if distanceLeft > -350 and distanceLeft < 350:
+                        if distanceUp <= 150 and distanceUp >= -150:
+                            if self.player_sprite.right < enemy.left:
+                                if enemy.change_x != -constants.FLIER_SPEED:
+                                    enemy.change_x = enemy.change_x - .4
+                            else: 
+                                if enemy.change_x != constants.FLIER_SPEED:
+                                    enemy.change_x = enemy.change_x + .4
+
+                            if self.player_sprite.top < enemy.bottom:
+                                if enemy.change_y != -constants.FLIER_SPEED / 2:
+                                    enemy.change_y = enemy.change_y - .4
+                            else:
+                                if enemy.change_y != constants.FLIER_SPEED / 2:
+                                    enemy.change_y = enemy.change_y + .4
+                    else:
+                        if enemy.change_x != 0:
+                            enemy.change_x = 0
+                            enemy.change_y = 0
+           
+
+                elif enemy.properties['type'] == 'Jumper':
+
+                    for wall in self.wall_list:
+                        if enemy.top == wall.bottom or enemy.top == wall.left or enemy.top == wall.right:
+                            enemy.center_y = wall.bottom - 1
+
+                        if enemy.right == wall.bottom or enemy.right == wall.left or enemy.right == wall.right:
+                            enemy.center_y = wall.bottom - 1
+
+                        if enemy.left == wall.bottom or enemy.left == wall.left or enemy.left == wall.right:
+                            enemy.center_y = wall.bottom - 1
+
+                    randNum = random.randint(0 , 100)
+                    willShoot = random.randint(0,150)
+                    if willShoot == 5:
+                        enemy_y = enemy._get_center_y()
+                        
+                        if self.player_sprite.right < enemy.left:
+                            bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
+                            bullet.angle = 180
+                            bullet.center_y = enemy_y
+                            bullet.center_x = enemy.left
+                            bullet.change_x = -constants.BULLET_SPEED
+                            self.enemy_bullet_list.append(bullet)
+                        else:
+                            bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
+                            bullet.angle = 0
+                            bullet.center_y = enemy_y
+                            bullet.center_x = enemy.right
+                            bullet.change_x = constants.BULLET_SPEED
+                            self.enemy_bullet_list.append(bullet)
+
+                    if randNum == 5 and enemy.change_y == 0:
+
+                        jumpDirection = random.randint(0,1)
+                        if jumpDirection == 1:
+
+                            enemy.change_y = constants.ENEMY_JUMP_SPEED
+                            enemy.change_x = constants.JUMPER_SPEED
+                            enemy.hasJumped = True
+                            enemy.isInAir = True
+                        else:
+                            enemy.change_y = constants.ENEMY_JUMP_SPEED
+                            enemy.change_x = -constants.JUMPER_SPEED
+                            enemy.hasJumped = True
+                            enemy.isInAir = True
                     
-                    if self.player_sprite.right < enemy.left:
-                        bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
-                        bullet.angle = 180
-                        bullet.center_y = enemy_y
-                        bullet.center_x = enemy.left
-                        bullet.change_x = -constants.BULLET_SPEED
-                        self.enemy_bullet_list.append(bullet)
-                    else:
-                        bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
-                        bullet.angle = 0
-                        bullet.center_y = enemy_y
-                        bullet.center_x = enemy.right
-                        bullet.change_x = constants.BULLET_SPEED
-                        self.enemy_bullet_list.append(bullet)
-
-                if randNum == 5 and enemy.change_y == 0:
-
-                    jumpDirection = random.randint(0,1)
-                    if jumpDirection == 1:
-
-                        enemy.change_y = constants.ENEMY_JUMP_SPEED
-                        enemy.change_x = constants.JUMPER_SPEED
-                        enemy.hasJumped = True
-                        enemy.isInAir = True
-                    else:
-                        enemy.change_y = constants.ENEMY_JUMP_SPEED
-                        enemy.change_x = -constants.JUMPER_SPEED
-                        enemy.hasJumped = True
-                        enemy.isInAir = True
-                
-                if enemy.hasJumped == True and enemy.change_y == 0 and enemy.isInAir == False:
-                    enemy.change_x = 0
-                    enemy.hasJumped = False
+                    if enemy.hasJumped == True and enemy.change_y == 0 and enemy.isInAir == False:
+                        enemy.change_x = 0
+                        enemy.hasJumped = False
 
                     
     def shootEnemyBullet(self, enemy):
