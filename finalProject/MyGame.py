@@ -1,3 +1,4 @@
+from arcade.sprite import Sprite
 from PlayerCharacter import PlayerCharacter
 import arcade
 from arcade.sprite_list import check_for_collision
@@ -313,6 +314,9 @@ class MyGame(arcade.View):
             elif enemy.properties['type'] == 'Flier':
                 enemy.health = 2
 
+            elif enemy.properties['type'] == 'Boss':
+                enemy.health = 1000
+
     def move_enemies(self):
         for enemy in self.enemies_list:
             if not enemy.properties['type'] == "Flier":
@@ -328,7 +332,7 @@ class MyGame(arcade.View):
             distanceLeft = enemy.left - self.player_sprite.right
             distanceRight = self.player_sprite.left - enemy.right
 
-            if distanceLeft > constants.SCREEN_WIDTH or distanceRight > constants.SCREEN_WIDTH:
+            if distanceLeft > constants.SCREEN_WIDTH * .5 or distanceRight > constants.SCREEN_WIDTH * .5:
                 enemy.change_x = 0
                 enemy.change_y = 0
 
@@ -339,6 +343,46 @@ class MyGame(arcade.View):
                         enemy.change_x = constants.CRAWLER_SPEED
                     if arcade.check_for_collision_with_list(enemy, self.enemy_collisions_list):
                         enemy.change_x = enemy.change_x * -1
+
+                if enemy.properties['type'] == 'Boss':
+                    generateEnemy = random.randint(0, 300)
+                    if generateEnemy == 5:
+                        enemyType = random.randint(0,2)
+                       
+                        if enemyType == 0: 
+                            print("Crawler Generated")
+                            newEnemy = arcade.Sprite("images/enemies/wormGreen.png", constants.CHARACTER_SCALING)
+                            newEnemy.properties['type'] = 'Crawler'
+                            newEnemy.center_x = enemy.left
+                            newEnemy.center_y = enemy.top
+                            newEnemy.change_x = -5
+                            newEnemy.change_y = 25
+
+                            self.enemies_list.append(newEnemy)
+                            self.generate_enemies()
+
+                        elif enemyType == 1: 
+                            print("Jumper Generated")
+                            newEnemy = arcade.Sprite("images/enemies/frog.png", constants.CHARACTER_SCALING)
+                            newEnemy.properties['type'] = 'Jumper'
+                            newEnemy.center_x = enemy.left
+                            newEnemy.center_y = enemy.top
+                            newEnemy.change_x = -5
+                            newEnemy.change_y = 25
+
+                            self.enemies_list.append(newEnemy)
+                            self.generate_enemies()
+
+                        elif enemyType == 2: 
+                            print("Flier Generated")
+                            newEnemy = arcade.Sprite("images/enemies/bee.png", constants.CHARACTER_SCALING)
+                            newEnemy.properties['type'] = 'Flier'
+                            newEnemy.center_x = enemy.left
+                            newEnemy.center_y = enemy.top
+                            newEnemy.change_x = -5
+
+                            self.enemies_list.append(newEnemy)
+                            self.generate_enemies()
 
                 elif enemy.properties['type'] == 'Flier':
 
@@ -415,7 +459,7 @@ class MyGame(arcade.View):
                             enemy.hasJumped = True
                             enemy.isInAir = True
                     
-                    if enemy.hasJumped == True and enemy.change_y == 0 and enemy.isInAir == False:
+                    if enemy.change_y == 0 and enemy.isInAir == False:
                         enemy.change_x = 0
                         enemy.hasJumped = False
 

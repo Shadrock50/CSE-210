@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="2" nextobjectid="1">
- <tileset firstgid="1" name="my_tiles" tilewidth="128" tileheight="128" tilecount="156" columns="0">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="7" nextobjectid="7">
+ <tileset firstgid="1" name="my_tiles" tilewidth="852" tileheight="480" tilecount="212" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
@@ -767,42 +767,243 @@
    </objectgroup>
   </tile>
   <tile id="145">
-   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_left.png"/>
+   <image width="128" height="128" source="images/tiles/disco_left.png"/>
   </tile>
   <tile id="146">
-   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_mid.png"/>
+   <image width="128" height="128" source="images/tiles/disco_mid.png"/>
   </tile>
   <tile id="147">
-   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_right.png"/>
+   <image width="128" height="128" source="images/tiles/disco_right.png"/>
   </tile>
   <tile id="148">
-   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_rise_left.png"/>
+   <image width="128" height="128" source="images/tiles/disco_rise_left.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="-1" y="0">
+     <polygon points="0,0 128,128 0,128"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="149">
-   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_rise_right.png"/>
+   <image width="128" height="128" source="images/tiles/disco_rise_right.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="127" y="0">
+     <polygon points="1,1 -126,127 2,128"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="150">
-   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_scaffold_blue.png"/>
+   <image width="128" height="128" source="images/tiles/disco_scaffold_blue.png"/>
   </tile>
   <tile id="151">
-   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_scaffold_cyan.png"/>
+   <image width="128" height="128" source="images/tiles/disco_scaffold_cyan.png"/>
   </tile>
   <tile id="152">
-   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_scaffold_green.png"/>
+   <image width="128" height="128" source="images/tiles/disco_scaffold_green.png"/>
   </tile>
   <tile id="153">
-   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/disco_scaffold_yellow.png"/>
+   <image width="128" height="128" source="images/tiles/disco_scaffold_yellow.png"/>
   </tile>
   <tile id="154">
-   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/upper_left_disco.png"/>
+   <image width="128" height="128" source="images/tiles/upper_left_disco.png"/>
   </tile>
   <tile id="155">
-   <image width="128" height="128" source="C:/Users/ToChange/OneDrive/Desktop/platfrom disco tiles/upper_right_disco.png"/>
+   <image width="128" height="128" source="images/tiles/upper_right_disco.png"/>
+  </tile>
+  <tile id="156">
+   <image width="54" height="9" source="images/tiles/bullet.png"/>
+  </tile>
+  <tile id="157">
+   <image width="128" height="128" source="images/tiles/city_left.png"/>
+  </tile>
+  <tile id="158">
+   <image width="128" height="128" source="images/tiles/city_middle.png"/>
+  </tile>
+  <tile id="159">
+   <image width="128" height="128" source="images/tiles/city_right.png"/>
+  </tile>
+  <tile id="160">
+   <image width="128" height="128" source="images/tiles/city_warning.png"/>
+  </tile>
+  <tile id="161">
+   <image width="128" height="128" source="images/tiles/cone.png"/>
+  </tile>
+  <tile id="162">
+   <image width="852" height="480" source="images/tiles/gameover.png"/>
+  </tile>
+  <tile id="163">
+   <image width="128" height="128" source="images/tiles/scaffold_rise_left.png"/>
+  </tile>
+  <tile id="164">
+   <image width="128" height="128" source="images/tiles/scaffold_rise_right.png"/>
+  </tile>
+  <tile id="165">
+   <image width="128" height="128" source="images/tiles/scaffold_topper_left.png"/>
+  </tile>
+  <tile id="166">
+   <image width="128" height="128" source="images/tiles/scaffold_topper_mid.png"/>
+  </tile>
+  <tile id="167">
+   <image width="128" height="128" source="images/tiles/scaffold_topper_right.png"/>
+  </tile>
+  <tile id="168">
+   <image width="128" height="128" source="images/tiles/scaffold_warning_topper.png"/>
+  </tile>
+  <tile id="169">
+   <image width="128" height="128" source="images/tiles/scaffolding.png"/>
+  </tile>
+  <tile id="170">
+   <image width="128" height="128" source="images/tiles/upper_left_scaffold.png"/>
+  </tile>
+  <tile id="171">
+   <image width="128" height="128" source="images/tiles/upper_right_scaffold.png"/>
+  </tile>
+  <tile id="172">
+   <image width="128" height="128" source="images/enemies/bee.png"/>
+  </tile>
+  <tile id="173">
+   <image width="128" height="128" source="images/enemies/fishGreen.png"/>
+  </tile>
+  <tile id="174">
+   <image width="128" height="128" source="images/enemies/fishPink.png"/>
+  </tile>
+  <tile id="175">
+   <image width="128" height="128" source="images/enemies/fly.png"/>
+  </tile>
+  <tile id="176">
+   <image width="128" height="128" source="images/enemies/frog.png"/>
+  </tile>
+  <tile id="177">
+   <image width="128" height="128" source="images/enemies/frog_move.png"/>
+  </tile>
+  <tile id="178">
+   <image width="128" height="128" source="images/enemies/ladybug.png"/>
+  </tile>
+  <tile id="179">
+   <image width="128" height="128" source="images/enemies/mouse.png"/>
+  </tile>
+  <tile id="180">
+   <image width="128" height="128" source="images/enemies/saw.png"/>
+  </tile>
+  <tile id="181">
+   <image width="128" height="128" source="images/enemies/sawHalf.png"/>
+  </tile>
+  <tile id="182">
+   <image width="128" height="128" source="images/enemies/slimeBlock.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="2" x="16" y="32" width="93" height="94"/>
+   </objectgroup>
+  </tile>
+  <tile id="183">
+   <image width="128" height="128" source="images/enemies/slimeBlue.png"/>
+  </tile>
+  <tile id="184">
+   <image width="128" height="128" source="images/enemies/slimeBlue_move.png"/>
+  </tile>
+  <tile id="185">
+   <image width="128" height="128" source="images/enemies/slimeGreen.png"/>
+  </tile>
+  <tile id="186">
+   <image width="128" height="128" source="images/enemies/slimePurple.png"/>
+  </tile>
+  <tile id="187">
+   <image width="128" height="128" source="images/enemies/wormGreen.png"/>
+  </tile>
+  <tile id="188">
+   <image width="128" height="128" source="images/enemies/wormGreen_dead.png"/>
+  </tile>
+  <tile id="189">
+   <image width="128" height="128" source="images/enemies/wormGreen_move.png"/>
+  </tile>
+  <tile id="190">
+   <image width="128" height="128" source="images/enemies/wormPink.png"/>
+  </tile>
+  <tile id="191">
+   <image width="128" height="128" source="images/items/coinBronze.png"/>
+  </tile>
+  <tile id="192">
+   <image width="128" height="128" source="images/items/coinGold.png"/>
+  </tile>
+  <tile id="193">
+   <image width="128" height="128" source="images/items/coinSilver.png"/>
+  </tile>
+  <tile id="194">
+   <image width="128" height="128" source="images/items/flagGreen_down.png"/>
+  </tile>
+  <tile id="195">
+   <image width="128" height="128" source="images/items/flagGreen1.png"/>
+  </tile>
+  <tile id="196">
+   <image width="128" height="128" source="images/items/flagGreen2.png"/>
+  </tile>
+  <tile id="197">
+   <image width="128" height="128" source="images/items/flagRed_down.png"/>
+  </tile>
+  <tile id="198">
+   <image width="128" height="128" source="images/items/flagRed1.png"/>
+  </tile>
+  <tile id="199">
+   <image width="128" height="128" source="images/items/flagRed2.png"/>
+  </tile>
+  <tile id="200">
+   <image width="128" height="128" source="images/items/flagYellow_down.png"/>
+  </tile>
+  <tile id="201">
+   <image width="128" height="128" source="images/items/flagYellow1.png"/>
+  </tile>
+  <tile id="202">
+   <image width="128" height="128" source="images/items/flagYellow2.png"/>
+  </tile>
+  <tile id="203">
+   <image width="128" height="128" source="images/items/gemBlue.png"/>
+  </tile>
+  <tile id="204">
+   <image width="128" height="128" source="images/items/gemGreen.png"/>
+  </tile>
+  <tile id="205">
+   <image width="128" height="128" source="images/items/gemRed.png"/>
+  </tile>
+  <tile id="206">
+   <image width="128" height="128" source="images/items/gemYellow.png"/>
+  </tile>
+  <tile id="207">
+   <image width="128" height="128" source="images/items/keyBlue.png"/>
+  </tile>
+  <tile id="208">
+   <image width="128" height="128" source="images/items/keyGreen.png"/>
+  </tile>
+  <tile id="209">
+   <image width="128" height="128" source="images/items/keyRed.png"/>
+  </tile>
+  <tile id="210">
+   <image width="128" height="128" source="images/items/keyYellow.png"/>
+  </tile>
+  <tile id="211">
+   <image width="128" height="128" source="images/items/star.png"/>
   </tile>
  </tileset>
- <layer id="1" name="Platforms" width="25" height="20">
+ <layer id="1" name="Platforms" width="100" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRQAmYBMSToXjKALuFFAByN7XdCwuLoRQOIDANiGcQiafi0D8LBwaB6Uh4Nh53zAHimQQwLv0ADHkY2A==
+   eJzt0kkKhEAQBdG8/9IxLT2sCi4cakhKxULiwd91inQoAgAAAABA+dzXL4ADepSFHu/QzDt6XFXL6m1Nxn1uixU9nqVCj5S737uVCj1KoUKPUpxb0COuE/9/5lsbuHeBWZ9r3d979LuNkd9Ny4bEYvewmQEHxTOp
   </data>
  </layer>
+ <objectgroup id="2" name="Enemies">
+  <object id="6" type="Boss" gid="183" x="5095.59" y="-1053.49" width="600.537" height="613.308"/>
+ </objectgroup>
+ <layer id="5" name="Background" width="100" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAYH0AAAQ==
+  </data>
+ </layer>
+ <layer id="6" name="Enemy Collisions" width="100" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt1LENACAMA8G07L8wIyQIGqy7MmVkfRUAAAAA5FjDGySwd+AnJ3160bebHmppz49ItQGChgBb
+  </data>
+ </layer>
+ <objectgroup id="3" name="Flag"/>
+ <objectgroup id="4" name="Power-ups">
+  <object id="1" type="extraLife" gid="204" x="395.766" y="2279.81" width="128" height="128"/>
+  <object id="2" type="Shotgun" gid="205" x="759.747" y="2279.81" width="128" height="128"/>
+  <object id="3" type="MachineGun" gid="207" x="1142.88" y="2267.04" width="128" height="128"/>
+  <object id="4" type="invincible" gid="206" x="1391.92" y="2273.43" width="128" height="128"/>
+ </objectgroup>
 </map>
