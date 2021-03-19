@@ -1022,7 +1022,7 @@
  </tileset>
  <layer id="1" name="Platforms" width="100" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt1+0KgjAUxvFz/x97XdZtVUTvd9KChWtsx20Uiv5/8ICgOwwfURQBAAAoc7W5Bbn3uiMAaH3eUbyXxqfpewP4Qh9lzjYnl8sf5tNHub2LxlTOnnIf/r+C/y2e2cxdFsGao7R9HBJza7t4m3IfNR7e8TNy3gh9dNGe918yQh9DYYQ+hiLsgj50K4nfs1iWifVNIrlzczP2PtZetsp1O5tNR7T1yPMCFgpJGg==
+   eJzt19sKgkAUheH9/pcdJ+u1IgpSH6U9ULQRHXdToun/wbpzDsySEUUAAAA+c9eUjVSj7ggA3l53FPfS/BRjb+CPXTS3H89JH37x/K8m9QBr0IdP7KLWnE1SQuY6S+7D/ivYb/FKs35mkzFvbhfRkvsYQhD66PPt++4VhD6mIgh9TEWzC/pI20n7mbVl2zG+6Ih3Xm/m3sfe5Jh47qQ59CQ1Hj4PYilJGA==
   </data>
  </layer>
  <objectgroup id="2" name="Enemies">
