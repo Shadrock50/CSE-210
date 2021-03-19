@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="7" nextobjectid="7">
- <tileset firstgid="1" name="my_tiles" tilewidth="852" tileheight="480" tilecount="225" columns="0">
+ <tileset firstgid="1" name="my_tiles" tilewidth="852" tileheight="480" tilecount="227" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
@@ -1019,10 +1019,16 @@
   <tile id="224">
    <image width="128" height="128" source="images/tiles/volcanoCorner_right.png"/>
   </tile>
+  <tile id="225">
+   <image width="128" height="128" source="images/tiles/volcano_bottomleft.png"/>
+  </tile>
+  <tile id="226">
+   <image width="128" height="128" source="images/tiles/volcano_bottomright.png"/>
+  </tile>
  </tileset>
  <layer id="1" name="Platforms" width="100" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt19sKgkAUheH9/pcdJ+u1IgpSH6U9ULQRHXdToun/wbpzDsySEUUAAAA+c9eUjVSj7ggA3l53FPfS/BRjb+CPXTS3H89JH37x/K8m9QBr0IdP7KLWnE1SQuY6S+7D/ivYb/FKs35mkzFvbhfRkvsYQhD66PPt++4VhD6mIgh9TEWzC/pI20n7mbVl2zG+6Ih3Xm/m3sfe5Jh47qQ59CQ1Hj4PYilJGA==
+   eJztl9sKgkAUAM//P1rWZv5WRA+W0I90BJcW0fW0GZrOwLy5F3ZkRREAAACAz6jUe8fHrDsCAHjj7yjupfVRzL2BP+aq3iaekx52/Pl7a/U58Rr0sNG0qNVLYKyFS1xnyz3Cf4XwW5ypu9Z9wrypLRq23OMXOKHHGN++71ac0GMpOKHHUui2oEecg/SfWZ/5wPhiQOu8Vtfe4xh4jjxXqqcRY+PBxgs7Pkrd
   </data>
  </layer>
  <objectgroup id="2" name="Enemies">
