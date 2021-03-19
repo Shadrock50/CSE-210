@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="7" nextobjectid="7">
- <tileset firstgid="1" name="my_tiles" tilewidth="852" tileheight="480" tilecount="212" columns="0">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="7" nextobjectid="7">
+ <tileset firstgid="1" name="my_tiles" tilewidth="852" tileheight="480" tilecount="218" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
@@ -980,10 +980,28 @@
   <tile id="211">
    <image width="128" height="128" source="images/items/star.png"/>
   </tile>
+  <tile id="212">
+   <image width="128" height="128" source="images/tiles/volcano_fill.png"/>
+  </tile>
+  <tile id="213">
+   <image width="128" height="128" source="images/tiles/volcanoHill_left.png"/>
+  </tile>
+  <tile id="214">
+   <image width="128" height="128" source="images/tiles/volcanoHill_right.png"/>
+  </tile>
+  <tile id="215">
+   <image width="128" height="128" source="images/tiles/volcanoLeft.png"/>
+  </tile>
+  <tile id="216">
+   <image width="128" height="128" source="images/tiles/volcanoMid.png"/>
+  </tile>
+  <tile id="217">
+   <image width="128" height="128" source="images/tiles/volcanoRight.png"/>
+  </tile>
  </tileset>
  <layer id="1" name="Platforms" width="100" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt0kkKhEAQBdG8/9IxLT2sCi4cakhKxULiwd91inQoAgAAAABA+dzXL4ADepSFHu/QzDt6XFXL6m1Nxn1uixU9nqVCj5S737uVCj1KoUKPUpxb0COuE/9/5lsbuHeBWZ9r3d979LuNkd9Ny4bEYvewmQEHxTOp
+   eJzt0ksKgCAYReF//8OeZi2s5WTQwMoXVihxPrizDOkkAgAAAABA/XTpC+CEHiJr6QtY6PENlXmOHneNWXusyzif22JHj3cpoUfM0/89lRJ61EIJPWpxbUGPsEHc38y13nNee5b63tT9vcdobQ48t5hNkYXOI80Gx4o0gQ==
   </data>
  </layer>
  <objectgroup id="2" name="Enemies">
