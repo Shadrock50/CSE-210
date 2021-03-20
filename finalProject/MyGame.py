@@ -11,9 +11,9 @@ class MyGame(arcade.View):
 
         super().__init__()
 
-        arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
         self.window.set_mouse_visible(False)
         self.power_ups_list = None
+        self.backgrounds_list = None
         self.wall_list = None
         self.player_list = None #May need enemy list
         self.enemies_list = None #May want list for each enemy type
@@ -57,6 +57,7 @@ class MyGame(arcade.View):
         self.wall_list = arcade.SpriteList(use_spatial_hash=True)
         self.power_ups_list = arcade.SpriteList(use_spatial_hash=True)
         self.enemies_list = arcade.SpriteList()
+        self.backgrounds_list = arcade.SpriteList(use_spatial_hash=True)
         self.bullet_list = arcade.SpriteList()
         self.enemy_bullet_list = arcade.SpriteList()
         self.background_list = arcade.SpriteList(use_spatial_hash=True)
@@ -64,8 +65,8 @@ class MyGame(arcade.View):
         self.enemy_collisions_list = arcade.SpriteList(use_spatial_hash=True)
 
         self.player_sprite = PlayerCharacter()
-        self.player_sprite.center_x = 64
-        self.player_sprite.center_y = 128
+        self.player_sprite.center_x = 128
+        self.player_sprite.center_y = 192
         self.player_list.append(self.player_sprite)
 
         # --- Load in a map from the tiled editor ---
@@ -104,11 +105,12 @@ class MyGame(arcade.View):
 
         # -- Background objects
         self.background_list = arcade.tilemap.process_layer(my_map, "Background", constants.TILE_SCALING)
+        self.backgrounds_list = arcade.tilemap.process_layer(my_map, "Backgrounds", constants.TILE_SCALING)
 
         # --- Other stuff
-        # Set the background color
-        if my_map.background_color:
-            arcade.set_background_color(my_map.background_color)
+        # # Set the background color
+        # if my_map.background_color:
+        #     arcade.set_background_color(my_map.background_color)
        
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite, self.wall_list, constants.GRAVITY)
 
@@ -178,7 +180,7 @@ class MyGame(arcade.View):
                     elif enemy.properties['type'] == "Boss":
                         time.sleep(1)
                         game_view = GameWinView()
-                        game_view.setup(self.score)
+                        game_view.setup(self.score, self.player_sprite)
                         self.window.show_view(game_view)
 
         for bullet in self.enemy_bullet_list:
@@ -262,7 +264,7 @@ class MyGame(arcade.View):
             # Load the next level
             
             game_view = LevelView()
-            game_view.setup(self.level, self.lives, self.score)
+            game_view.setup(self.level, self.lives, self.score, self.player_sprite)
             self.window.show_view(game_view)
             # Set the camera to the start
             self.view_left = 0
@@ -320,7 +322,7 @@ class MyGame(arcade.View):
                 enemy.health = 2
 
             elif enemy.properties['type'] == 'Boss':
-                enemy.health = 500
+                enemy.health = 3
 
     def move_enemies(self):
         for enemy in self.enemies_list:
@@ -350,7 +352,7 @@ class MyGame(arcade.View):
                         enemy.change_x = enemy.change_x * -1
 
                 if enemy.properties['type'] == 'Boss':
-                    generateEnemy = random.randint(0, 200)
+                    generateEnemy = random.randint(0, 150)
                     if generateEnemy == 5:
                         enemyType = random.randint(0,2)
                        
@@ -396,7 +398,7 @@ class MyGame(arcade.View):
                     if arcade.check_for_collision_with_list(enemy, self.wall_list):
                         enemy.change_x = enemy.change_x * -.5
                     #This is a gross nested if statement. But I can't get it to work when combining. 
-                    if distanceLeft > -400 and distanceLeft < 400:
+                    if distanceLeft > -450 and distanceLeft < 450:
                         if distanceUp <= 200 and distanceUp >= -200:
                             if self.player_sprite.right < enemy.left:
                                 if enemy.change_x != -constants.FLIER_SPEED:
@@ -439,14 +441,14 @@ class MyGame(arcade.View):
                             bullet.angle = 180
                             bullet.center_y = enemy_y
                             bullet.center_x = enemy.left
-                            bullet.change_x = -constants.BULLET_SPEED
+                            bullet.change_x = -constants.BULLET_SPEED * .7
                             self.enemy_bullet_list.append(bullet)
                         else:
                             bullet = arcade.Sprite("images/animated_characters/frogbullet.png", constants.SPRITE_SCALING_LASER)
                             bullet.angle = 0
                             bullet.center_y = enemy_y
                             bullet.center_x = enemy.right
-                            bullet.change_x = constants.BULLET_SPEED
+                            bullet.change_x = constants.BULLET_SPEED * .7
                             self.enemy_bullet_list.append(bullet)
 
                     if randNum == 5 and enemy.change_y == 0:
@@ -564,6 +566,7 @@ class MyGame(arcade.View):
         if self.lives == 0:
             #go to game over screen
             game_view = GameOverView()
+            game_view.setup(self.player_sprite)
             self.window.show_view(game_view)
 
     def shootMultipleBullets(self):
@@ -592,7 +595,8 @@ class MyGame(arcade.View):
     def on_draw(self):
 
         arcade.start_render()
-        self.wall_list.draw()
+        self.backgrounds_list.draw()
+        self.wall_list.draw() 
         self.background_list.draw()
         self.enemies_list.draw()
         self.flag_list.draw()
@@ -600,6 +604,8 @@ class MyGame(arcade.View):
         self.player_list.draw()
         self.bullet_list.draw()
         self.enemy_bullet_list.draw()
+        print(self.player_sprite.center_x)
+       
 
          # Draw our score on the screen, scrolling it with the viewport
         score_text = f"Score: {self.score}"
@@ -614,8 +620,9 @@ class MyGame(arcade.View):
 class GameWinView(arcade.View):
     """ View to show instructions """
 
-    def setup(self, score):
+    def setup(self, score, player):
         self.score = score
+        self.center_x = player.center_x
 
     def on_show(self):
         """ This is run once when we switch to this view """
@@ -628,9 +635,9 @@ class GameWinView(arcade.View):
     def on_draw(self):
         """ Draw this view """
         arcade.start_render()
-        arcade.draw_text("You Win! Congratulations!", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2,
+        arcade.draw_text("You Win! Congratulations!", self.center_x, constants.SCREEN_HEIGHT / 2,
                          arcade.color.WHITE, font_size=50, anchor_x="center")
-        arcade.draw_text("Your score was " + str(self.score) + "!", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2-75,
+        arcade.draw_text("Your score was " + str(self.score) + "!", self.center_x, constants.SCREEN_HEIGHT / 2-75,
                          arcade.color.WHITE, font_size=20, anchor_x="center")
 
     def on_key_press(self, key, modifiers):
@@ -675,10 +682,13 @@ class GameOverView(arcade.View):
         # to reset the viewport back to the start so we can see what we draw.
         arcade.set_viewport(0, constants.SCREEN_WIDTH - 1, 0, constants.SCREEN_HEIGHT - 1)
 
+    def setup(self, player):
+        self.center_x = player.center_x
+
     def on_draw(self):
         """ Draw this view """
         arcade.start_render()
-        self.texture.draw_sized(constants.SCREEN_WIDTH / 2 - 150, constants.SCREEN_HEIGHT / 2 - 50,
+        self.texture.draw_sized(constants.SCREEN_HEIGHT / 2, constants.SCREEN_HEIGHT / 2 - 100,
                                 constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT)
 
     def on_key_press(self, key, _modifiers):
@@ -728,19 +738,33 @@ class LevelView(arcade.View):
         # to reset the viewport back to the start so we can see what we draw.
         arcade.set_viewport(0, constants.SCREEN_WIDTH - 1, 0, constants.SCREEN_HEIGHT - 1)
 
-    def setup(self, level, lives, score):
+    def setup(self, level, lives, score, player):
         self.cur_level = level
         self.lives = lives
         self.score = score
+        self.world = 1
+        self.displayedLevel = level
+        self.center_x = player.center_x
+        self.center_y = player.center_y
+
+    def genWorld(self):
+        if self.cur_level > 5 and self.cur_level < 11:
+            self.world = 2
+            self.displayedLevel = self.cur_level - 5
+
+        elif self.cur_level >= 11:
+            self.world = 3
+            self.displayedLevel = self.cur_level - 10
 
     def on_draw(self):
         """ Draw this view """
-        textPhrase = "World 1 - " + str(self.cur_level)
+        self.genWorld()
+        textPhrase = "World " + str(self.world) + " - " + str(self.displayedLevel)
         livesPhrase = "Lives Remaining: " + str(self.lives)
         arcade.start_render()
-        arcade.draw_text(textPhrase, constants.SCREEN_WIDTH + 225, constants.SCREEN_HEIGHT / 2,
+        arcade.draw_text(textPhrase, self.center_x, constants.SCREEN_HEIGHT / 2,
                          arcade.color.WHITE, font_size=50, anchor_x="center")
-        arcade.draw_text(livesPhrase, constants.SCREEN_WIDTH + 225, constants.SCREEN_HEIGHT / 2.5,
+        arcade.draw_text(livesPhrase, self.center_x, constants.SCREEN_HEIGHT / 2.5 ,
                          arcade.color.WHITE, font_size=25, anchor_x="center")
 
     def on_key_press(self, key, modifiers):
