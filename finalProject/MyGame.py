@@ -175,6 +175,11 @@ class MyGame(arcade.View):
                         self.score += 200
                     elif enemy.properties['type'] == "Flier":
                         self.score += 400
+                    elif enemy.properties['type'] == "Boss":
+                        time.sleep(1)
+                        game_view = GameWinView()
+                        game_view.setup(self.score)
+                        self.window.show_view(game_view)
 
         for bullet in self.enemy_bullet_list:
             hit_wall_list = arcade.check_for_collision_with_list(bullet, self.wall_list)
@@ -315,7 +320,7 @@ class MyGame(arcade.View):
                 enemy.health = 2
 
             elif enemy.properties['type'] == 'Boss':
-                enemy.health = 1000
+                enemy.health = 500
 
     def move_enemies(self):
         for enemy in self.enemies_list:
@@ -345,7 +350,7 @@ class MyGame(arcade.View):
                         enemy.change_x = enemy.change_x * -1
 
                 if enemy.properties['type'] == 'Boss':
-                    generateEnemy = random.randint(0, 300)
+                    generateEnemy = random.randint(0, 200)
                     if generateEnemy == 5:
                         enemyType = random.randint(0,2)
                        
@@ -391,8 +396,8 @@ class MyGame(arcade.View):
                     if arcade.check_for_collision_with_list(enemy, self.wall_list):
                         enemy.change_x = enemy.change_x * -.5
                     #This is a gross nested if statement. But I can't get it to work when combining. 
-                    if distanceLeft > -350 and distanceLeft < 350:
-                        if distanceUp <= 150 and distanceUp >= -150:
+                    if distanceLeft > -400 and distanceLeft < 400:
+                        if distanceUp <= 200 and distanceUp >= -200:
                             if self.player_sprite.right < enemy.left:
                                 if enemy.change_x != -constants.FLIER_SPEED:
                                     enemy.change_x = enemy.change_x - .4
@@ -605,6 +610,33 @@ class MyGame(arcade.View):
                          arcade.csscolor.WHITE, 18)
 
 #Views section
+
+class GameWinView(arcade.View):
+    """ View to show instructions """
+
+    def setup(self, score):
+        self.score = score
+
+    def on_show(self):
+        """ This is run once when we switch to this view """
+        arcade.set_background_color(arcade.csscolor.BLACK)
+
+        # Reset the viewport, necessary if we have a scrolling game and we need
+        # to reset the viewport back to the start so we can see what we draw.
+        arcade.set_viewport(0, constants.SCREEN_WIDTH - 1, 0, constants.SCREEN_HEIGHT - 1)
+
+    def on_draw(self):
+        """ Draw this view """
+        arcade.start_render()
+        arcade.draw_text("You Win! Congratulations!", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2,
+                         arcade.color.WHITE, font_size=50, anchor_x="center")
+        arcade.draw_text("Your score was " + str(self.score) + "!", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2-75,
+                         arcade.color.WHITE, font_size=20, anchor_x="center")
+
+    def on_key_press(self, key, modifiers):
+        """ If the user presses the mouse button, start the game. """
+        game_view = FirstView()
+        self.window.show_view(game_view)
 
 class FirstView(arcade.View):
     """ View to show instructions """
