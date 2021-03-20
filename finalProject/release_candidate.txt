@@ -1,0 +1,4 @@
+https://github.com/Shadrock50/CSE-210.git
+-	Using (finalProject) as our project
+Exceeds requirements (5):
+ Our project meets all the current requirements, and has some things added already for the future. We have imported our own sprites and graphics. The project also contains all the screens we need.
