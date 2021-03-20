@@ -435,14 +435,14 @@ class MyGame(arcade.View):
                         enemy_y = enemy._get_center_y()
                         
                         if self.player_sprite.right < enemy.left:
-                            bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
+                            bullet = arcade.Sprite("images/animated_characters/frogbullet.png", constants.SPRITE_SCALING_LASER)
                             bullet.angle = 180
                             bullet.center_y = enemy_y
                             bullet.center_x = enemy.left
                             bullet.change_x = -constants.BULLET_SPEED
                             self.enemy_bullet_list.append(bullet)
                         else:
-                            bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
+                            bullet = arcade.Sprite("images/animated_characters/frogbullet.png", constants.SPRITE_SCALING_LASER)
                             bullet.angle = 0
                             bullet.center_y = enemy_y
                             bullet.center_x = enemy.right
