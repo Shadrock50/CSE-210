@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="33">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="39">
  <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="228" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -1645,7 +1645,7 @@
  </objectgroup>
  <layer id="1" name="Platforms" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJztlusKgzAMhfv+D7HVH+4S95Br2AZSktbEzcg8HxwqrcHklLSmBAAAAAAAGIpO4ACcioaiczXmwJz+hUvRtegWnUggJDzTTAAAO2N6ndNDcB58f/CdkYPzsMDeTdVc6zwaG2tHQ/KO6Xm3R/+27h3NO0byZ/6+tM69lw3zvdy0PbLuHSnjmlgeNe/qb3xqmZT1b9P7n/H654n31slx97ckrz21LcmF0jL/rFoT/wsezjosavXHnnkCZuJWIg==
+   eJztluEOgyAMhHn/h9jwh5vWPeRotiWEFLB1s2bel1wwIPE4UjAEAAAAAADAkLeBE3BJGpKuRRsdPf0Lt6R70uRtxBESnikTAEDPGF7n9ODsg+8PvjOisw8NnN1S9LXOo7Exdjak7JhedkfMb+/aqWXHSPnk70vjXHtR0d/zVtsj7d5R0W6Zm7e17MpvfdayVMa/Te9/xpqf1Yt13vyWlLVlbWu8UFiXn1Zb5v+Ch3EdGrXq48g8AcCXVM4=
   </data>
  </layer>
  <objectgroup id="2" name="Enemies">
@@ -1662,6 +1662,11 @@
   <object id="30" type="Jumper" gid="400" x="7832" y="2264" width="128" height="128"/>
   <object id="31" type="Jumper" gid="400" x="8040" y="2256" width="128" height="128"/>
   <object id="32" type="Jumper" gid="400" x="8288" y="2232" width="128" height="128"/>
+  <object id="34" type="Crawler" gid="411" x="3240" y="2388" width="128" height="128"/>
+  <object id="35" type="Crawler" gid="411" x="3508" y="2388" width="128" height="128"/>
+  <object id="36" type="Crawler" gid="411" x="2344" y="2404" width="128" height="128"/>
+  <object id="37" type="Crawler" gid="411" x="1628" y="2424" width="128" height="128"/>
+  <object id="38" type="Crawler" gid="411" x="4452" y="1048" width="128" height="128"/>
  </objectgroup>
  <layer id="5" name="Background" width="80" height="20">
   <data encoding="base64" compression="zlib">
@@ -1670,15 +1675,15 @@
  </layer>
  <layer id="6" name="Enemy Collisions" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt17sNACAIBUDcfw0HpTfGQNTuruXbvggAACrmuKsDAAC81s0ha39n/mfm2e0+3av8IqORh7EGcw==
+   eJzt17sNACAIBUDcfw0HNbbGGPx03nUE8qAlAgCAjFru+gAAAK/t/iHjfK8zGdm5U7Ps1b7szfytASBPB70=
   </data>
  </layer>
  <objectgroup id="3" name="Flag">
   <object id="11" gid="197" x="10136" y="1512" width="128" height="128"/>
  </objectgroup>
  <objectgroup id="4" name="Power-ups">
-  <object id="12" type="invincible" gid="207" x="7176" y="2016" width="128" height="128"/>
   <object id="13" type="MachineGun" gid="205" x="1152" y="1776" width="128" height="128"/>
   <object id="14" type="extraLife" gid="204" x="2816" y="880" width="128" height="128"/>
+  <object id="33" type="invincible" gid="390" x="7168" y="2220" width="128" height="128"/>
  </objectgroup>
 </map>
