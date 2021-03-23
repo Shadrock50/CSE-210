@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="10" nextobjectid="22">
- <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="205" columns="0">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="10" nextobjectid="23">
+ <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="201" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
@@ -473,18 +473,6 @@
   <tile id="156">
    <image width="128" height="128" source="images/items/flagYellow2.png"/>
   </tile>
-  <tile id="157">
-   <image width="128" height="128" source="images/items/gemBlue.png"/>
-  </tile>
-  <tile id="158">
-   <image width="128" height="128" source="images/items/gemGreen.png"/>
-  </tile>
-  <tile id="159">
-   <image width="128" height="128" source="images/items/gemRed.png"/>
-  </tile>
-  <tile id="160">
-   <image width="128" height="128" source="images/items/gemYellow.png"/>
-  </tile>
   <tile id="161">
    <image width="128" height="128" source="images/items/keyBlue.png"/>
   </tile>
@@ -608,17 +596,29 @@
   <tile id="200">
    <image width="1600" height="800" source="images/tiles/city_background.jpg"/>
   </tile>
-  <tile id="201">
-   <image width="128" height="128" source="images/items/extraLife.png"/>
+  <tile id="208">
+   <image width="128" height="128" source="images/items/gemBlue.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="29" y="49" width="68" height="73"/>
+   </objectgroup>
   </tile>
-  <tile id="202">
-   <image width="128" height="128" source="images/items/machinegun.png"/>
+  <tile id="209">
+   <image width="128" height="128" source="images/items/gemGreen.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="22" y="30" width="75" height="61"/>
+   </objectgroup>
   </tile>
-  <tile id="203">
-   <image width="128" height="128" source="images/items/shotgun.png"/>
+  <tile id="210">
+   <image width="128" height="128" source="images/items/gemRed.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="23" y="29" width="74" height="62"/>
+   </objectgroup>
   </tile>
-  <tile id="204">
-   <image width="128" height="128" source="images/items/invincibility.png"/>
+  <tile id="211">
+   <image width="128" height="128" source="images/items/gemYellow.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="30" y="47" width="73" height="56"/>
+   </objectgroup>
   </tile>
  </tileset>
  <objectgroup id="9" name="Backgrounds">
@@ -642,7 +642,7 @@
   </data>
  </layer>
  <objectgroup id="4" name="Power-ups">
-  <object id="17" type="extraLife" gid="158" x="7934.08" y="930.458" width="128" height="128"/>
+  <object id="22" type="extraLife" gid="209" x="7949.62" y="982.66" width="128" height="128"/>
  </objectgroup>
  <objectgroup id="5" name="Enemies">
   <object id="16" type="Crawler" gid="182" x="3207.01" y="2314.74" width="128" height="128"/>

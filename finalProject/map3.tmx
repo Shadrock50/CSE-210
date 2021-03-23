@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="11">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="33">
  <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="228" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -1029,7 +1029,7 @@
    <image width="1600" height="800" source="images/tiles/city_background.jpg"/>
   </tile>
  </tileset>
- <tileset firstgid="229" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="201" columns="0">
+ <tileset firstgid="230" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="201" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
@@ -1645,10 +1645,24 @@
  </objectgroup>
  <layer id="1" name="Platforms" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
+   eJztlusKgzAMhfv+D7HVH+4S95Br2AZSktbEzcg8HxwqrcHklLSmBAAAAAAAGIpO4ACcioaiczXmwJz+hUvRtegWnUggJDzTTAAAO2N6ndNDcB58f/CdkYPzsMDeTdVc6zwaG2tHQ/KO6Xm3R/+27h3NO0byZ/6+tM69lw3zvdy0PbLuHSnjmlgeNe/qb3xqmZT1b9P7n/H654n31slx97ckrz21LcmF0jL/rFoT/wsezjosavXHnnkCZuJWIg==
   </data>
  </layer>
- <objectgroup id="2" name="Enemies"/>
+ <objectgroup id="2" name="Enemies">
+  <object id="15" type="Crawler" gid="411" x="1728" y="2424" width="128" height="128"/>
+  <object id="16" type="Crawler" gid="411" x="2168" y="2392" width="128" height="128"/>
+  <object id="17" type="Crawler" gid="411" x="2512" y="2408" width="128" height="128"/>
+  <object id="21" type="Crawler" gid="411" x="3112" y="2392" width="128" height="128"/>
+  <object id="22" type="Crawler" gid="411" x="3392" y="2392" width="128" height="128"/>
+  <object id="23" type="Crawler" gid="411" x="3656" y="2392" width="128" height="128"/>
+  <object id="24" type="Crawler" gid="411" x="4232" y="1024" width="128" height="128"/>
+  <object id="27" type="Crawler" gid="411" x="5936" y="2280" width="128" height="128"/>
+  <object id="28" type="Crawler" gid="411" x="6128" y="2264" width="128" height="128"/>
+  <object id="29" type="Jumper" gid="400" x="6424" y="2256" width="128" height="128"/>
+  <object id="30" type="Jumper" gid="400" x="7832" y="2264" width="128" height="128"/>
+  <object id="31" type="Jumper" gid="400" x="8040" y="2256" width="128" height="128"/>
+  <object id="32" type="Jumper" gid="400" x="8288" y="2232" width="128" height="128"/>
+ </objectgroup>
  <layer id="5" name="Background" width="80" height="20">
   <data encoding="base64" compression="zlib">
    eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
@@ -1659,6 +1673,12 @@
    eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
   </data>
  </layer>
- <objectgroup id="3" name="Flag"/>
- <objectgroup id="4" name="Power-ups"/>
+ <objectgroup id="3" name="Flag">
+  <object id="11" gid="197" x="10136" y="1512" width="128" height="128"/>
+ </objectgroup>
+ <objectgroup id="4" name="Power-ups">
+  <object id="12" type="invincible" gid="207" x="7176" y="2016" width="128" height="128"/>
+  <object id="13" type="MachineGun" gid="205" x="1152" y="1776" width="128" height="128"/>
+  <object id="14" type="extraLife" gid="204" x="2816" y="880" width="128" height="128"/>
+ </objectgroup>
 </map>
