@@ -604,7 +604,6 @@ class MyGame(arcade.View):
         self.player_list.draw()
         self.bullet_list.draw()
         self.enemy_bullet_list.draw()
-        print(self.player_sprite.center_x)
        
 
          # Draw our score on the screen, scrolling it with the viewport
