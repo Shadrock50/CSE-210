@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="10" nextobjectid="22">
- <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="201" columns="0">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="10" nextobjectid="22">
+ <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="205" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
@@ -607,6 +607,18 @@
   </tile>
   <tile id="200">
    <image width="1600" height="800" source="images/tiles/city_background.jpg"/>
+  </tile>
+  <tile id="201">
+   <image width="128" height="128" source="images/items/extraLife.png"/>
+  </tile>
+  <tile id="202">
+   <image width="128" height="128" source="images/items/machinegun.png"/>
+  </tile>
+  <tile id="203">
+   <image width="128" height="128" source="images/items/shotgun.png"/>
+  </tile>
+  <tile id="204">
+   <image width="128" height="128" source="images/items/invincibility.png"/>
   </tile>
  </tileset>
  <objectgroup id="9" name="Backgrounds">
