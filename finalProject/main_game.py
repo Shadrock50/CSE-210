@@ -1,4 +1,4 @@
-inimport arcade
+import arcade
 import constants
 from MyGame import FirstView
 
