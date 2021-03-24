@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="13">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="57">
  <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="229" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -859,6 +859,9 @@
   </tile>
   <tile id="172">
    <image width="128" height="128" source="images/enemies/bee.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1" y="33" width="126" height="61"/>
+   </objectgroup>
   </tile>
   <tile id="173">
    <image width="128" height="128" source="images/enemies/fishGreen.png"/>
@@ -871,6 +874,9 @@
   </tile>
   <tile id="176">
    <image width="128" height="128" source="images/enemies/frog.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="12" y="57" width="104" height="71"/>
+   </objectgroup>
   </tile>
   <tile id="177">
    <image width="128" height="128" source="images/enemies/frog_move.png"/>
@@ -907,6 +913,9 @@
   </tile>
   <tile id="187">
    <image width="128" height="128" source="images/enemies/wormGreen.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="31" y="36" width="66" height="55"/>
+   </objectgroup>
   </tile>
   <tile id="188">
    <image width="128" height="128" source="images/enemies/wormGreen_dead.png"/>
@@ -955,15 +964,27 @@
   </tile>
   <tile id="203">
    <image width="128" height="128" source="images/items/gemBlue.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="29" y="41" width="68" height="81"/>
+   </objectgroup>
   </tile>
   <tile id="204">
    <image width="128" height="128" source="images/items/gemGreen.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="22" y="30" width="75" height="61"/>
+   </objectgroup>
   </tile>
   <tile id="205">
    <image width="128" height="128" source="images/items/gemRed.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="23" y="29" width="74" height="62"/>
+   </objectgroup>
   </tile>
   <tile id="206">
    <image width="128" height="128" source="images/items/gemYellow.png"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="37" y="47" width="50" height="56"/>
+   </objectgroup>
   </tile>
   <tile id="207">
    <image width="128" height="128" source="images/items/keyBlue.png"/>
@@ -1643,13 +1664,46 @@
  </tileset>
  <objectgroup id="7" name="Backgrounds">
   <object id="12" gid="229" x="-184.448" y="4068.63" width="10773.2" height="5284.68" visible="0"/>
+  <object id="13" gid="229" x="3.13924" y="2582.71" width="4584.53" height="2572.47"/>
+  <object id="14" gid="229" x="4579.14" y="2582.71" width="4584.53" height="2572.47"/>
+  <object id="15" gid="229" x="9131.14" y="2582.71" width="4584.53" height="2572.47"/>
  </objectgroup>
  <layer id="1" name="Platforms" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
+   eJztmNsOgyAQRPn/R6tV1I+t20gkZIUVuxR1TjIhKkaYsJdoDACAo1n0ylD7j8UCAL5Q3J6NwX5VbbichBwD7sYv4jakZAwPBb91Zd6LxlUxxh0RllGnsdiKIN+mA/Nns3kmeY/m53ioEbc+fi2WjmGdlPom2YsNrv1znOsh2Hiah6k8mIPEQ+24LQXnX2pvrmbESD2/Cxrn70lw/ml5OpyQFOozSv778vu6sM+TYJkxpiM9lIPyac/IsXcf1M0H/KlTAg==
   </data>
  </layer>
- <objectgroup id="2" name="Enemies"/>
+ <objectgroup id="2" name="Enemies">
+  <object id="19" type="Crawler" gid="188" x="9112" y="1432" width="128" height="128"/>
+  <object id="20" type="Crawler" gid="188" x="9978.42" y="1185.21" width="128" height="128"/>
+  <object id="26" type="Crawler" gid="188" x="4978.42" y="285.212" width="128" height="128"/>
+  <object id="27" type="Crawler" gid="188" x="5175.39" y="285.212" width="128" height="128"/>
+  <object id="28" type="Crawler" gid="188" x="5508.73" y="285.212" width="128" height="128"/>
+  <object id="29" type="Crawler" gid="188" x="5811.76" y="288.242" width="128" height="128"/>
+  <object id="30" type="Crawler" gid="188" x="6087.52" y="285.212" width="128" height="128"/>
+  <object id="31" type="Crawler" gid="188" x="6275.39" y="291.273" width="128" height="128"/>
+  <object id="32" type="Crawler" gid="188" x="6551.15" y="288.242" width="128" height="128"/>
+  <object id="33" type="Crawler" gid="188" x="8626.91" y="2209.45" width="128" height="128"/>
+  <object id="34" type="Crawler" gid="188" x="8232.97" y="2209.45" width="128" height="128"/>
+  <object id="35" type="Crawler" gid="188" x="7908.73" y="2209.45" width="128" height="128"/>
+  <object id="36" type="Crawler" gid="188" x="7642.06" y="2206.42" width="128" height="128"/>
+  <object id="37" type="Crawler" gid="188" x="7026.91" y="2206.42" width="128" height="128"/>
+  <object id="39" type="Jumper" gid="177" x="8057.21" y="2173.09" width="128" height="128"/>
+  <object id="40" type="Crawler" gid="188" x="6590.55" y="2339.76" width="128" height="128"/>
+  <object id="41" type="Crawler" gid="188" x="5572.36" y="2339.76" width="128" height="128"/>
+  <object id="45" type="Jumper" gid="177" x="4832.97" y="2167.03" width="128" height="128"/>
+  <object id="46" type="Jumper" gid="177" x="4345.09" y="2170.06" width="128" height="128"/>
+  <object id="47" type="Crawler" gid="188" x="5129.94" y="2212.48" width="128" height="128"/>
+  <object id="48" type="Crawler" gid="188" x="3832.97" y="2209.45" width="128" height="128"/>
+  <object id="49" type="Crawler" gid="188" x="4545.09" y="2203.39" width="128" height="128"/>
+  <object id="50" type="Crawler" gid="188" x="4069.33" y="2206.42" width="128" height="128"/>
+  <object id="51" type="Crawler" gid="188" x="3151.15" y="2336.73" width="128" height="128"/>
+  <object id="52" type="Crawler" gid="188" x="1396.61" y="1315.52" width="128" height="128"/>
+  <object id="53" type="Crawler" gid="188" x="1887.52" y="1312.48" width="128" height="128"/>
+  <object id="54" type="Flier" gid="173" x="1369.33" y="833.697" width="173.455" height="164.364"/>
+  <object id="55" type="Flier" gid="173" x="1926.91" y="821.576" width="167.394" height="155.273"/>
+  <object id="56" type="Flier" gid="173" x="8372" y="1716" width="188" height="172"/>
+ </objectgroup>
  <layer id="5" name="Background" width="80" height="20">
   <data encoding="base64" compression="zlib">
    eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
@@ -1657,9 +1711,14 @@
  </layer>
  <layer id="6" name="Enemy Collisions" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
+   eJzt2LEKACAIBUDX/v+H2xsKJIrsbg0xnR5GUFG7XA8AUNEsI2Xeqmeu6vPtMu7J3gB42amb1Mu3r1Xv7N9mmVPe4FcdIbIArA==
   </data>
  </layer>
- <objectgroup id="3" name="Flag"/>
- <objectgroup id="4" name="Power-ups"/>
+ <objectgroup id="3" name="Flag">
+  <object id="18" gid="203" x="10120" y="1136" width="128" height="128"/>
+ </objectgroup>
+ <objectgroup id="4" name="Power-ups">
+  <object id="16" type="extraLife" gid="204" x="2184" y="1512" width="128" height="128"/>
+  <object id="17" type="Shotgun" gid="206" x="388" y="1148" width="128" height="128"/>
+ </objectgroup>
 </map>
