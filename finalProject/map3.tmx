@@ -1675,7 +1675,7 @@
  </layer>
  <layer id="6" name="Enemy Collisions" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt17ENACAIAEHcfwwXdQFjMEB315IA7UcAAJCxV20OAADQ7bdDKt0y2Ty33a97mV80Ggd8OAXF
+   eJzt17ENACAMA7Dy/xk8ygMItQKhDvaaJRkTAQBAxhx3OQAAwGvVH9L1t+x6nbpmdnTdyj8LwMsFIQ==
   </data>
  </layer>
  <objectgroup id="3" name="Flag">
