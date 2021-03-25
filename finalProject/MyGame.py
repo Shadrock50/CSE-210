@@ -72,7 +72,7 @@ class MyGame(arcade.View):
         # --- Load in a map from the tiled editor ---
 
         # Name of map file to load
-        map_name = "map" + str(8) + ".tmx" #use self.level to return the game to normal
+        map_name = "map" + str(3) + ".tmx" #use self.level to return the game to normal
         # Name of the layer in the file that has our platforms/walls
         platforms_layer_name = 'Platforms'
         # Name of the layer that has items for pick-up
@@ -421,15 +421,6 @@ class MyGame(arcade.View):
 
                 elif enemy.properties['type'] == 'Jumper':
 
-                    for wall in self.wall_list:
-                        if enemy.top == wall.bottom or enemy.top == wall.left or enemy.top == wall.right:
-                            enemy.center_y = wall.bottom - 1
-
-                        if enemy.right == wall.bottom or enemy.right == wall.left or enemy.right == wall.right:
-                            enemy.center_y = wall.bottom - 1
-
-                        if enemy.left == wall.bottom or enemy.left == wall.left or enemy.left == wall.right:
-                            enemy.center_y = wall.bottom - 1
 
                     randNum = random.randint(0 , 100)
                     willShoot = random.randint(0,150)
