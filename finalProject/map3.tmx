@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="39">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="39">
  <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="228" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -1658,10 +1658,10 @@
   <object id="24" type="Crawler" gid="410" x="4232" y="1024" width="128" height="128"/>
   <object id="27" type="Crawler" gid="410" x="5936" y="2280" width="128" height="128"/>
   <object id="28" type="Crawler" gid="410" x="6128" y="2264" width="128" height="128"/>
-  <object id="29" type="Jumper" gid="399" x="6424" y="2256" width="128" height="128"/>
-  <object id="30" type="Jumper" gid="399" x="7832" y="2264" width="128" height="128"/>
-  <object id="31" type="Jumper" gid="399" x="8040" y="2256" width="128" height="128"/>
-  <object id="32" type="Jumper" gid="399" x="8288" y="2232" width="128" height="128"/>
+  <object id="29" type="Jumper" gid="399" x="5828" y="2288" width="128" height="128"/>
+  <object id="30" type="Jumper" gid="399" x="7512" y="2268" width="128" height="128"/>
+  <object id="31" type="Jumper" gid="399" x="7804" y="2276" width="128" height="128"/>
+  <object id="32" type="Jumper" gid="399" x="8044" y="2276" width="128" height="128"/>
   <object id="34" type="Crawler" gid="410" x="3240" y="2388" width="128" height="128"/>
   <object id="35" type="Crawler" gid="410" x="3508" y="2388" width="128" height="128"/>
   <object id="36" type="Crawler" gid="410" x="2344" y="2404" width="128" height="128"/>
