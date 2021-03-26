@@ -72,11 +72,7 @@ class MyGame(arcade.View):
         # --- Load in a map from the tiled editor ---
 
         # Name of map file to load
-<<<<<<< HEAD
-        map_name = "map" + str(9) + ".tmx" #use self.level to return the game to normal
-=======
         map_name = "map" + str(15) + ".tmx" #use self.level to return the game to normal
->>>>>>> d009892056aa93e382184ce7d10b0eecbac7f9e2
         # Name of the layer in the file that has our platforms/walls
         platforms_layer_name = 'Platforms'
         # Name of the layer that has items for pick-up

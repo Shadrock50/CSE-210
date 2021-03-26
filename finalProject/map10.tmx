@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="41">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="45">
  <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="229" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -1683,11 +1683,15 @@
  </layer>
  <layer id="6" name="Enemy Collisions" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
+   eJzt1UEKACEIAMCu/f/De18QrLZoZeYoBZZarQEAN+qDcfYZuXP14QvvPupBPFrPutm5z+6LajybA1CDt4DTMv8Re1SY90y+fzsT9TwBEADH
   </data>
  </layer>
  <objectgroup id="3" name="Flag">
-  <object id="15" gid="203" x="3056" y="2304" width="128" height="128"/>
+  <object id="41" gid="203" x="3064" y="2280" width="128" height="128"/>
  </objectgroup>
- <objectgroup id="4" name="Power-ups"/>
+ <objectgroup id="4" name="Power-ups">
+  <object id="42" type="extraLife" gid="204" x="196" y="1132" width="128" height="128"/>
+  <object id="43" type="invincible" gid="207" x="4244" y="1272" width="128" height="128"/>
+  <object id="44" type="MachineGun" gid="205" x="5376" y="660" width="128" height="128"/>
+ </objectgroup>
 </map>
