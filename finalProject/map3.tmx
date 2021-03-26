@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="39">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="39">
  <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="228" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -1675,7 +1675,7 @@
  </layer>
  <layer id="6" name="Enemy Collisions" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt17ENACAIAEHcfwwXdQFjMEB315IA7UcAAJCxV20OAADQ7bdDKt0y2Ty33a97mV80Ggd8OAXF
+   eJzt17ENACAMA7Dy/xk8ygMItQKhDvaaJRkTAQBAxhx3OQAAwGvVH9L1t+x6nbpmdnTdyj8LwMsFIQ==
   </data>
  </layer>
  <objectgroup id="3" name="Flag">
