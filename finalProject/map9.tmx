@@ -1663,9 +1663,8 @@
   <object id="28" type="Crawler" gid="188" x="916" y="1688" width="128" height="128"/>
   <object id="29" type="Crawler" gid="188" x="1668" y="1952" width="128" height="128"/>
   <object id="30" type="Flier" gid="173" x="1108" y="1228" width="180" height="180"/>
-  <object id="31" type="Flier" gid="173" x="2744" y="1344" width="212" height="176"/>
-  <object id="32" type="Flier" gid="173" x="4908" y="1048" width="212" height="176"/>
-  <object id="33" type="Flier" gid="173" x="7372" y="1556" width="128" height="128"/>
+  <object id="31" type="Flier" gid="173" x="2720" y="1460" width="212" height="176"/>
+  <object id="32" type="Flier" gid="173" x="4888" y="1224" width="212" height="176"/>
   <object id="34" type="Flier" gid="173" x="7736" y="1600" width="188" height="168"/>
   <object id="35" type="Jumper" gid="177" x="7404" y="1264" width="128" height="128"/>
  </objectgroup>
