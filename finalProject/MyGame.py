@@ -72,7 +72,7 @@ class MyGame(arcade.View):
         # --- Load in a map from the tiled editor ---
 
         # Name of map file to load
-        map_name = "map" + str(6) + ".tmx" #use self.level to return the game to normal
+        map_name = "map" + str(3) + ".tmx" #use self.level to return the game to normal
         # Name of the layer in the file that has our platforms/walls
         platforms_layer_name = 'Platforms'
         # Name of the layer that has items for pick-up
@@ -311,8 +311,13 @@ class MyGame(arcade.View):
         for enemy in self.enemies_list:
             enemy.hasJumped = False
             enemy.isInAir = False
+            enemy.isPhasing = False
             if enemy.properties['type'] == 'Crawler':
-                enemy.change_x = -constants.CRAWLER_SPEED
+                direction = random.randint(0,1)
+                if direction == 0:
+                    enemy.change_x = constants.CRAWLER_SPEED
+                else: 
+                    enemy.change_x = -constants.CRAWLER_SPEED
                 enemy.health = 3
 
             elif enemy.properties['type'] == 'Jumper':
@@ -339,7 +344,7 @@ class MyGame(arcade.View):
             distanceLeft = enemy.left - self.player_sprite.right
             distanceRight = self.player_sprite.left - enemy.right
 
-            if distanceLeft > constants.SCREEN_WIDTH * .5 or distanceRight > constants.SCREEN_WIDTH * .5:
+            if distanceLeft > constants.SCREEN_WIDTH  or distanceRight > constants.SCREEN_WIDTH:
                 enemy.change_x = 0
                 enemy.change_y = 0
 
@@ -347,7 +352,11 @@ class MyGame(arcade.View):
 
                 if enemy.properties['type'] == 'Crawler':
                     if enemy.change_x == 0:
-                        enemy.change_x = constants.CRAWLER_SPEED
+                        direction = random.randint(0,1)
+                        if direction == 0:
+                            enemy.change_x = constants.CRAWLER_SPEED
+                        else: 
+                            enemy.change_x = -constants.CRAWLER_SPEED
                     if arcade.check_for_collision_with_list(enemy, self.enemy_collisions_list):
                         enemy.change_x = enemy.change_x * -1
 
