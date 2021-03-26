@@ -72,7 +72,7 @@ class MyGame(arcade.View):
         # --- Load in a map from the tiled editor ---
 
         # Name of map file to load
-        map_name = "map" + str(3) + ".tmx" #use self.level to return the game to normal
+        map_name = "map" + str(5) + ".tmx" #use self.level to return the game to normal
         # Name of the layer in the file that has our platforms/walls
         platforms_layer_name = 'Platforms'
         # Name of the layer that has items for pick-up
@@ -719,6 +719,8 @@ class InstructionView(arcade.View):
     def on_key_press(self, key, modifiers):
         """ If the user presses the mouse button, start the game. """
         lives = 3
+        if key == arcade.key.C:
+            lives = 15
         score = 0
         game_view = MyGame()
         game_view.setup(game_view.level, lives, score)
