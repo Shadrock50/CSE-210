@@ -69,6 +69,10 @@ class MyGame(arcade.View):
         self.player_sprite.center_y = 192
         self.player_list.append(self.player_sprite)
 
+        if self.level > 9:
+            color = (100, 0, 0)
+            arcade.set_background_color(color)
+
         # --- Load in a map from the tiled editor ---
 
         # Name of map file to load
@@ -178,7 +182,7 @@ class MyGame(arcade.View):
                     elif enemy.properties['type'] == "Flier":
                         self.score += 400
                     elif enemy.properties['type'] == "Boss":
-                        time.sleep(1)
+                        time.sleep(2)
                         game_view = GameWinView()
                         game_view.setup(self.score, self.player_sprite)
                         self.window.show_view(game_view)
@@ -327,7 +331,7 @@ class MyGame(arcade.View):
                 enemy.health = 2
 
             elif enemy.properties['type'] == 'Boss':
-                enemy.health = 3
+                enemy.health = 250
 
     def move_enemies(self):
         for enemy in self.enemies_list:
@@ -344,7 +348,7 @@ class MyGame(arcade.View):
             distanceLeft = enemy.left - self.player_sprite.right
             distanceRight = self.player_sprite.left - enemy.right
 
-            if distanceLeft > constants.SCREEN_WIDTH  or distanceRight > constants.SCREEN_WIDTH:
+            if distanceLeft > constants.SCREEN_WIDTH * .9 or distanceRight > constants.SCREEN_WIDTH *.9:
                 enemy.change_x = 0
                 enemy.change_y = 0
 
@@ -634,7 +638,8 @@ class GameWinView(arcade.View):
     def on_draw(self):
         """ Draw this view """
         arcade.start_render()
-        arcade.draw_text("You Win! Congratulations!", self.center_x, constants.SCREEN_HEIGHT / 2,
+        arcade.draw_text("You Win! Congratulations!", #self.center_x
+                                                        constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT / 2,
                          arcade.color.WHITE, font_size=50, anchor_x="center")
         arcade.draw_text("Your score was " + str(self.score) + "!", self.center_x, constants.SCREEN_HEIGHT / 2-75,
                          arcade.color.WHITE, font_size=20, anchor_x="center")
@@ -770,7 +775,6 @@ class LevelView(arcade.View):
 
     def on_key_press(self, key, modifiers):
         """ If the user presses the mouse button, start the game. """
-        time.sleep(3)
         game_view = MyGame()
         game_view.setup(self.cur_level, self.lives, self.score)
         self.window.show_view(game_view)

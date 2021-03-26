@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="18">
- <tileset firstgid="1" name="my_tiles" tilewidth="5120" tileheight="2880" tilecount="230" columns="0">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" backgroundcolor="#8a0000" nextlayerid="8" nextobjectid="19">
+ <tileset firstgid="1" name="my_tiles" tilewidth="5120" tileheight="2880" tilecount="229" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
@@ -1028,9 +1028,6 @@
   <tile id="227">
    <image width="1600" height="800" source="images/tiles/city_background.jpg"/>
   </tile>
-  <tile id="228">
-   <image width="700" height="420" source="images/tiles/pixels.jpg"/>
-  </tile>
   <tile id="229">
    <image width="5120" height="2880" source="images/tiles/volcano1.png"/>
   </tile>
@@ -1644,17 +1641,14 @@
    <image width="1600" height="800" source="images/tiles/city_background.jpg"/>
   </tile>
  </tileset>
- <objectgroup id="7" name="Backgrounds" visible="0">
-  <object id="12" gid="229" x="-184.448" y="4068.63" width="10773.2" height="5284.68" visible="0"/>
-  <object id="13" gid="230" x="-204.071" y="4483.61" width="11321.8" height="5312.34"/>
- </objectgroup>
+ <objectgroup id="7" name="Backgrounds"/>
  <layer id="1" name="Platforms" width="80" height="20">
   <data encoding="base64" compression="zlib">
    eJztlUsKgDAMBXP/+4m4UItexHRfJZ8aS3wDsyyEoSREAAAAAMjIym7s/vUgAAAxM7sI9OB9Pyq1XWEngR6876No3YC7u6Bp95d+UrTtMvTrtUMs7TL0e5pBegOqhfTtMvez/if0i2uXsV9kuyz9euwxq9L92nKEfgfF9urp+UIPDRfCw+6f
   </data>
  </layer>
  <objectgroup id="2" name="Enemies">
-  <object id="14" type="Boss" gid="183" x="5573.33" y="-8158.67" width="616" height="628"/>
+  <object id="14" type="Boss" gid="183" x="5573.33" y="-20000.7" width="616" height="628"/>
  </objectgroup>
  <layer id="5" name="Background" width="80" height="20">
   <data encoding="base64" compression="zlib">
@@ -1663,13 +1657,13 @@
  </layer>
  <layer id="6" name="Enemy Collisions" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
+   eJztyzENAAAIA7D5l4JKZAyS9m8CAAAAAMBFU/7w2QI/vAFV
   </data>
  </layer>
  <objectgroup id="3" name="Flag"/>
  <objectgroup id="4" name="Power-ups">
   <object id="15" type="MachineGun" gid="205" x="1408" y="1388" width="128" height="128"/>
   <object id="16" type="Shotgun" gid="206" x="2048" y="1400" width="128" height="128"/>
-  <object id="17" type="extraLife" gid="207" x="3324" y="728" width="128" height="128"/>
+  <object id="17" type="invincible" gid="207" x="3324" y="728" width="128" height="128"/>
  </objectgroup>
 </map>
