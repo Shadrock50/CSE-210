@@ -770,6 +770,7 @@ class LevelView(arcade.View):
 
     def on_key_press(self, key, modifiers):
         """ If the user presses the mouse button, start the game. """
+        time.sleep(3)
         game_view = MyGame()
         game_view.setup(self.cur_level, self.lives, self.score)
         self.window.show_view(game_view)
