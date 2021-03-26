@@ -69,7 +69,7 @@ class MyGame(arcade.View):
         self.player_sprite.center_y = 192
         self.player_list.append(self.player_sprite)
 
-        if self.level > 9:
+        if self.level > 10:
             color = (100, 0, 0)
             arcade.set_background_color(color)
 
@@ -200,6 +200,7 @@ class MyGame(arcade.View):
                 if self.powerup != 3:
                     arcade.play_sound(self.game_over)
                     self.lives = self.lives - 1
+                    self.bullet_count = 0
                     self.checkGameOver()
                     time.sleep(1)
                     self.setup(self.level, self.lives, self.score)
@@ -236,6 +237,7 @@ class MyGame(arcade.View):
                 arcade.play_sound(self.game_over)
                 self.lives = self.lives - 1
                 self.checkGameOver()
+                self.bullet_count = 0
                 time.sleep(1)
                 self.setup(self.level, self.lives, self.score)
                 self.powerup = 0
@@ -254,6 +256,7 @@ class MyGame(arcade.View):
             if self.powerup != 3:
                 arcade.play_sound(self.game_over)
                 self.lives = self.lives - 1
+                self.bullet_count = 0
                 self.checkGameOver()
                 time.sleep(1)
                 self.setup(self.level, self.lives, self.score)
