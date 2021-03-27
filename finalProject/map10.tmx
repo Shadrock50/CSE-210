@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="60">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="61">
  <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="229" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -1648,7 +1648,7 @@
  </objectgroup>
  <layer id="1" name="Platforms" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJztltsOwjAIhvv+l7rNVfew2mRkiMBglR2SfglZbUsKv/SQUqNxDOPRAVycpl8dTb86ovTLzn4Lo9CW5njGLONWn8dsVm4f64h/hH5nxKNf0emOrGPmgH/TbzugH2iViXF90rg1Zq0/0hf68B7E+tG9aUGrP8zanCvUamT9UWD/w/+RST89F5p+Ot76G9K3zpr1G/ywD+fH7UNNP8ksczITjxesX8nl5fDFNW09f6a0xGxdL+r99xRMuzc48+T/D+gZs0akfpa+q+PRb8ueiKbssxHZ3tSuKdX7XvXnfc8NaGxNc8+bEN+3uO09DwBNP8ihJ78tuVjnQJvWp6Y3ve+8+tE7tgbp/uByge9EYh7Sbw6aDtxYaVvuUVibxmWxo5jmL87vLLF5eAPlzJ6m
+   eJztltEOwyAIRf3/x63rdOvHbiYlYwwQ6qxt4klIDUrUW1BDGAz6EHsv4OQM/eoY+tXRSr/k9FuIQlsa4+mz9Ftj7qtZubxtIvEt9DsiHv2yTldkEzMG4od+2wH9QKtEjPNJ/dY1a/6WseDDNYj1o7VpQcs/TGnMGXK1Zf5RoP7hfyTip+fC0E/Hm39z+NZZs9uGOBzDxXF1qOknmWVMYtbjBeuX9/J0xOKctp4/S/is2Tpfq/ffQzDt3uDMs/9/QM+YEi31s/jOjke/LTXRmlxnEdne1M4p5fte+ed9z82or6S5502I71vc9p4HgKYfzpkQbPkTybc0Bto0PzW96X3n1Y/esTVI9we3F/guZM1z+N2DpgPXl9uWexTmlv6rZr1Y1i/e31HW5uEF9iSeqw==
   </data>
  </layer>
  <objectgroup id="2" name="Enemies">
@@ -1692,5 +1692,6 @@
   <object id="42" type="extraLife" gid="204" x="196" y="1132" width="128" height="128"/>
   <object id="43" type="invincible" gid="207" x="4244" y="1272" width="128" height="128"/>
   <object id="44" type="MachineGun" gid="205" x="5376" y="660" width="128" height="128"/>
+  <object id="60" type="MachineGun" gid="205" x="2180" y="2052" width="128" height="128"/>
  </objectgroup>
 </map>
