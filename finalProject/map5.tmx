@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="128" tileheight="128" infinite="0" backgroundcolor="#000000" nextlayerid="8" nextobjectid="30">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="128" tileheight="128" infinite="0" backgroundcolor="#000000" nextlayerid="8" nextobjectid="30">
  <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="228" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -1644,7 +1644,7 @@
  </objectgroup>
  <layer id="1" name="Platforms" width="40" height="40">
   <data encoding="base64" compression="zlib">
-   eJztlgEOwjAIRXv/Q0yWqDM7pSZzCRLaUcDSaV9CYmrLfimlpDQYxDO97EIMIgU5siKLhMYY3uOt9VEdR1B9veVKL+ebQ6rPK66cn5KvHuO3oN896sN46ONqw2xWttFL/Dzq3zUzfrOKK1CjL3eHQfntXMy0+iLI6cN7g8aaMC3jx+0Z17qFLkjnPV+MJI/pPGv922P5C/GzwPV7+xgwc+BzOauPrj/6bmmeBuz738+XIunpMZ76cF5E9C+4P9D0BJqc1fYHUv8S7mmrdw/mv/H+2vimPum7CQIftfpKd2VNfvvW+pG+SVH6pD65d7Pm3pX0SfKjRp+GlvGz+vKC6humsye8st4f
+   eJztlgsOwyAIhr3/ITaa7NH0lGuzmjCCFpGJW/0TksYo/UQUQhga8tdltSsx8AQy1ILMUzTGsI+35qMcR6J8veVKL+ebkpTPKq6cn5yvHuP3RN898mFZ8HFvw1RN9lYv8bN4/26J8XstXEYlfKk7DMp/p2Km5fNQig/vDRozYbWMH7fn+NY9VpuZNb96vliSPKbzat+/GNd/iF+NuH4vjgEzBz6Xs3x0/dF/c/M0wr7Pfr5Ukp4ey5IP54VH/4L7A01PoMlZbX8g9S/RVju2966kfpyx/mr0TT5p3QSBj1K+3F1Zgt2+tX6kNcmLT+qTq5sl9y7HJ8mPEj6NWsav1peVKN8wnb0AMGHexg==
   </data>
  </layer>
  <objectgroup id="2" name="Enemies">
