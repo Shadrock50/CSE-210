@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="14">
- <tileset firstgid="1" name="my_tiles" tilewidth="5120" tileheight="2880" tilecount="230" columns="0">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="52">
+ <tileset firstgid="1" name="my_tiles" tilewidth="852" tileheight="480" tilecount="227" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="128" height="128" source="images/tiles/boxCrate.png"/>
@@ -1025,15 +1025,6 @@
   <tile id="226">
    <image width="128" height="128" source="images/tiles/volcano_bottomright.png"/>
   </tile>
-  <tile id="227">
-   <image width="1600" height="800" source="images/tiles/city_background.jpg"/>
-  </tile>
-  <tile id="228">
-   <image width="700" height="420" source="images/tiles/pixels.jpg"/>
-  </tile>
-  <tile id="229">
-   <image width="5120" height="2880" source="images/tiles/volcano1.png"/>
-  </tile>
  </tileset>
  <tileset firstgid="231" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="201" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
@@ -1644,16 +1635,50 @@
    <image width="1600" height="800" source="images/tiles/city_background.jpg"/>
   </tile>
  </tileset>
- <objectgroup id="7" name="Backgrounds">
-  <object id="12" gid="229" x="-184.448" y="4068.63" width="10773.2" height="5284.68" visible="0"/>
-  <object id="13" gid="230" x="-204.071" y="5031.2" width="11321.8" height="6038.22"/>
- </objectgroup>
+ <objectgroup id="7" name="Backgrounds"/>
  <layer id="1" name="Platforms" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
+   eJztl90KgCAMRn3/94vwIvJRKiISLX/mN7XcgUGCynacQkoJgs+yx9o6iQ8hvgRuSnpM+jMN8eRTy0mv7jnzStnbnYPORwP3QsJddwnTyzeanmpGUssfhZjzWF/aY67zQ/vLyTO3ptbv5xOl/ijvNmLP0rWos+j5/rYk1S/V3wzOo3bfoKD4O9wZfCpQKJ4pa3L9Xe7krp/k+LPdjeQv9F/h+tOBMOp2F5v7pwjVOlIfcbIBxJSXAg==
   </data>
  </layer>
- <objectgroup id="2" name="Enemies"/>
+ <objectgroup id="2" name="Enemies">
+  <object id="14" type="Jumper" gid="177" x="2772" y="2288" width="128" height="128"/>
+  <object id="15" type="Jumper" gid="177" x="2976" y="2276" width="128" height="128"/>
+  <object id="16" type="Jumper" gid="177" x="3128" y="2276" width="128" height="128"/>
+  <object id="17" type="Jumper" gid="177" x="3268" y="2272" width="128" height="128"/>
+  <object id="18" type="Jumper" gid="177" x="3512" y="2268" width="128" height="128"/>
+  <object id="19" type="Jumper" gid="177" x="3716" y="2276" width="128" height="128"/>
+  <object id="20" type="Jumper" gid="177" x="3896" y="2268" width="128" height="128"/>
+  <object id="21" type="Jumper" gid="177" x="4828" y="2252" width="128" height="128"/>
+  <object id="22" type="Jumper" gid="177" x="4660" y="2252" width="128" height="128"/>
+  <object id="23" type="Jumper" gid="177" x="4444" y="2276" width="128" height="128"/>
+  <object id="24" type="Jumper" gid="177" x="4248" y="2280" width="128" height="128"/>
+  <object id="25" type="Jumper" gid="177" x="4092" y="2280" width="128" height="128"/>
+  <object id="26" type="Jumper" gid="177" x="5000" y="2264" width="128" height="128"/>
+  <object id="27" type="Jumper" gid="177" x="5204" y="2252" width="128" height="128"/>
+  <object id="28" type="Jumper" gid="177" x="5356" y="2252" width="128" height="128"/>
+  <object id="29" type="Jumper" gid="177" x="5496" y="2248" width="128" height="128"/>
+  <object id="30" type="Jumper" gid="177" x="5740" y="2244" width="128" height="128"/>
+  <object id="31" type="Jumper" gid="177" x="5944" y="2252" width="128" height="128"/>
+  <object id="32" type="Jumper" gid="177" x="6124" y="2244" width="128" height="128"/>
+  <object id="33" type="Jumper" gid="177" x="6320" y="2256" width="128" height="128"/>
+  <object id="34" type="Jumper" gid="177" x="6476" y="2256" width="128" height="128"/>
+  <object id="35" type="Jumper" gid="177" x="6672" y="2252" width="128" height="128"/>
+  <object id="36" type="Jumper" gid="177" x="6888" y="2228" width="128" height="128"/>
+  <object id="37" type="Jumper" gid="177" x="7056" y="2228" width="128" height="128"/>
+  <object id="38" type="Jumper" gid="177" x="6472" y="2176" width="128" height="128"/>
+  <object id="39" type="Jumper" gid="177" x="6676" y="2164" width="128" height="128"/>
+  <object id="40" type="Jumper" gid="177" x="6828" y="2164" width="128" height="128"/>
+  <object id="41" type="Jumper" gid="177" x="6968" y="2160" width="128" height="128"/>
+  <object id="42" type="Jumper" gid="177" x="7212" y="2156" width="128" height="128"/>
+  <object id="43" type="Jumper" gid="177" x="7416" y="2164" width="128" height="128"/>
+  <object id="44" type="Jumper" gid="177" x="7596" y="2156" width="128" height="128"/>
+  <object id="45" type="Jumper" gid="177" x="7792" y="2168" width="128" height="128"/>
+  <object id="46" type="Jumper" gid="177" x="7948" y="2168" width="128" height="128"/>
+  <object id="47" type="Jumper" gid="177" x="8144" y="2164" width="128" height="128"/>
+  <object id="48" type="Jumper" gid="177" x="8360" y="2140" width="128" height="128"/>
+  <object id="49" type="Jumper" gid="177" x="8528" y="2140" width="128" height="128"/>
+ </objectgroup>
  <layer id="5" name="Background" width="80" height="20">
   <data encoding="base64" compression="zlib">
    eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
@@ -1664,6 +1689,10 @@
    eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
   </data>
  </layer>
- <objectgroup id="3" name="Flag"/>
- <objectgroup id="4" name="Power-ups"/>
+ <objectgroup id="3" name="Flag">
+  <object id="51" gid="197" x="9748" y="2304" width="128" height="128"/>
+ </objectgroup>
+ <objectgroup id="4" name="Power-ups">
+  <object id="50" type="extraLife" gid="204" x="6964" y="68" width="128" height="128"/>
+ </objectgroup>
 </map>
