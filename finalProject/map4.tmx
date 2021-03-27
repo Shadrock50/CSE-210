@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="27">
+<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="27">
  <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="228" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -1660,7 +1660,6 @@
   <object id="19" type="Flier" gid="173" x="7396" y="1656" width="128" height="128"/>
   <object id="20" type="Jumper" gid="177" x="8248" y="1528" width="128" height="128"/>
   <object id="21" type="Jumper" gid="177" x="8768" y="1464" width="128" height="128"/>
-  <object id="22" type="Jumper" gid="177" x="9292" y="1712" width="128" height="128"/>
   <object id="23" type="Jumper" gid="177" x="5644" y="1776" width="128" height="128"/>
  </objectgroup>
  <layer id="5" name="Background" width="80" height="20">
