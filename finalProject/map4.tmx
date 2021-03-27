@@ -1645,7 +1645,7 @@
  </objectgroup>
  <layer id="1" name="Platforms" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJztlAEKwyAMRXP/WwzWdWQ75CbYbgsxxhotg/8giBSb+IwSAQASt3fczy4CANAF7jEAdfjsAhT+6e7W/K05gE5r/8HnL5o/j6O07hpfzs6Sx5E5SrS8H0ffP6ZxDhf61DXjnLa9bMi5BYtRUupFpjEO5X5mnFPNn9WPNX8lmOIcXnLI/2p5StGKdGf5s3JE+YvqkQh/qV9WJazavf7kHr3+tPOyavjuKc9c1trj76l8fxRytPqTfeLx53V35B5JZtzfXn/aOm+d8Ad/0f5ekTvLlw==
+   eJztlIsKwyAMRfP/fzFY12H7kZtg9wgxJjNaBvdAKFKs12MsEQAgc3vW/ewQAIAucI8BaJPODiDwT3e35W8tBWS8/Qef30j+LI7yvGt8nBdLeY5co4bn//Hr/y/ROIcLvXPNOKdjLwd8rJHYk1PrxURjHPL9zDinlj+tH1v+aiSKc3gpxb8rraOVB+5O86d9P8pfVI9E+Mv9sgqlZbf643u0+pPOS8vw2VOWMc/a428X3m2VNbz+eJ9Y/FndeXtYYsb97fUnzfPkhD/4i/T3APOdz5M=
   </data>
  </layer>
  <objectgroup id="2" name="Enemies">
