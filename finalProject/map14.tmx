@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="14">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="39">
  <tileset firstgid="1" name="my_tiles" tilewidth="5120" tileheight="2880" tilecount="230" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -1646,14 +1646,38 @@
  </tileset>
  <objectgroup id="7" name="Backgrounds">
   <object id="12" gid="229" x="-184.448" y="4068.63" width="10773.2" height="5284.68" visible="0"/>
-  <object id="13" gid="230" x="-204.071" y="5031.2" width="11321.8" height="6038.22"/>
  </objectgroup>
  <layer id="1" name="Platforms" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
+   eJztlkEOhCAMRXv/++nEhRFvMuOChBAsLf0MEHhJY9RY6rOARItFW47WBQzO1rqAwVn+bCx/Zfh1T+PvMAQ6nyR/TbboKH2mNLgarLSYQyX+rGNJr6Pyh3wI2+Mz+XvcObLNn3iMHvyFWPqDy49y17M/xDvm8mrrHcVfjbmVyqutF+Hv/MUVnFvnVyqfY+ot9Zf6Jhp6679/8tbPmv11Vn/WtcCD8If4X8rFLpEiBLUHnZn7Hs4fcs/n4iasQxRaf3FfOCbHDA61/nqI2muF9n8hV+Nz/gUJcarz
   </data>
  </layer>
- <objectgroup id="2" name="Enemies"/>
+ <objectgroup id="2" name="Enemies">
+  <object id="15" type="Jumper" gid="177" x="2902.67" y="1655.67" width="128" height="128"/>
+  <object id="16" type="Jumper" gid="177" x="2752.67" y="1655.67" width="128" height="128"/>
+  <object id="17" type="Jumper" gid="177" x="3069.33" y="1664" width="128" height="128"/>
+  <object id="18" type="Jumper" gid="177" x="3202.67" y="1672.33" width="128" height="128"/>
+  <object id="19" type="Jumper" gid="177" x="3202.67" y="1555.67" width="128" height="128"/>
+  <object id="20" type="Jumper" gid="177" x="3077.67" y="1539" width="128" height="128"/>
+  <object id="21" type="Jumper" gid="177" x="2752.67" y="1539" width="128" height="128"/>
+  <object id="22" type="Jumper" gid="177" x="2911" y="1539" width="128" height="128"/>
+  <object id="23" type="Jumper" gid="177" x="6227.67" y="1272.33" width="128" height="128"/>
+  <object id="24" type="Jumper" gid="177" x="6094.33" y="1264" width="128" height="128"/>
+  <object id="25" type="Jumper" gid="177" x="5777.67" y="1255.67" width="128" height="128"/>
+  <object id="26" type="Jumper" gid="177" x="5927.67" y="1255.67" width="128" height="128"/>
+  <object id="27" type="Jumper" gid="177" x="6227.67" y="1155.67" width="128" height="128"/>
+  <object id="28" type="Jumper" gid="177" x="5777.67" y="1139" width="128" height="128"/>
+  <object id="29" type="Jumper" gid="177" x="5936" y="1139" width="128" height="128"/>
+  <object id="30" type="Jumper" gid="177" x="6102.67" y="1139" width="128" height="128"/>
+  <object id="31" type="Jumper" gid="177" x="8211" y="1797.33" width="128" height="128"/>
+  <object id="32" type="Jumper" gid="177" x="8077.67" y="1789" width="128" height="128"/>
+  <object id="33" type="Jumper" gid="177" x="7761" y="1780.67" width="128" height="128"/>
+  <object id="34" type="Jumper" gid="177" x="7911" y="1780.67" width="128" height="128"/>
+  <object id="35" type="Jumper" gid="177" x="8211" y="1680.67" width="128" height="128"/>
+  <object id="36" type="Jumper" gid="177" x="7761" y="1664" width="128" height="128"/>
+  <object id="37" type="Jumper" gid="177" x="7919.33" y="1664" width="128" height="128"/>
+  <object id="38" type="Jumper" gid="177" x="8086" y="1664" width="128" height="128"/>
+ </objectgroup>
  <layer id="5" name="Background" width="80" height="20">
   <data encoding="base64" compression="zlib">
    eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
@@ -1664,6 +1688,8 @@
    eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
   </data>
  </layer>
- <objectgroup id="3" name="Flag"/>
+ <objectgroup id="3" name="Flag">
+  <object id="14" gid="196" x="9886" y="2439" width="128" height="128"/>
+ </objectgroup>
  <objectgroup id="4" name="Power-ups"/>
 </map>

@@ -109,7 +109,8 @@ class MyGame(arcade.View):
 
         # -- Background objects
         self.background_list = arcade.tilemap.process_layer(my_map, "Background", constants.TILE_SCALING)
-        self.backgrounds_list = arcade.tilemap.process_layer(my_map, "Backgrounds", constants.TILE_SCALING)
+        if self.level < 11:
+            self.backgrounds_list = arcade.tilemap.process_layer(my_map, "Backgrounds", constants.TILE_SCALING)
 
         # --- Other stuff
         # # Set the background color
@@ -728,7 +729,7 @@ class InstructionView(arcade.View):
         """ If the user presses the mouse button, start the game. """
         lives = 3
         if key == arcade.key.C:
-            lives = 15
+            lives = 100
         score = 0
         game_view = MyGame()
         game_view.setup(game_view.level, lives, score)
