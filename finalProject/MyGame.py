@@ -30,7 +30,7 @@ class MyGame(arcade.View):
 
         self.score = 0
         self.powerup = 0
-        self.level = 5
+        self.level = 1
         self.end_of_map = 0
         self.powerupTimer = 0
         self.lives = 3
@@ -76,7 +76,7 @@ class MyGame(arcade.View):
         # --- Load in a map from the tiled editor ---
 
         # Name of map file to load
-        map_name = "map" + str(self.level) + ".tmx" #use self.level to return the game to normal
+        map_name = "map" + str(10) + ".tmx" #use self.level to return the game to normal
         # Name of the layer in the file that has our platforms/walls
         platforms_layer_name = 'Platforms'
         # Name of the layer that has items for pick-up
