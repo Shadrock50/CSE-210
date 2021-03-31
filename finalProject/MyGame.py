@@ -107,7 +107,6 @@ class MyGame(arcade.View):
         self.player_sprite.center_y = 192
         self.player_list.append(self.player_sprite)
 
-        self.level = 15
         if self.level > 10:
             color = (100, 0, 0)
             arcade.set_background_color(color)
@@ -389,17 +388,14 @@ class MyGame(arcade.View):
             elif arcade.check_for_collision_with_list(enemy, self.wall_list) and enemy.properties['type'] == "Crawler":
                 hit_list = arcade.check_for_collision_with_list(enemy, self.wall_list)
                 for wall in hit_list:
-                    print(wall.top)
-                    print(enemy.bottom)
 
                     if enemy.bottom >= wall.top - 5 and enemy.bottom <= wall.top + 5:
                         enemy.change_y = 0
                         enemy.center_y = enemy.center_y + 1
-                        print("Flat Surface")
 
                     else:
                         enemy.change_y = 4
-                        print("Slant")
+
 
                 
         
@@ -429,7 +425,6 @@ class MyGame(arcade.View):
                         enemyType = random.randint(0,2)
                        
                         if enemyType == 0: 
-                            print("Crawler Generated")
                             newEnemy = arcade.Sprite("images/enemies/wormGreen.png", constants.CHARACTER_SCALING)
                             newEnemy.properties['type'] = 'Crawler'
                             newEnemy.center_x = enemy.left
@@ -441,7 +436,6 @@ class MyGame(arcade.View):
                             self.generate_enemies()
 
                         elif enemyType == 1: 
-                            print("Jumper Generated")
                             newEnemy = arcade.Sprite("images/enemies/frog.png", constants.CHARACTER_SCALING)
                             newEnemy.properties['type'] = 'Jumper'
                             newEnemy.center_x = enemy.left
@@ -453,7 +447,6 @@ class MyGame(arcade.View):
                             self.generate_enemies()
 
                         elif enemyType == 2: 
-                            print("Flier Generated")
                             newEnemy = arcade.Sprite("images/enemies/bee.png", constants.CHARACTER_SCALING)
                             newEnemy.properties['type'] = 'Flier'
                             newEnemy.center_x = enemy.left
@@ -730,7 +723,7 @@ class FirstView(arcade.View):
     def on_draw(self):
         """ Draw this view """
         arcade.start_render()
-        arcade.draw_text("Game Title", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2,
+        arcade.draw_text(constants.SCREEN_TITLE, constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2,
                          arcade.color.WHITE, font_size=50, anchor_x="center")
         arcade.draw_text("Press any key to advance", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2-75,
                          arcade.color.WHITE, font_size=20, anchor_x="center")
