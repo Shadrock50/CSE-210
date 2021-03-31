@@ -1,3 +1,10 @@
+""" MyGame module
+Contains MyGame class, and all view classes. Controls and
+manages all gameplay.
+Authors:
+  - Shad Christopherson
+  - Peter Griffin
+"""
 from arcade.sprite import Sprite
 from PlayerCharacter import PlayerCharacter
 import arcade
@@ -7,6 +14,37 @@ import time
 import random
 
 class MyGame(arcade.View):
+    """ The responsibility of this class of objects is to control the sequence of play.
+    
+    Stereotype:
+        Controller
+
+    Attributes:
+        power_ups_list
+        backgrounds_list
+        wall_list
+        player_list
+        enemies_list
+        background_list
+        flag_list
+        bullet_list
+        enemy_collisions_list
+        enemy_bullet_list
+        player_sprite
+        view_bottom
+        view_left
+        score
+        powerup
+        level = 1
+        end_of_map
+        powerupTimer
+        lives = 3
+        bullet_count
+        bullet_iterator
+        jump_sound 
+        game_over 
+
+    """
     def __init__(self):
 
         super().__init__()
@@ -30,7 +68,7 @@ class MyGame(arcade.View):
 
         self.score = 0
         self.powerup = 0
-        self.level = 11
+        self.level = 1
         self.end_of_map = 0
         self.powerupTimer = 0
         self.lives = 3
