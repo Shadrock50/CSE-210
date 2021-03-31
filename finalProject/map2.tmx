@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="2021.02.15" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="35">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="80" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="35">
  <tileset firstgid="1" name="my_tiles" tilewidth="1600" tileheight="800" tilecount="228" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -1062,13 +1062,13 @@
  </layer>
  <objectgroup id="2" name="Enemies">
   <object id="13" type="Crawler" gid="188" x="1285.44" y="2441.1" width="128" height="128"/>
-  <object id="14" type="Crawler" gid="188" x="2671.22" y="2451.48" width="128" height="128"/>
+  <object id="14" type="Crawler" gid="188" x="2679.22" y="2461.48" width="128" height="128"/>
   <object id="15" type="Jumper" gid="177" x="3325.18" y="2415.15" width="128" height="128"/>
   <object id="16" type="Crawler" gid="188" x="4368.41" y="2326.91" width="128" height="128"/>
   <object id="17" type="Crawler" gid="188" x="6018.88" y="2451.48" width="128" height="128"/>
   <object id="18" type="Jumper" gid="177" x="8697.01" y="2415.15" width="128" height="128"/>
   <object id="19" type="Crawler" gid="188" x="8074.19" y="2451.48" width="128" height="128"/>
-  <object id="24" type="Crawler" gid="188" x="2956.68" y="2435.91" width="128" height="128"/>
+  <object id="24" type="Crawler" gid="188" x="2952.68" y="2463.91" width="128" height="128"/>
   <object id="26" type="Crawler" gid="188" x="7804.3" y="2456.67" width="128" height="128"/>
   <object id="27" type="Crawler" gid="188" x="8977.28" y="2435.91" width="128" height="128"/>
  </objectgroup>
@@ -1079,7 +1079,7 @@
  </layer>
  <layer id="6" name="Enemy Collisions" width="80" height="20">
   <data encoding="base64" compression="zlib">
-   eJztz8EJADAIBDD3H8NJu4EVP7aQPMU7NAIAAAAAgBdlc/ar2y/Z2Jn0TvNV78ad1A7auwZV
+   eJzt0bENACAIBED2H8Od3MfKVg2xQHNXQnhCiAAAAAAAoKJ2WHvV7pbZ75dzs/Or3MzOn35Z0QBJagaI
   </data>
  </layer>
  <objectgroup id="3" name="Flag">

@@ -1,8 +1,30 @@
+""" Player Character module
+Contains PlayerCharacter class and associated utilities. Used in
+controlling main character in gameplay.
+Authors:
+  - Shad Christopherson
+  - Peter Griffin
+"""
 import arcade
 import constants
 
 class PlayerCharacter(arcade.Sprite):
+    """A code template for movement of the character. The responsibility of 
+    this class of objects is to determine the movement of the main character. 
+    
+    Stereotype:
+        Controller
+
+    Attributes:
+        character_face_direction
+        cur_texture
+        scale
+        points
+        idle_texture_pair
+        walk_textures
+    """
     def __init__(self):
+        """The class constructor."""
 
         # Set up parent class
         super().__init__()
@@ -37,6 +59,7 @@ class PlayerCharacter(arcade.Sprite):
             self.walk_textures.append(texture)
 
     def update_animation(self, delta_time: float = 1/60):
+        """ Updates the animation each frame """
 
         # Figure out if we need to flip face left or right
         if self.change_x < 0 and self.character_face_direction == constants.RIGHT_FACING:
@@ -58,6 +81,7 @@ class PlayerCharacter(arcade.Sprite):
 
 
     def load_texture_pair(self, filename):
+        """loads texture pair"""
 
         return [
             arcade.load_texture(filename),
