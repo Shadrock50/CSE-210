@@ -30,7 +30,7 @@ class MyGame(arcade.View):
 
         self.score = 0
         self.powerup = 0
-        self.level = 1
+        self.level = 11
         self.end_of_map = 0
         self.powerupTimer = 0
         self.lives = 3

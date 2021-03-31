@@ -1,9 +1,14 @@
-# [PROGRAM NAME] 
-[a description of the program]
+# Disco King 
+The program is a platformer in which our disco man traverses through 3 different worlds to fight the final boss.
+He starts in the city, and is gradually introduced to both enemies, that he must shoot with his assault rifle,
+and powerups, which he must collect to aid him on his journey. He then enters the disco world and there is tested
+concerning his skill and will to survive. Finally he makes it to the Volcano world, in which he will navigate the
+dangerous terrain and finish off the boss.
 
 ## Getting Started
 ---
-[how to install and run the program]
+1. Download game
+2. Run game from main_game.py
 
 ## Project Structure
 ---
@@ -22,7 +27,7 @@ root                    (project root folder)
 
 ## Required Technologies
 ---
-[list required libraries]
+python arcade
 
 ## Authors
 ---
