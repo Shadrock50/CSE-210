@@ -69,12 +69,14 @@ class MyGame(arcade.View):
         self.player_sprite.center_y = 192
         self.player_list.append(self.player_sprite)
 
+        self.level = 15
         if self.level > 10:
             color = (100, 0, 0)
             arcade.set_background_color(color)
 
         # --- Load in a map from the tiled editor ---
 
+        
         # Name of map file to load
         map_name = "map" + str(self.level) + ".tmx" #use self.level to return the game to normal
         # Name of the layer in the file that has our platforms/walls
@@ -335,17 +337,32 @@ class MyGame(arcade.View):
                 enemy.health = 2
 
             elif enemy.properties['type'] == 'Boss':
-                enemy.health = 250
+                enemy.health = 2
 
     def move_enemies(self):
         for enemy in self.enemies_list:
             if not enemy.properties['type'] == "Flier":
                 enemy.change_y += -constants.GRAVITY + .5
-            if arcade.check_for_collision_with_list(enemy, self.wall_list):
+            if arcade.check_for_collision_with_list(enemy, self.wall_list) and enemy.properties['type'] != "Crawler":
                 enemy.change_y = 0
                 #Enemies can get stuck in the ground. This moves them up until they are free. 
                 enemy.center_y = enemy.center_y + 1
                 enemy.isInAir = False
+            elif arcade.check_for_collision_with_list(enemy, self.wall_list) and enemy.properties['type'] == "Crawler":
+                hit_list = arcade.check_for_collision_with_list(enemy, self.wall_list)
+                for wall in hit_list:
+                    print(wall.top)
+                    print(enemy.bottom)
+
+                    if enemy.bottom >= wall.top - 5 and enemy.bottom <= wall.top + 5:
+                        enemy.change_y = 0
+                        enemy.center_y = enemy.center_y + 1
+                        print("Flat Surface")
+
+                    else:
+                        enemy.change_y = 4
+                        print("Slant")
+
                 
         
         for enemy in self.enemies_list:
@@ -630,6 +647,9 @@ class GameWinView(arcade.View):
     def setup(self, score, player):
         self.score = score
         self.center_x = player.center_x
+        self.center_y_up = player.center_y+10
+        self.center_y_down = player.center_y-10
+        self.center_y = player.center_y
 
     def on_show(self):
         """ This is run once when we switch to this view """
@@ -642,11 +662,16 @@ class GameWinView(arcade.View):
     def on_draw(self):
         """ Draw this view """
         arcade.start_render()
-        arcade.draw_text("You Win! Congratulations!", #self.center_x
-                                                        constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT / 2,
-                         arcade.color.WHITE, font_size=50, anchor_x="center")
-        arcade.draw_text("Your score was " + str(self.score) + "!", self.center_x, constants.SCREEN_HEIGHT / 2-75,
-                         arcade.color.WHITE, font_size=20, anchor_x="center")
+        arcade.draw_text("You Win! Congratulations!", self.center_x,
+                                                        #constants.SCREEN_WIDTH/2, 
+                                                        #constants.SCREEN_HEIGHT / 2,
+                                                        self.center_y,
+                                                        arcade.color.WHITE, font_size=50, anchor_x="center")
+        arcade.draw_text("Your score was " + str(self.score) + "!", self.center_x,
+                                                #constants.SCREEN_WIDTH/2, 
+                                                #constants.SCREEN_HEIGHT / 2-75,
+                                                self.center_y,
+                                                arcade.color.WHITE, font_size=20, anchor_x="center")
 
     def on_key_press(self, key, modifiers):
         """ If the user presses the mouse button, start the game. """
