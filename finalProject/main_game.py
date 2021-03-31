@@ -3,6 +3,7 @@ import constants
 from MyGame import FirstView
 
 def main():
+    """ setup screen """
     
     window = arcade.Window(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, constants.SCREEN_TITLE)
     start_view = FirstView()

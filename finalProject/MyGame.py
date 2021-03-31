@@ -46,6 +46,7 @@ class MyGame(arcade.View):
 
     """
     def __init__(self):
+        """The class constructor."""
 
         super().__init__()
 
@@ -81,6 +82,7 @@ class MyGame(arcade.View):
         self.game_over = arcade.load_sound(":resources:sounds/gameover1.wav")
 
     def setup(self, level, lives, score):
+        """ sets up the level for each iteration through the loop"""
         # Used to keep track of our scrolling
         self.view_bottom = 0
         self.view_left = 0
@@ -111,9 +113,7 @@ class MyGame(arcade.View):
             color = (100, 0, 0)
             arcade.set_background_color(color)
 
-        # --- Load in a map from the tiled editor ---
-
-        
+        # --- Load in a map from the tiled editor --- #        
         # Name of map file to load
         map_name = "map" + str(self.level) + ".tmx" #use self.level to return the game to normal
         # Name of the layer in the file that has our platforms/walls
@@ -135,7 +135,7 @@ class MyGame(arcade.View):
                                                       scaling=constants.TILE_SCALING,
                                                       use_spatial_hash=True)
 
-        # -- Coins
+        # -- Power-ups
         self.power_ups_list = arcade.tilemap.process_layer(my_map, power_ups_layer_name, constants.TILE_SCALING)
 
         # Enemies
@@ -151,15 +151,12 @@ class MyGame(arcade.View):
         if self.level < 11:
             self.backgrounds_list = arcade.tilemap.process_layer(my_map, "Backgrounds", constants.TILE_SCALING)
 
-        # --- Other stuff
-        # # Set the background color
-        # if my_map.background_color:
-        #     arcade.set_background_color(my_map.background_color)
-       
+       # Gravity
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite, self.wall_list, constants.GRAVITY)
 
 
     def on_key_press(self, key, modifiers):
+        """ determines player input """
 
         if key == arcade.key.UP or key == arcade.key.W:            
             if self.physics_engine.can_jump():
@@ -179,6 +176,7 @@ class MyGame(arcade.View):
         
 
     def on_key_release(self, key, modifiers):
+        """ determines player output """
 
         if key == arcade.key.UP or key == arcade.key.W:
             self.player_sprite.change_y = 0
@@ -192,7 +190,7 @@ class MyGame(arcade.View):
             self.player_sprite.change_x = 0
 
     def on_update(self, delta_time):
-        """ Movement and game logic """
+        """ Movement and game logic through each frame """
 
         # Move the player with the physics engine
         self.physics_engine.update()
@@ -252,18 +250,6 @@ class MyGame(arcade.View):
         self.updatePowerup()
         self.move_enemies()
         self.shootMultipleBullets()
-                
-
-        # # See if we hit any coins
-        # coin_hit_list = arcade.check_for_collision_with_list(self.player_sprite, self.coin_list)
-
-        # # Loop through each coin we hit (if any) and remove it
-        # for coin in coin_hit_list:
-        #     # Remove the coin
-        #     coin.remove_from_sprite_lists()
-        #     # Play a sound
-        #     arcade.play_sound(self.collect_coin_sound)
-        #     self.score += 1
 
         changed = False
 
@@ -272,7 +258,7 @@ class MyGame(arcade.View):
             if (enemy.center_y < - 100):
                 enemy.remove_from_sprite_lists
 
-          # Did the player fall off the map or collide with enemy?
+          # Did the player fall off the map?
         if (self.player_sprite.center_y < -100): 
                 arcade.play_sound(self.game_over)
                 self.lives = self.lives - 1
@@ -355,6 +341,7 @@ class MyGame(arcade.View):
                                 constants.SCREEN_HEIGHT + self.view_bottom)
     
     def generate_enemies(self):
+        """ generates enemies for hero to fight """
         for enemy in self.enemies_list:
             enemy.hasJumped = False
             enemy.isInAir = False
@@ -377,6 +364,7 @@ class MyGame(arcade.View):
                 enemy.health = 2
 
     def move_enemies(self):
+        """ moves enemies based on their type """
         for enemy in self.enemies_list:
             if not enemy.properties['type'] == "Flier":
                 enemy.change_y += -constants.GRAVITY + .5
@@ -528,6 +516,7 @@ class MyGame(arcade.View):
 
                     
     def shootEnemyBullet(self, enemy):
+        """ shoots bullet based on position """
         if self.player_sprite.right < enemy.left:
             bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
             rotation = 180
@@ -545,6 +534,7 @@ class MyGame(arcade.View):
 
 
     def generate_bullet(self):
+        """ generates bullet to be shot """
 
         if self.powerup == 0 or self.powerup == 3:
             bullet = arcade.Sprite("images/animated_characters/newbullet.png", constants.SPRITE_SCALING_LASER)
@@ -580,6 +570,7 @@ class MyGame(arcade.View):
 
 
     def updatePowerup(self):
+        """ determines player powerup """
         for powerup in self.power_ups_list:
             if check_for_collision(self.player_sprite, powerup):
                 if powerup.properties['type'] == "Shotgun":
@@ -598,6 +589,7 @@ class MyGame(arcade.View):
         self.powerUpCountdown()
 
     def powerUpCountdown(self):
+        """ keeps track of powerup time """
         self.powerupTimer = self.powerupTimer - 1
 
         if self.powerupTimer == 0:
@@ -619,6 +611,7 @@ class MyGame(arcade.View):
                 bullet.angle = rotation
 
     def checkGameOver(self):
+        """ checks if lives are all gone """
         if self.lives == 0:
             #go to game over screen
             game_view = GameOverView()
@@ -626,6 +619,7 @@ class MyGame(arcade.View):
             self.window.show_view(game_view)
 
     def shootMultipleBullets(self):
+        """ used with the machine gun powerup """
         if self.bullet_count > 0:
             rotation = 180
             if self.bullet_iterator == 0:
@@ -649,6 +643,7 @@ class MyGame(arcade.View):
                 
 
     def on_draw(self):
+        """ draw everything to the screen """
 
         arcade.start_render()
         self.backgrounds_list.draw()
@@ -673,9 +668,14 @@ class MyGame(arcade.View):
 #Views section
 
 class GameWinView(arcade.View):
-    """ View to show instructions """
+    """ View to show game win condition
+    
+    Stereotype: 
+        Screen
+    """
 
     def setup(self, score, player):
+        """ setup positioning """
         self.score = score
         self.center_x = player.center_x
         self.center_y_up = player.center_y+10
@@ -710,7 +710,11 @@ class GameWinView(arcade.View):
         self.window.show_view(game_view)
 
 class FirstView(arcade.View):
-    """ View to show instructions """
+    """ View to show opening screen
+    
+    Stereotype: 
+        Screen
+    """
 
     def on_show(self):
         """ This is run once when we switch to this view """
@@ -734,7 +738,14 @@ class FirstView(arcade.View):
         self.window.show_view(game_view)
 
 class GameOverView(arcade.View):
-    """ View to show when game is over """
+    """" View to show when game is over 
+    
+    Stereotype: 
+        Screen
+
+    Attributes:
+        texture
+    """
 
     def __init__(self):
         """ This is run once when we switch to this view """
@@ -792,7 +803,11 @@ class InstructionView(arcade.View):
         self.window.show_view(game_view)
 
 class LevelView(arcade.View):
-    """ View to show instructions """
+    """ View to show level transition screen
+    
+    Stereotype: 
+        Screen
+    """
 
 
     def __init__(self):
@@ -814,6 +829,7 @@ class LevelView(arcade.View):
         self.center_y = player.center_y
 
     def genWorld(self):
+        """ show world and level of next level """
         if self.cur_level > 5 and self.cur_level < 11:
             self.world = 2
             self.displayedLevel = self.cur_level - 5
