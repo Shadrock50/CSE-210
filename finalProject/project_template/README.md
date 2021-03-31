@@ -7,7 +7,8 @@ dangerous terrain and finish off the boss.
 
 ## Getting Started
 ---
-[how to install and run the program]
+1. Download game
+2. Run game from main_game.py
 
 ## Project Structure
 ---
