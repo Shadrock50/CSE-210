@@ -69,7 +69,7 @@ class MyGame(arcade.View):
 
         self.score = 0
         self.powerup = 0
-        self.level = 1
+        self.level = 5
         self.end_of_map = 0
         self.powerupTimer = 0
         self.lives = 3
@@ -381,7 +381,8 @@ class MyGame(arcade.View):
             self.level += 1
 
             # Load the next level
-            
+            self.stop_song()
+            self.currently_playing = False
             game_view = LevelView()
             game_view.setup(self.level, self.lives, self.score, self.player_sprite, self.currently_playing)
             self.window.show_view(game_view)
@@ -916,7 +917,7 @@ class LevelView(arcade.View):
         self.cur_level = level
         self.lives = lives
         self.score = score
-        self.currentlyPlaying = True
+        self.currentlyPlaying = False
         self.world = 1
         self.displayedLevel = level
         self.center_x = player.center_x
