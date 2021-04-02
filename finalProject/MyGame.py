@@ -69,7 +69,7 @@ class MyGame(arcade.View):
 
         self.score = 0
         self.powerup = 0
-        self.level = 1
+        self.level = 5
         self.end_of_map = 0
         self.powerupTimer = 0
         self.lives = 3
@@ -78,10 +78,26 @@ class MyGame(arcade.View):
         self.i = 0
 
          # Load sounds
-        self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
-        self.game_over = arcade.load_sound(":resources:sounds/gameover1.wav")
+        self.jump_sound = arcade.load_sound(":resources:sounds/jump3.wav")
+        self.game_over = arcade.load_sound(":resources:sounds/error2.wav")
+        self.shoot_sound = arcade.load_sound(":resources:sounds/hit2.wav")
+        self.enemy_shoot = arcade.load_sound(":resources:sounds/hit4.wav")
+        self.enemy_jump = arcade.load_sound(":resources:sounds/jump4.wav")
+        self.powerup_sound = arcade.load_sound(":resources:sounds/upgrade1.wav")
+        # got to here
+        self.game_over_sound = arcade.load_sound(":resources:sounds/gameover1.wav")
+        #background music code
+        self.music_list = []
+        self.current_song_index = 0
+        self.current_player = None
+        self.music = None
+        self.song_playing = False
 
-    def setup(self, level, lives, score):
+        # self.city_music = arcade.load_sound("sounds/city.mp3")
+        # self.disco_music = arcade.load_sound("sounds/disco.mp3")
+        # self.volcano_music = arcade.load_sound("sounds/volcano.mp3")
+
+    def setup(self, level, lives, score, song):
         """ sets up the level for each iteration through the loop"""
         # Used to keep track of our scrolling
         self.view_bottom = 0
@@ -89,6 +105,7 @@ class MyGame(arcade.View):
 
         self.level = level
         self.lives = lives
+        self.song_playing = song
 
         # Keep track of the score
         self.score = score
@@ -109,9 +126,19 @@ class MyGame(arcade.View):
         self.player_sprite.center_y = 192
         self.player_list.append(self.player_sprite)
 
-        if self.level > 10:
+
+        self.music_list = ["sounds/city.mp3", "sounds/disco.mp3", "sounds/volcano.mp3"]
+        if self.level < 6:
+            self.current_song_index = 0
+        elif self.level >= 6 and self.level <=10:
+            self.current_song_index = 1
+        elif self.level > 10:
+            self.current_song_index = 2
             color = (100, 0, 0)
             arcade.set_background_color(color)
+
+        # if self.song_playing == False:
+        #     self.song_playing = True
 
         # --- Load in a map from the tiled editor --- #        
         # Name of map file to load
@@ -173,6 +200,7 @@ class MyGame(arcade.View):
             self.player_sprite.change_x = constants.PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.SPACE:
             self.generate_bullet()
+            arcade.play_sound(self.shoot_sound)
         
 
     def on_key_release(self, key, modifiers):
@@ -195,6 +223,17 @@ class MyGame(arcade.View):
         # Move the player with the physics engine
         self.physics_engine.update()
         self.player_sprite.update_animation()
+
+        #music
+
+        if self.song_playing == False:
+            self.play_song()
+            self.song_playing = True
+        # position = self.music.get_stream_position(self.current_player)
+
+        # The position pointer is reset to 0 right after we finish the song.
+        # This makes it very difficult to figure out if we just started playing
+        # or if we are doing playing.
 
         #bullets
         self.bullet_list.update()
@@ -241,7 +280,7 @@ class MyGame(arcade.View):
                     self.bullet_count = 0
                     self.checkGameOver()
                     time.sleep(1)
-                    self.setup(self.level, self.lives, self.score)
+                    self.setup(self.level, self.lives, self.score, self.song_playing)
                     self.powerup = 0
 
         #move enemies
@@ -265,7 +304,7 @@ class MyGame(arcade.View):
                 self.checkGameOver()
                 self.bullet_count = 0
                 time.sleep(1)
-                self.setup(self.level, self.lives, self.score)
+                self.setup(self.level, self.lives, self.score, self.song_playing)
                 self.powerup = 0
 
         
@@ -285,7 +324,7 @@ class MyGame(arcade.View):
                 self.bullet_count = 0
                 self.checkGameOver()
                 time.sleep(1)
-                self.setup(self.level, self.lives, self.score)
+                self.setup(self.level, self.lives, self.score, self.song_playing)
                 self.powerup = 0
 
 
@@ -297,7 +336,7 @@ class MyGame(arcade.View):
             # Load the next level
             
             game_view = LevelView()
-            game_view.setup(self.level, self.lives, self.score, self.player_sprite)
+            game_view.setup(self.level, self.lives, self.score, self.player_sprite, self.song_playing)
             self.window.show_view(game_view)
             # Set the camera to the start
             self.view_left = 0
@@ -494,6 +533,7 @@ class MyGame(arcade.View):
                             bullet.center_x = enemy.right
                             bullet.change_x = constants.BULLET_SPEED * .7
                             self.enemy_bullet_list.append(bullet)
+                        arcade.play_sound(self.enemy_shoot)
 
                     if randNum == 5 and enemy.change_y == 0:
 
@@ -509,6 +549,7 @@ class MyGame(arcade.View):
                             enemy.change_x = -constants.JUMPER_SPEED
                             enemy.hasJumped = True
                             enemy.isInAir = True
+                        arcade.play_sound(self.enemy_jump)
                     
                     if enemy.change_y == 0 and enemy.isInAir == False:
                         enemy.change_x = 0
@@ -584,6 +625,7 @@ class MyGame(arcade.View):
                 if powerup.properties['type'] == "invincible":
                     self.powerup = 3
                     self.powerupTimer = constants.POWER_UP_TIMER / 2
+                arcade.play_sound(self.powerup_sound)
                 powerup.remove_from_sprite_lists()
 
         self.powerUpCountdown()
@@ -640,6 +682,21 @@ class MyGame(arcade.View):
 
         if self.bullet_iterator > 1000:
             self.bullet_iterator = 0
+
+    def play_song(self):
+        """ Play the song. """
+        # Stop what is currently playing.
+        # print(self.music)
+        # if self.music:
+        #     self.music.stop()
+
+        # Play the next song
+        self.music = arcade.Sound(self.music_list[self.current_song_index], streaming=True)
+        self.current_player = self.music.play(constants.MUSIC_VOLUME)
+        # This is a quick delay. If we don't do this, our elapsed time is 0.0
+        # and on_update will think the music is over and advance us to the next
+        # song before starting this one.
+        time.sleep(0.03)
                 
 
     def on_draw(self):
@@ -798,8 +855,9 @@ class InstructionView(arcade.View):
         if key == arcade.key.C:
             lives = 100
         score = 0
+        song = False
         game_view = MyGame()
-        game_view.setup(game_view.level, lives, score)
+        game_view.setup(game_view.level, lives, score, song)
         self.window.show_view(game_view)
 
 class LevelView(arcade.View):
@@ -819,10 +877,11 @@ class LevelView(arcade.View):
         # to reset the viewport back to the start so we can see what we draw.
         arcade.set_viewport(0, constants.SCREEN_WIDTH - 1, 0, constants.SCREEN_HEIGHT - 1)
 
-    def setup(self, level, lives, score, player):
+    def setup(self, level, lives, score, player, song):
         self.cur_level = level
         self.lives = lives
         self.score = score
+        self.song_playing = song
         self.world = 1
         self.displayedLevel = level
         self.center_x = player.center_x
@@ -852,5 +911,5 @@ class LevelView(arcade.View):
     def on_key_press(self, key, modifiers):
         """ If the user presses the mouse button, start the game. """
         game_view = MyGame()
-        game_view.setup(self.cur_level, self.lives, self.score)
+        game_view.setup(self.cur_level, self.lives, self.score, self.song_playing)
         self.window.show_view(game_view)
