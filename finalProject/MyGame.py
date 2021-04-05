@@ -69,7 +69,7 @@ class MyGame(arcade.View):
 
         self.score = 0
         self.powerup = 0
-        self.level = 5
+        self.level = 1
         self.end_of_map = 0
         self.powerupTimer = 0
         self.lives = 3
@@ -195,7 +195,6 @@ class MyGame(arcade.View):
             self.currently_playing = False
 
         # Play the next song
-        print(f"Playing {self.music_list[self.current_song_index]}")
         self.music = arcade.Sound(self.music_list[self.current_song_index], streaming=True)
         self.current_player = self.music.play(0.5)
         
